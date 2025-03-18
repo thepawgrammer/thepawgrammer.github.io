@@ -1,12 +1,12 @@
 #  The contact options.
 
-- type: youtube
-  icon: "fa-brands fa-youtube"
-  noblank: true
-
 - type: github
   icon: "fab fa-github"
   url: "https://github.com/thepawgrammer"
+
+- type: youtube
+  icon: "fa-brands fa-youtube"
+  url: "https://www.youtube.com/@thepawgrammer"
 
 - type: email
   icon: "fas fa-envelope"
