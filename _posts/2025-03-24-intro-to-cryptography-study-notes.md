@@ -1,5 +1,5 @@
 ---
-title: Intro to Cryptography Study Notes
+title: Introduction to Cryptography Lecture 01 - Study Notes
 date: 2025-03-24 16:46:22 +0900
 categories: [cryptography, study-notes]
 tags: [crypto, cryptography, symmetric, christof, paar, christofpaar, studynotes, thepawgrammer]
