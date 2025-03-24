@@ -167,7 +167,7 @@ This one’s a **classic** — one of the oldest ciphers in the book.
 - Here’s the catch: **same letters in plaintext get replaced with the same letters in ciphertext**.
 - That makes it vulnerable to **frequency analysis**, where attackers look at how often letters appear and use that to guess the original text.
 
-![Letter Frequency Analysis](/assets/img/cryptography/introtocrypto/lec01/06letterfrequencyanalysis.jpg)
+![Letter Frequency Analysis](assets/img/cryptography/introtocrypto/lec01/06letterfrequencyanalysis.png)
 
 So even though brute-force is tough, smart analysis can still crack this cipher — which means... **it’s not really secure** in the modern world.
 
