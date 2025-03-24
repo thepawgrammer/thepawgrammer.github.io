@@ -179,7 +179,7 @@ When trying to break or bypass a cryptographic system, there are several categor
 
 Here's a simple classification tree:
 
-![Cryptanalysis Classification](IntroToCrypto-Lec01-6.jpeg)
+![Cryptanalysis Classification](assets/img/cryptography/introtocrypto/lec01/07cryptanalysis_classification.jpg)
 
 1. **Classical Cryptanalysis**
    - **Brute-force Attacks**: Trying every possible key until the correct one is found.
