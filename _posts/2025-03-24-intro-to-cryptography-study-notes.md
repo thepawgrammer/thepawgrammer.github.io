@@ -25,8 +25,6 @@ image:
 | **Cryptographic Voting Protocols** | Enables secure, private, and verifiable electronic voting.<br><sub style="color: gray;">전자 투표에서 보안, 프라이버시, 검증 가능성을 제공합니다.</sub> |
 | **Blockchain and Cryptocurrencies** | Uses cryptographic techniques to secure decentralized digital assets.<br><sub style="color: gray;">분산된 디지털 자산을 보호하기 위해 암호화 기술을 사용합니다.</sub> |
 
----
-
 ### 🔍 Cryptology Breakdown  
 
 <figure>
@@ -59,7 +57,17 @@ In this study series, we’ll focus on **cryptography** — understanding how se
 Well-designed encryption must be **open and public**, so that experts can test it and verify its strength.  
 <sub style="color:gray;">암호는 공개되어야 전문가들이 테스트해보고, 오랜 시간 안전성이 입증된 후에야 믿고 쓸 수 있습니다.</sub>
 
----
+### 📘 Notation Guide  
+
+| Symbol      | Meaning                            |
+|-------------|------------------------------------|
+| `x`         | Plaintext                          |
+| `y`         | Ciphertext                         |
+| `e`         | Encryption function                |
+| `d`         | Decryption function                |
+| `k`         | Key                                |
+| `|K|`       | Key space (number of possible keys)|
+<div><sub style="color:gray;">기호들은 암호 과정에서 사용되는 주요 개념입니다.</sub></div>
 
 <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
 
@@ -82,7 +90,6 @@ Well-designed encryption must be **open and public**, so that experts can test i
   </div>
 
 </div>
----
 
 ### 🔑 The Secret Key  
 
@@ -117,20 +124,6 @@ But wait 😱 — if the encryption algorithm is public, doesn’t that mean Osc
 
 ---
 
-### 📘 Notation Guide  
-
-| Symbol      | Meaning                            |
-|-------------|------------------------------------|
-| `x`         | Plaintext                          |
-| `y`         | Ciphertext                         |
-| `e`         | Encryption function                |
-| `d`         | Decryption function                |
-| `k`         | Key                                |
-| `|K|`       | Key space (number of possible keys)|
-<div><sub style="color:gray;">기호들은 암호 과정에서 사용되는 주요 개념입니다.</sub></div>
-
----
-
 ### 💡 Kerckhoffs' Principle (1883)  
 
 A cryptosystem must remain secure **even if everything is public — except the key**.  
@@ -144,9 +137,7 @@ Even if Oscar knows:
 …it doesn’t matter — **without the key, he can’t break it.**  
 <sub style="color:gray;">오스카가 모든 걸 알아도, **키가 없으면 해독할 수 없습니다.**</sub>
 
----
-
-### 🏛️ Why It Matters  
+#### 🏛️ Why It Matters  
 
 - 🚫 Don’t rely on secrecy  
   <sub style="color:gray;">숨기는 것만으로는 보안이 되지 않습니다.</sub>
@@ -155,10 +146,10 @@ Even if Oscar knows:
 - 🔓 Security through obscurity is fragile  
   <sub style="color:gray;">"비공개된 보안"은 쉽게 깨질 수 있습니다.</sub>
 
----
-
 > **Build systems that stay secure even under scrutiny.**  
 > <sub style="color:gray;">해커들이 들여다봐도 안전한 시스템을 설계하세요.</sub>
+
+---
 
 ## 4. Classification of Attacks  
 
@@ -168,13 +159,13 @@ When trying to break or bypass a cryptographic system, there are several categor
 These attacks are classified based on **what part of the system** they target.  
 <sub style="color:gray;">이러한 공격은 시스템의 어느 부분을 겨냥하느냐에 따라 분류됩니다.</sub>
 
----
 
 ### 🧭 Overview of Cryptanalysis Categories  
 
-![Cryptanalysis Classification](assets/img/cryptography/introtocrypto/lec01/07cryptanalysis_classification.jpg)
-
----
+<figure>
+  <img src="assets/img/cryptography/introtocrypto/lec01/07cryptanalysis_classification.jpg" alt="Cryptanalysis Classification" />
+  <figcaption>Figure 7: Cryptanalysis Classification</figcaption>
+</figure>
 
 #### 1. 🔐 Classical Cryptanalysis  
 
@@ -184,14 +175,13 @@ These attacks are classified based on **what part of the system** they target.
 - **Analytical Attacks**: Using mathematical techniques to reduce the search space or reveal the key.  
   <sub style="color:gray;">수학적인 방법으로 키를 찾아내거나 탐색 범위를 줄이는 분석 기반 공격</sub>
 
----
 
 #### 2. 🎭 Social Engineering  
 
 Tricking users or system operators into revealing secrets (e.g., phishing, impersonation).  
 <sub style="color:gray;">사용자나 운영자를 속여 비밀 정보를 빼내는 기법 (예: 피싱, 사칭 등)</sub>
 
----
+
 #### 3. 🧪 Implementation Attacks  
 
 Attacks that target how the algorithm is implemented, rather than the algorithm itself.  
@@ -200,7 +190,6 @@ Attacks that target how the algorithm is implemented, rather than the algorithm 
 Even if an algorithm is mathematically secure, the way it runs on a device can leak unintended information.  
 <sub style="color:gray;">수학적으로 안전한 알고리즘도, 기계에서 실행될 때 정보가 새어 나갈 수 있습니다.</sub>
 
----
 
 ##### 🔍 Common Types of Implementation Attacks  
 
@@ -216,8 +205,6 @@ Even if an algorithm is mathematically secure, the way it runs on a device can l
 - **Cache Attack**: Monitors CPU cache access patterns to deduce sensitive information.  
   <sub style="color:gray;">CPU 캐시 접근 패턴을 분석해, 암호 키 등의 민감한 정보를 추론합니다.</sub>
 
----
-
 > 💬 **Implementation attacks target the "how", not the "what".**  
 > <sub style="color:gray;">‘무엇을’이 아닌 ‘어떻게 동작하는지’를 노리는 공격입니다.</sub>
 
@@ -228,7 +215,8 @@ Even if an algorithm is mathematically secure, the way it runs on a device can l
 {% include embed/youtube.html id='2aHkqB2-46k' %}
 
 ---
-## 🔚 Wrapping Up  
+
+## 6. 🔚 Wrapping Up  
 
 That’s it for Lecture 01! In the next post, we’ll explore **modular arithmetic** and **classical ciphers** used in early cryptography.  
 <sub style="color:gray;">1강은 여기까지입니다! 다음 글에서는 모듈러 연산과 고전 암호 기법들에 대해 살펴볼 거예요.</sub>
