@@ -174,20 +174,16 @@ This one’s a **classic** — one of the oldest ciphers in the book.
 | E         | Q          |
 
 > **Q1:** What’s `e(ABBA)`?  
-> <sub style="color:gray;">ABBA를 암호화하면?</sub>  
 > **A1:** `lddl`
 
 > **Q2:** Is this cipher secure?  
-> <sub style="color:gray;">이 암호는 안전할까요?</sub>  
 > **A2:** Nope 😬
 
 ---
 
 ### 🕵️ How Can We Break It?  
-<sub style="color:gray;">어떻게 깨질 수 있을까요?</sub>
 
 #### 1. 🔨 Brute-Force Attack (Exhaustive Key Search)  
-<sub style="color:gray;">무차별 대입 공격</sub>
 
 - There are 26 letters in the alphabet → `26!` possible permutations  
   <sub style="color:gray;">알파벳 26개의 모든 조합은 `26!`개입니다.</sub>
