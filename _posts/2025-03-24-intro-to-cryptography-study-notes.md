@@ -14,10 +14,12 @@ image:
   <p style="font-size: 0.9em;"><strong>By:</strong> <em>thepawgrammer</em> &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Watch the course:</strong> <a href="https://youtu.be/2aHkqB2-46k" target="_blank">YouTube Link</a></p>
 </div>
 
-## 1. Classification
-### 💡 Modern Applications of Cryptography
-| Application | Description |
-|-------------|-------------|
+## 1. Classification  
+
+### 💡 Modern Applications of Cryptography  
+
+| Application | Description |  
+|-------------|-------------|  
 | **Secure Messaging** | End-to-end encryption ensures that only the sender and receiver can read the message.<br><sub style="color: gray;">종단 간 암호화는 오직 발신자와 수신자만 메시지를 읽을 수 있도록 보장합니다.</sub> |
 | **Digital Signatures in Software Updates** | Ensures the integrity and authenticity of software updates.<br><sub style="color: gray;">소프트웨어 업데이트의 무결성과 진위 여부를 확인할 수 있게 해줍니다.</sub> |
 | **Cryptographic Voting Protocols** | Enables secure, private, and verifiable electronic voting.<br><sub style="color: gray;">전자 투표에서 보안, 프라이버시, 검증 가능성을 제공합니다.</sub> |
@@ -26,7 +28,6 @@ image:
 ---
 
 ### 🔍 Cryptology Breakdown  
-<sub style="color:gray;">🔍 암호학 분해도</sub>
 
 This diagram shows the relationship between **Cryptology**, **Cryptography**, and **Cryptanalysis**.  
 <sub style="color:gray;">이 도표는 암호학(Cryptology), 암호화(Cryptography), 암호 해독(Cryptanalysis)의 관계를 보여줍니다.</sub>
@@ -51,7 +52,6 @@ In this study series, we’ll focus on **cryptography** — understanding how se
 ---
 
 ## 2. Setting Up Symmetric Cryptography  
-<sub style="color:gray;">대칭키 암호화를 설정하는 방법</sub>
 
 > 🔑 **Key Takeaway:** <span style="color: #d6336c;">Never use a crypto algorithm that hasn’t been tested!</span>  
 > <sub style="color: gray;">검증되지 않은 암호 알고리즘은 절대 사용하지 마세요.</sub>
@@ -62,7 +62,6 @@ Well-designed encryption must be **open and public**, so that experts can test i
 ---
 
 ### 🔓 Before Encryption  
-<sub style="color:gray;">암호화 전</sub>
 
 <img src="/assets/img/cryptography/introtocrypto/lec01/02unencrypted_message.jpg" alt="Unencrypted Message" style="width: 100%;" />
 
@@ -72,7 +71,6 @@ Oscar can read message `x` in plain text over an insecure channel.
 ---
 
 ### 🔐 After Encryption  
-<sub style="color:gray;">암호화 후</sub>
 
 <img src="/assets/img/cryptography/introtocrypto/lec01/03encrypted_message.jpg" alt="Encrypted Message" style="width: 100%;" />
 
@@ -81,13 +79,12 @@ Now he only sees ciphertext `y`, and has no idea what the original message was.
 
 ---
 
-But wait — if the encryption algorithm is public, doesn’t that mean Oscar can also read the message?😱
+But wait 😱 — if the encryption algorithm is public, doesn’t that mean Oscar can also read the message?  
 <sub style="color:gray;">하지만 암호화 알고리즘이 공개되어 있다면, 오스카도 메시지를 읽을 수 있는 것 아닌가요?</sub>
 
 ---
 
 ### 🔑 The Secret Key  
-<sub style="color:gray;">비밀 키의 역할</sub>
 
 <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
 
@@ -117,7 +114,8 @@ But wait — if the encryption algorithm is public, doesn’t that mean Oscar ca
 
 ---
 
-### 📘 Notation Guide 
+### 📘 Notation Guide  
+
 | Symbol      | Meaning                            |
 |-------------|------------------------------------|
 | `x`         | Plaintext                          |
