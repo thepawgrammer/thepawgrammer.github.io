@@ -129,7 +129,6 @@ But wait 😱 — if the encryption algorithm is public, doesn’t that mean Osc
 ---
 
 ### 💡 Kerckhoffs' Principle (1883)  
-<sub style="color:gray;">케르쾨프스의 원칙</sub>
 
 A cryptosystem must remain secure **even if everything is public — except the key**.  
 <sub style="color:gray;">암호 시스템은 키를 제외한 모든 것이 알려져도 안전해야 합니다.</sub>
@@ -160,7 +159,6 @@ Even if Oscar knows:
 > <sub style="color:gray;">해커들이 들여다봐도 안전한 시스템을 설계하세요.</sub>
 
 ## 4. Classification of Attacks  
-<sub style="color:gray;">암호 시스템에 대한 공격 분류</sub>
 
 When trying to break or bypass a cryptographic system, there are several categories of **attack vectors** (approaches attackers can use).  
 <sub style="color:gray;">암호 시스템을 무력화하거나 우회하려는 시도는 다양한 종류의 공격 벡터(공격 방식)를 가질 수 있습니다.</sub>
@@ -178,7 +176,6 @@ These attacks are classified based on **what part of the system** they target.
 ---
 
 #### 1. 🔐 Classical Cryptanalysis  
-<sub style="color:gray;">전통적인 암호 해독 기법</sub>
 
 - **Brute-force Attacks**: Trying every possible key until the correct one is found.  
   <sub style="color:gray;">가능한 모든 키를 시도해 정답을 찾는 무차별 대입 공격</sub>
@@ -189,14 +186,12 @@ These attacks are classified based on **what part of the system** they target.
 ---
 
 #### 2. 🎭 Social Engineering  
-<sub style="color:gray;">사회공학적 공격</sub>
 
 Tricking users or system operators into revealing secrets (e.g., phishing, impersonation).  
 <sub style="color:gray;">사용자나 운영자를 속여 비밀 정보를 빼내는 기법 (예: 피싱, 사칭 등)</sub>
 
 ---
 #### 3. 🧪 Implementation Attacks  
-<sub style="color:gray;">구현 취약점을 노린 공격</sub>
 
 Attacks that target how the algorithm is implemented, rather than the algorithm itself.  
 <sub style="color:gray;">알고리즘 자체가 아니라, 실제로 그것이 실행되는 방식에서 생기는 약점을 노립니다.</sub>
@@ -207,7 +202,6 @@ Even if an algorithm is mathematically secure, the way it runs on a device can l
 ---
 
 ##### 🔍 Common Types of Implementation Attacks  
-<sub style="color:gray;">대표적인 구현 공격 방식</sub>
 
 - **Side-Channel Attack**: Exploits information like power consumption, electromagnetic radiation, or sound during computation.  
   <sub style="color:gray;">암호 연산 중 발생하는 전력 소비, 전자기파, 소리 등 부수적인 정보를 분석하는 공격입니다.</sub>
@@ -234,7 +228,6 @@ Even if an algorithm is mathematically secure, the way it runs on a device can l
 
 ---
 ## 🔚 Wrapping Up  
-<sub style="color:gray;">정리하며</sub>
 
 That’s it for Lecture 01! In the next post, we’ll explore **modular arithmetic** and **classical ciphers** used in early cryptography.  
 <sub style="color:gray;">1강은 여기까지입니다! 다음 글에서는 모듈러 연산과 고전 암호 기법들에 대해 살펴볼 거예요.</sub>
