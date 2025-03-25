@@ -10,15 +10,13 @@ image:
 
 <div style="background: #f9f9f9; border-left: 5px solid #4a90e2; padding: 1em; margin-bottom: 2em;">
   <h3 style="margin-top: 0;">🔐 Intro to Cryptography Series</h3>
-  <p style="margin-bottom: 0;">This post is part of my ongoing study series based on <strong>Prof. Christof Paar’s “Introduction to Cryptography”</strong> lectures.</p>
+  <p style="margin-bottom: 0;">This post is part of my ongoing study series based on <strong>Prof. Christof Paar’s “Introduction to Cryptography”</strong>.</p>
   <p style="font-size: 0.9em;"><strong>By:</strong> <em>thepawgrammer</em> &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Watch the course:</strong> <a href="https://youtu.be/2aHkqB2-46k" target="_blank">YouTube Link</a></p>
 </div>
 
-These are my study notes based on the **Intro to Cryptography** lecture by **Prof. Christof Paar**.
-
 ## 1. Classification
 
-### 💡 Modern Applications of Cryptography 💡
+### 💡 Modern Applications of Cryptography
 
 | Name                         | Type         | Notes                                                                 |
 |------------------------------|--------------|-----------------------------------------------------------------------|
@@ -40,15 +38,18 @@ These are my study notes based on the **Intro to Cryptography** lecture by **Pro
 
 ### 🔍 Cryptology Breakdown 🔍
 
-This diagram shows the relationship between **Cryptology**, **Cryptography**, and **Cryptoanalysis**.
+This diagram shows the relationship between **Cryptology**, **Cryptography**, and **Cryptanalysis**.
 
 **Cryptology** is the broader field that includes both:
 - **Cryptography**: The science of designing secure communication systems using techniques like encryption, hashing, and digital signatures. (Think: **protectors**)
-- **Cryptoanalysis**: The science of breaking cryptographic systems, finding vulnerabilities, or recovering original messages without a key. (Think: **hackers**)
+- **Cryptanalysis**: The science of breaking cryptographic systems, finding vulnerabilities, or recovering original messages without a key. (Think: **hackers**)
 
 In this study series, we’ll focus on **cryptography** — understanding how secure systems are designed, rather than how they’re broken.
 
-![Cryptology Breakdown Diagram](/assets/img/cryptography/introtocrypto/lec01/01cryptology_breakdown.jpg)
+<figure>
+  <img src="/assets/img/cryptography/introtocrypto/lec01/01cryptology_breakdown.jpg" alt="Cryptology Breakdown Diagram" />
+  <figcaption>Figure 1: Cryptology Breakdown Diagram</figcaption>
+</figure>
 
 ---
 
