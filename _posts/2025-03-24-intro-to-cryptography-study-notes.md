@@ -2,7 +2,7 @@
 title: Introduction to Cryptography Lecture 01 - Study Notes
 date: 2025-03-24 16:46:22 +0900
 categories: [cryptography, study-notes]
-tags: [crypto, cryptography, symmetric-key, christof, paar, christofpaar, studynotes, thepawgrammer]
+tags: [crypto, cryptography, 암호학, symmetric-key, 대칭키, christof, paar, christofpaar, studynotes, thepawgrammer]
 image:
   path: /assets/img/cryptography/introtocrypto/lec01/00preview.png
   alt: Introduction to Cryptography - Lecture 01 by Prof. Christof Paar
@@ -127,7 +127,7 @@ But wait 😱 — if the encryption algorithm is public, doesn’t that mean Osc
 | `d`         | Decryption function                |
 | `k`         | Key                                |
 | `|K|`       | Key space (number of possible keys)|
-<sub style="color:gray;">기호들은 암호 과정에서 사용되는 주요 개념입니다.</sub>
+<div><sub style="color:gray;">기호들은 암호 과정에서 사용되는 주요 개념입니다.</sub></div>
 
 ---
 
