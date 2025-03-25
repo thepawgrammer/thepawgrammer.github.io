@@ -68,8 +68,6 @@ Well-designed encryption must be **open and public**, so that experts can test i
 | `k`         | Key                                |
 | `|K|`       | Key space (number of possible keys)|
 
-<div><sub style="color:gray;">기호들은 암호 과정에서 사용되는 주요 개념입니다.</sub></div>
-
 <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
 
   <div style="flex: 1; min-width: 300px;">
