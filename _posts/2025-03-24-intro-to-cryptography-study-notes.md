@@ -2,7 +2,7 @@
 title: Introduction to Cryptography Lecture 01 - Study Notes
 date: 2025-03-24 16:46:22 +0900
 categories: [cryptography, study-notes]
-tags: [crypto, cryptography, 암호학, symmetric-key, 대칭암호화, christof, paar, christofpaar, studynotes, thepawgrammer]
+tags: [crypto, cryptography, symmetric-key, christof, paar, christofpaar, studynotes, thepawgrammer]
 image:
   path: /assets/img/cryptography/introtocrypto/lec01/00preview.png
   alt: Introduction to Cryptography - Lecture 01 by Prof. Christof Paar
@@ -18,16 +18,12 @@ image:
 
 ### 💡 Modern Applications of Cryptography
 
-| Application | Description | Example |
-|-------------|-------------|---------|
-| **Secure Messaging** | End-to-end encryption ensures that only the sender and receiver can read the message. | Signal, WhatsApp  
-<sub style="color:gray;">종단 간 암호화는 오직 발신자와 수신자만 메시지를 읽을 수 있도록 보장합니다.</sub> |
-| **Digital Signatures in Software Updates** | Ensures the integrity and authenticity of software updates. | macOS, Windows Update  
-<sub style="color:gray;">소프트웨어 업데이트의 무결성과 진위 여부를 확인할 수 있게 해줍니다.</sub> |
-| **Cryptographic Voting Protocols** | Enables secure, private, and verifiable electronic voting. | Helios, Estonian e-voting system  
-<sub style="color:gray;">전자 투표에서 보안, 프라이버시, 검증 가능성을 제공합니다.</sub> |
-| **Blockchain and Cryptocurrencies** | Uses cryptographic techniques to secure decentralized digital assets. | Bitcoin, Ethereum  
-<sub style="color:gray;">분산된 디지털 자산을 보호하기 위해 암호화 기술을 사용합니다.</sub> |
+| Application | Description |
+|-------------|-------------|
+| **Secure Messaging** | End-to-end encryption ensures that only the sender and receiver can read the message.<br><sub style="color: gray;">종단 간 암호화는 오직 발신자와 수신자만 메시지를 읽을 수 있도록 보장합니다.</sub> |
+| **Digital Signatures in Software Updates** | Ensures the integrity and authenticity of software updates.<br><sub style="color: gray;">소프트웨어 업데이트의 무결성과 진위 여부를 확인할 수 있게 해줍니다.</sub> |
+| **Cryptographic Voting Protocols** | Enables secure, private, and verifiable electronic voting.<br><sub style="color: gray;">전자 투표에서 보안, 프라이버시, 검증 가능성을 제공합니다.</sub> |
+| **Blockchain and Cryptocurrencies** | Uses cryptographic techniques to secure decentralized digital assets.<br><sub style="color: gray;">분산된 디지털 자산을 보호하기 위해 암호화 기술을 사용합니다.</sub> |
 
 ---
 
