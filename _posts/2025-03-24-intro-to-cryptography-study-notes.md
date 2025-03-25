@@ -15,9 +15,7 @@ image:
 </div>
 
 ## 1. Classification
-
 ### 💡 Modern Applications of Cryptography
-
 | Application | Description |
 |-------------|-------------|
 | **Secure Messaging** | End-to-end encryption ensures that only the sender and receiver can read the message.<br><sub style="color: gray;">종단 간 암호화는 오직 발신자와 수신자만 메시지를 읽을 수 있도록 보장합니다.</sub> |
@@ -143,76 +141,96 @@ Even if Oscar knows:
 - ✅ Make it strong even if exposed  
   <sub style="color:gray;">공개되어도 안전한 구조를 만들어야 합니다.</sub>
 - 🔓 Security through obscurity is fragile  
-  <sub style="color:gray;">"비공개 보안"은 쉽게 깨질 수 있습니다.</sub>
+  <sub style="color:gray;">"비공개된 보안"은 쉽게 깨질 수 있습니다.</sub>
 
 ---
 
 > **Build systems that stay secure even under scrutiny.**  
 > <sub style="color:gray;">해커들이 들여다봐도 안전한 시스템을 설계하세요.</sub>
 
-## 4. Classification of Attacks
+## 4. Classification of Attacks  
+<sub style="color:gray;">암호 시스템에 대한 공격 분류</sub>
 
-When trying to break or bypass a cryptographic system, there are several categories of **attack vectors** (approaches attackers can use). These attacks are broadly classified based on the **aspect of the system they target**.
+When trying to break or bypass a cryptographic system, there are several categories of **attack vectors** (approaches attackers can use).  
+<sub style="color:gray;">암호 시스템을 무력화하거나 우회하려는 시도는 다양한 종류의 공격 벡터(공격 방식)를 가질 수 있습니다.</sub>
 
-### 🧭 Overview of Cryptanalysis Categories 🧭
+These attacks are classified based on **what part of the system** they target.  
+<sub style="color:gray;">이러한 공격은 시스템의 어느 부분을 겨냥하느냐에 따라 분류됩니다.</sub>
 
-Here's a simple classification tree:
+---
+
+### 🧭 Overview of Cryptanalysis Categories  
+<sub style="color:gray;">암호 해독 공격 유형 요약</sub>
 
 ![Cryptanalysis Classification](assets/img/cryptography/introtocrypto/lec01/07cryptanalysis_classification.jpg)
 
-1. **Classical Cryptanalysis**
-   - **Brute-force Attacks**: Trying every possible key until the correct one is found.
-   - **Analytical Attacks**: Using mathematical techniques to reduce the search space or reveal the key.
+---
 
-2. **Social Engineering**
-   - Tricking users or system operators into revealing secrets (e.g., phishing, impersonation).
+### 1. 🔐 Classical Cryptanalysis  
+<sub style="color:gray;">전통적인 암호 해독 기법</sub>
 
-3. **Implementation Attacks**
-   - Attacks that target how the algorithm is implemented, rather than the algorithm itself.
-   - **Example**: **Side-Channel Analysis**
+- **Brute-force Attacks**: Trying every possible key until the correct one is found.  
+  <sub style="color:gray;">가능한 모든 키를 시도해 정답을 찾는 무차별 대입 공격</sub>
+
+- **Analytical Attacks**: Using mathematical techniques to reduce the search space or reveal the key.  
+  <sub style="color:gray;">수학적인 방법으로 키를 찾아내거나 탐색 범위를 줄이는 분석 기반 공격</sub>
 
 ---
 
-#### 📡 What is Side-Channel Analysis? 📡
+### 2. 🎭 Social Engineering  
+<sub style="color:gray;">사회공학적 공격</sub>
 
-Side-channel analysis is a powerful class of attacks that exploits **physical leaks** from a cryptographic device, rather than flaws in the algorithm.
+Tricking users or system operators into revealing secrets (e.g., phishing, impersonation).  
+<sub style="color:gray;">사용자나 운영자를 속여 비밀 정보를 빼내는 기법 (예: 피싱, 사칭 등)</sub>
 
-These leaks can include:
-- ⏱ **Timing Information**
-- ⚡ **Power Consumption**
-- 📡 **Electromagnetic Emissions**
-- 🔊 **Acoustic Noise**
+---
+### 3. 🧪 Implementation Attacks  
+<sub style="color:gray;">구현 취약점을 노린 공격</sub>
 
-> Even perfectly designed algorithms like AES or RSA can be vulnerable if the hardware or software leaks side-channel data.
+Attacks that target how the algorithm is implemented, rather than the algorithm itself.  
+<sub style="color:gray;">알고리즘 자체가 아니라, 실제로 그것이 실행되는 방식에서 생기는 약점을 노립니다.</sub>
+
+Even if an algorithm is mathematically secure, the way it runs on a device can leak unintended information.  
+<sub style="color:gray;">수학적으로 안전한 알고리즘도, 기계에서 실행될 때 정보가 새어 나갈 수 있습니다.</sub>
 
 ---
 
-##### 🧠 Attackers Use Signal Processing Techniques 🧠
+#### 🔍 Common Types of Implementation Attacks  
+<sub style="color:gray;">대표적인 구현 공격 방식</sub>
 
-These physical signals are often **noisy** and hard to interpret directly. That’s why attackers use **signal processing** techniques to extract meaningful patterns.
+- **Side-Channel Attack**: Exploits information like power consumption, electromagnetic radiation, or sound during computation.  
+  <sub style="color:gray;">암호 연산 중 발생하는 전력 소비, 전자기파, 소리 등 부수적인 정보를 분석하는 공격입니다.</sub>
 
-##### Common Techniques:
-- **Filtering**: To remove background noise.
-- **Averaging**: Across multiple traces to isolate consistent behavior.
-- **Differential Power Analysis (DPA)**: Statistical comparison of power usage patterns.
-- **Fourier Transforms / Spectral Analysis**: Identifying hidden frequency patterns.
-- **Correlation Analysis**: Matching power traces with hypothetical key values.
+- **Timing Attack**: Measures how long operations take and infers internal data from slight timing differences.  
+  <sub style="color:gray;">암호 연산에 걸리는 시간 차이를 측정해, 내부 데이터를 추론하는 공격입니다.</sub>
+
+- **Fault Injection Attack**: Induces faults in hardware (e.g., voltage spikes, lasers) to observe incorrect outputs and reveal secrets.  
+  <sub style="color:gray;">전압 변화, 레이저 등의 물리적 충격으로 장치에 오류를 발생시켜 정보를 추출하는 공격입니다.</sub>
+
+- **Cache Attack**: Monitors CPU cache access patterns to deduce sensitive information.  
+  <sub style="color:gray;">CPU 캐시 접근 패턴을 분석해, 암호 키 등의 민감한 정보를 추론합니다.</sub>
 
 ---
 
-##### 🎯 Real-World Analogy 🎯
+> 💬 **Implementation attacks target the "how", not the "what".**  
+> <sub style="color:gray;">‘무엇을’이 아닌 ‘어떻게 동작하는지’를 노리는 공격입니다.</sub>
 
-Imagine someone typing a password on a mechanical keyboard.  
-Even if the password is encrypted, you could record the **sound** of the keystrokes and analyze it to guess what they typed.
+---
 
 ## 5. Lecture Video
 
 {% include embed/youtube.html id='2aHkqB2-46k' %}
 
 ---
-## 🔚 Wrapping Up
+## 🔚 Wrapping Up  
+<sub style="color:gray;">정리하며</sub>
 
-That’s it for Lecture 01! In the next post, we’ll explore more about block ciphers and modern encryption standards. Got questions or feedback? Drop a comment below or reach out — I’d love to hear from you!
+That’s it for Lecture 01! In the next post, we’ll explore **modular arithmetic** and **classical ciphers** used in early cryptography.  
+<sub style="color:gray;">1강은 여기까지입니다! 다음 글에서는 모듈러 연산과 고전 암호 기법들에 대해 살펴볼 거예요.</sub>
+
+Got questions or feedback? Drop a comment below or reach out — I’d love to hear from you!  
+<sub style="color:gray;">질문이나 피드백이 있다면 댓글이나 메시지 주세요. 꼭 읽고 답변할게요!</sub>
 
 Stay encrypted 🔐  
-— thepawgrammer
+— thepawgrammer  
+<sub style="color:gray;">항상 암호화된 상태로 안전하게!</sub>
