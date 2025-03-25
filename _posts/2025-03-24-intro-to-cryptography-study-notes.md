@@ -61,22 +61,27 @@ Well-designed encryption must be **open and public**, so that experts can test i
 
 ---
 
-### 🔓 Before Encryption  
+<div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
 
-<img src="/assets/img/cryptography/introtocrypto/lec01/02unencrypted_message.jpg" alt="Unencrypted Message" style="width: 100%;" />
+  <div style="flex: 1; min-width: 300px;">
+    <h4>🔓 Before Encryption (1) </h4>
+    <img src="/assets/img/cryptography/introtocrypto/lec01/02unencrypted_message.jpg" alt="Unencrypted Message" style="width: 100%;" />
+    <p style="font-size: 0.9rem;">
+      Oscar can read message <code>x</code> in plain text over an insecure channel.<br>
+      <sub style="color:gray;">오스카는 보안되지 않은 채널에서 평문 <code>x</code>를 그대로 읽을 수 있습니다.</sub>
+    </p>
+  </div>
 
-Oscar can read message `x` in plain text over an insecure channel.  
-<sub style="color:gray;">오스카는 보안되지 않은 채널에서 평문 `x`를 그대로 읽을 수 있습니다.</sub>
+  <div style="flex: 1; min-width: 300px;">
+    <h4>🔐 After Encryption (2) </h4>
+    <img src="/assets/img/cryptography/introtocrypto/lec01/03encrypted_message.jpg" alt="Encrypted Message" style="width: 100%;" />
+    <p style="font-size: 0.9rem;">
+      Now he only sees ciphertext <code>y</code>, and has no idea what the original message was.<br>
+      <sub style="color:gray;">이제 오스카는 암호문 <code>y</code>만 볼 수 있고, 원문은 알 수 없습니다.</sub>
+    </p>
+  </div>
 
----
-
-### 🔐 After Encryption  
-
-<img src="/assets/img/cryptography/introtocrypto/lec01/03encrypted_message.jpg" alt="Encrypted Message" style="width: 100%;" />
-
-Now he only sees ciphertext `y`, and has no idea what the original message was.  
-<sub style="color:gray;">이제 오스카는 암호문 `y`만 볼 수 있고, 원문은 알 수 없습니다.</sub>
-
+</div>
 ---
 
 But wait 😱 — if the encryption algorithm is public, doesn’t that mean Oscar can also read the message?  
@@ -89,7 +94,7 @@ But wait 😱 — if the encryption algorithm is public, doesn’t that mean Osc
 <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
 
   <div style="flex: 1; min-width: 300px;">
-    <h4>🔑 Shared Secret Key</h4>
+    <h4>🔑 Shared Secret Key (1) </h4>
     <img src="/assets/img/cryptography/introtocrypto/lec01/04shared_key.jpg" alt="Shared Secret Key" style="width: 100%;" />
     <p style="font-size: 0.9rem;">
       Even if the algorithm is public, encryption stays secure thanks to a shared secret key.<br>
@@ -102,7 +107,7 @@ But wait 😱 — if the encryption algorithm is public, doesn’t that mean Osc
   </div>
 
   <div style="flex: 1; min-width: 300px;">
-    <h4>🔐 Using the Shared Key</h4>
+    <h4>🔐 Using the Shared Key (2) </h4>
     <img src="/assets/img/cryptography/introtocrypto/lec01/05howtosharekey.jpg" alt="How to Share a Key" style="width: 100%;" />
     <p style="font-size: 0.9rem;">
       Once they share the key, they can safely communicate over insecure networks.<br>
