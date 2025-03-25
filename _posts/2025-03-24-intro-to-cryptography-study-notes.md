@@ -32,6 +32,8 @@ image:
   <figcaption>Figure 1: Cryptology Breakdown Diagram</figcaption>
 </figure>
 
+---
+
 This diagram shows the relationship between **Cryptology**, **Cryptography**, and **Cryptanalysis**.  
 <sub style="color:gray;">이 도표는 암호학(Cryptology), 암호화(Cryptography), 암호 해독(Cryptanalysis)의 관계를 보여줍니다.</sub>
 
