@@ -71,7 +71,7 @@ Well-designed encryption must be **open and public**, so that experts can test i
 <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
 
   <div style="flex: 1; min-width: 300px;">
-    <h4>🔓 Before Encryption (1) </h4>
+    <h3>🔓 Before Encryption (1) </h3>
     <img src="/assets/img/cryptography/introtocrypto/lec01/02unencrypted_message.jpg" alt="Unencrypted Message" style="width: 100%;" />
     <p style="font-size: 0.9rem;">
       Oscar can read message <code>x</code> in plain text over an insecure channel.<br>
@@ -80,7 +80,7 @@ Well-designed encryption must be **open and public**, so that experts can test i
   </div>
 
   <div style="flex: 1; min-width: 300px;">
-    <h4>🔐 After Encryption (2) </h4>
+    <h3>🔐 After Encryption (2) </h3>
     <img src="/assets/img/cryptography/introtocrypto/lec01/03encrypted_message.jpg" alt="Encrypted Message" style="width: 100%;" />
     <p style="font-size: 0.9rem;">
       Now he only sees ciphertext <code>y</code>, and has no idea what the original message was.<br>
@@ -90,15 +90,13 @@ Well-designed encryption must be **open and public**, so that experts can test i
 
 </div>
 
-### 🔑 The Secret Key  
-
 But wait 😱 — if the encryption algorithm is public, doesn’t that mean Oscar can also read the message?  
 <sub style="color:gray;">하지만 암호화 알고리즘이 공개되어 있다면, 오스카도 메시지를 읽을 수 있는 것 아닌가요?</sub>
 
 <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
 
   <div style="flex: 1; min-width: 300px;">
-    <h4>🔑 Shared Secret Key (1) </h4>
+    <h3>🔑 Shared Secret Key (1) </h3>
     <img src="/assets/img/cryptography/introtocrypto/lec01/04shared_key.jpg" alt="Shared Secret Key" style="width: 100%;" />
     <p style="font-size: 0.9rem;">
       Even if the algorithm is public, encryption stays secure thanks to a shared secret key.<br>
@@ -111,7 +109,7 @@ But wait 😱 — if the encryption algorithm is public, doesn’t that mean Osc
   </div>
 
   <div style="flex: 1; min-width: 300px;">
-    <h4>🔐 Using the Shared Key (2) </h4>
+    <h3>🔐 Using the Shared Key (2) </h3>
     <img src="/assets/img/cryptography/introtocrypto/lec01/05howtosharekey.jpg" alt="How to Share a Key" style="width: 100%;" />
     <p style="font-size: 0.9rem;">
       Once they share the key, they can safely communicate over insecure networks.<br>
