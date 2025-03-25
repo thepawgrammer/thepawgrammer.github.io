@@ -94,6 +94,8 @@ Well-designed encryption must be **open and public**, so that experts can test i
 
 </div>
 
+---
+
 But wait 😱 — if the encryption algorithm is public, doesn’t that mean Oscar can also read the message?  
 <sub style="color:gray;">하지만 암호화 알고리즘이 공개되어 있다면, 오스카도 메시지를 읽을 수 있는 것 아닌가요?</sub>
 
