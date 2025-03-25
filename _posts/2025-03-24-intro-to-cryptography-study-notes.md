@@ -28,8 +28,10 @@ image:
 ### 🔍 Cryptology Breakdown  
 
 <figure>
-  <img src="/assets/img/cryptography/introtocrypto/lec01/01cryptology_breakdown.jpg" alt="Cryptology Breakdown Diagram" />
-  <figcaption>Figure 1: Cryptology Breakdown Diagram</figcaption>
+  <img src="/assets/img/cryptography/introtocrypto/lec01/01cryptology_breakdown.jpg"
+       alt="Cryptology Breakdown Diagram"
+       style="max-width: 700px; width: 100%; display: block; margin: 0 auto;" />
+  <figcaption style="text-align: center; font-size: 0.9rem;">Figure 1: Cryptology Breakdown Diagram</figcaption>
 </figure>
 
 ---
@@ -162,8 +164,10 @@ These attacks are classified based on **what part of the system** they target.
 ### 🧭 Overview of Cryptanalysis Categories  
 
 <figure>
-  <img src="assets/img/cryptography/introtocrypto/lec01/07cryptanalysis_classification.jpg" alt="Cryptanalysis Classification" />
-  <figcaption>Figure 6: Cryptanalysis Classification</figcaption>
+  <img src="assets/img/cryptography/introtocrypto/lec01/07cryptanalysis_classification.jpg"
+       alt="Cryptanalysis Classification"
+       style="max-width: 700px; width: 100%; display: block; margin: 0 auto;" />
+  <figcaption style="text-align: center; font-size: 0.9rem;">Figure 6: Cryptanalysis Classification</figcaption>
 </figure>
 
 #### 1. 🔐 Classical Cryptanalysis  
