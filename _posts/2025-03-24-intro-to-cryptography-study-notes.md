@@ -163,7 +163,7 @@ These attacks are classified based on **what part of the system** they target.
 
 <figure>
   <img src="assets/img/cryptography/introtocrypto/lec01/07cryptanalysis_classification.jpg" alt="Cryptanalysis Classification" />
-  <figcaption>Figure 7: Cryptanalysis Classification</figcaption>
+  <figcaption>Figure 6: Cryptanalysis Classification</figcaption>
 </figure>
 
 #### 1. 🔐 Classical Cryptanalysis  
