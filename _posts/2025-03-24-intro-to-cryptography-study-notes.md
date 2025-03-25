@@ -152,6 +152,68 @@ Even if Oscar knows:
 
 ---
 
+## 3. 🧩 Substitution Cipher  
+
+This one’s a **classic** — one of the oldest ciphers in the book.  
+<sub style="color:gray;">가장 오래된 고전 암호 중 하나로, 알파벳을 일정한 규칙에 따라 바꾸는 방식입니다.</sub>
+
+- 📜 **Historical Cipher** → Works on individual **letters**  
+  <sub style="color:gray;">과거 암호화 방식으로, 문자 단위로 동작합니다.</sub>
+- 💡 **Main idea**: Swap each letter in the plaintext with a fixed letter from the ciphertext alphabet.  
+  <sub style="color:gray;">각 평문 문자를 정해진 암호문 문자로 바꿔서 전달합니다.</sub>
+
+### 📘 Quick Example  
+
+| Plaintext | Ciphertext |
+|-----------|------------|
+| A         | l          |
+| B         | d          |
+| C         | w          |
+| E         | Q          |
+
+> **Q1:** What’s `e(ABBA)`?  
+> <sub style="color:gray;">ABBA를 암호화하면?</sub>  
+> **A1:** `lddl`
+
+> **Q2:** Is this cipher secure?  
+> <sub style="color:gray;">이 암호는 안전할까요?</sub>  
+> **A2:** Nope 😬
+
+---
+
+### 🕵️ How Can We Break It?  
+<sub style="color:gray;">어떻게 깨질 수 있을까요?</sub>
+
+#### 1. 🔨 Brute-Force Attack (Exhaustive Key Search)  
+<sub style="color:gray;">무차별 대입 공격</sub>
+
+- There are 26 letters in the alphabet → `26!` possible permutations  
+  <sub style="color:gray;">알파벳 26개의 모든 조합은 `26!`개입니다.</sub>
+- That’s about `2^88` — sounds huge, right?  
+  <sub style="color:gray;">약 `2^88` 개로 매우 많지만,</sub>  
+- **Still breakable with smarter analysis.**
+
+#### 2. 📊 Letter Frequency Analysis  
+
+- Same letters in plaintext → same letters in ciphertext  
+  <sub style="color:gray;">같은 평문은 같은 암호문으로 바뀌므로,</sub>
+- Attackers can analyze letter frequencies to guess the mapping  
+  <sub style="color:gray;">문자의 출현 빈도를 분석해서 평문을 유추할 수 있습니다.</sub>
+
+<figure>
+  <img src="/assets/img/cryptography/introtocrypto/lec01/06letterfrequencyanalysis.png"
+       alt="Letter Frequency Analysis"
+       style="max-width: 700px; width: 100%; display: block; margin: 0 auto;" />
+  <figcaption style="text-align: center; font-size: 0.9rem;">Figure 6: Letter Frequency Analysis</figcaption>
+</figure>
+---
+
+So even though brute-force is tough, **smart analysis can still crack this cipher** —  
+which means... it’s not really secure in the modern world.  
+<sub style="color:gray;">무차별 대입 방식은 직접 하기 어렵지만, 빈도 분석으로 쉽게 깨질 수 있어서 오늘날에는 안전하지 않은 암호화 방식입니다.</sub>
+
+---
+
 ## 4. Classification of Attacks  
 
 When trying to break or bypass a cryptographic system, there are several categories of **attack vectors** (approaches attackers can use).  
@@ -164,10 +226,10 @@ These attacks are classified based on **what part of the system** they target.
 ### 🧭 Overview of Cryptanalysis Categories  
 
 <figure>
-  <img src="assets/img/cryptography/introtocrypto/lec01/07cryptanalysis_classification.jpg"
+  <img src="/assets/img/cryptography/introtocrypto/lec01/07cryptanalysis_classification.jpg"
        alt="Cryptanalysis Classification"
        style="max-width: 700px; width: 100%; display: block; margin: 0 auto;" />
-  <figcaption style="text-align: center; font-size: 0.9rem;">Figure 6: Cryptanalysis Classification</figcaption>
+  <figcaption style="text-align: center; font-size: 0.9rem;">Figure 7: Cryptanalysis Classification</figcaption>
 </figure>
 
 #### 1. 🔐 Classical Cryptanalysis  
