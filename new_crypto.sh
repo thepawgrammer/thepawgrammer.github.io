@@ -22,7 +22,7 @@ title: $title
 date: $(date '+%Y-%m-%d %H:%M:%S %z')
 author: thepawgrammer
 categories: [cryptography, study-notes]
-tags: [crypto, cryptography, thepawgrammer]
+tags: [crypto, cryptography, 암호학, christof, paar, christofpaar, studynotes, thepawgrammer]
 ---
 EOF
 

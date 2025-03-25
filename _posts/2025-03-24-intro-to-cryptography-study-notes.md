@@ -2,7 +2,7 @@
 title: Introduction to Cryptography Lecture 01 - Study Notes
 date: 2025-03-24 16:46:22 +0900
 categories: [cryptography, study-notes]
-tags: [crypto, cryptography, symmetric, christof, paar, christofpaar, studynotes, thepawgrammer]
+tags: [crypto, cryptography, 암호학, symmetric-key, 대칭암호화, christof, paar, christofpaar, studynotes, thepawgrammer]
 image:
   path: /assets/img/cryptography/introtocrypto/lec01/00preview.png
   alt: Introduction to Cryptography - Lecture 01 by Prof. Christof Paar
@@ -18,33 +18,36 @@ image:
 
 ### 💡 Modern Applications of Cryptography
 
-| Name                         | Type         | Notes                                                                 |
-|------------------------------|--------------|-----------------------------------------------------------------------|
-| GNU PG                       | Software     | Open-source implementation of OpenPGP for encrypting files/emails     |
-| TruCrypt                     | Software     | Disk encryption tool for securing data at rest                        |
-| Secure Shell (SSH)           | Network      | Secure remote login and command execution over unsecured networks     |
-| (plug-in) for Thunderbird    | Email        | Add-on for encrypting emails using PGP or S/MIME                      |
-| S-MIME email encryption      | Email        | Standard for public key encryption and signing of MIME data           |
-| Cell phone                   | Mobile       | Uses encryption for voice, messages, and data protection              |
-| HDCP multimedia protection   | Media        | Encrypts digital video/audio to prevent unauthorized copying          |
-| Bank cards                   | Finance      | Embedded cryptographic chips for secure payment and authentication    |
-| VPN                          | Network      | Encrypts internet traffic for secure and private communication        |
-| ePassport                    | Identity     | Stores encrypted biometric data using public key infrastructure (PKI) |
-| Online banking               | Web          | Uses TLS/SSL and other crypto protocols for secure transactions       |
-| iPod                         | Consumer     | Some models use DRM and encryption for content protection             |
-| Kindle                       | Consumer     | Uses DRM and encrypted storage for ebook protection                   |
+| Application | Description | Example |
+|-------------|-------------|---------|
+| **Secure Messaging** | End-to-end encryption ensures that only the sender and receiver can read the message. | Signal, WhatsApp  
+<sub style="color:gray;">종단 간 암호화는 오직 발신자와 수신자만 메시지를 읽을 수 있도록 보장합니다.</sub> |
+| **Digital Signatures in Software Updates** | Ensures the integrity and authenticity of software updates. | macOS, Windows Update  
+<sub style="color:gray;">소프트웨어 업데이트의 무결성과 진위 여부를 확인할 수 있게 해줍니다.</sub> |
+| **Cryptographic Voting Protocols** | Enables secure, private, and verifiable electronic voting. | Helios, Estonian e-voting system  
+<sub style="color:gray;">전자 투표에서 보안, 프라이버시, 검증 가능성을 제공합니다.</sub> |
+| **Blockchain and Cryptocurrencies** | Uses cryptographic techniques to secure decentralized digital assets. | Bitcoin, Ethereum  
+<sub style="color:gray;">분산된 디지털 자산을 보호하기 위해 암호화 기술을 사용합니다.</sub> |
 
 ---
 
-### 🔍 Cryptology Breakdown 🔍
+### 🔍 Cryptology Breakdown  
+<sub style="color:gray;">🔍 암호학 분해도</sub>
 
-This diagram shows the relationship between **Cryptology**, **Cryptography**, and **Cryptanalysis**.
+This diagram shows the relationship between **Cryptology**, **Cryptography**, and **Cryptanalysis**.  
+<sub style="color:gray;">이 도표는 암호학(Cryptology), 암호화(Cryptography), 암호 해독(Cryptanalysis)의 관계를 보여줍니다.</sub>
 
-**Cryptology** is the broader field that includes both:
-- **Cryptography**: The science of designing secure communication systems using techniques like encryption, hashing, and digital signatures. (Think: **protectors**)
-- **Cryptanalysis**: The science of breaking cryptographic systems, finding vulnerabilities, or recovering original messages without a key. (Think: **hackers**)
+**Cryptology** is the broader field that includes both:  
+<sub style="color:gray;">**암호학(Cryptology)**은 암호화와 암호 해독을 모두 포함하는 넓은 분야입니다.</sub>
 
-In this study series, we’ll focus on **cryptography** — understanding how secure systems are designed, rather than how they’re broken.
+- **Cryptography**: The science of designing secure communication systems using techniques like encryption, hashing, and digital signatures. (Think: **protectors**)  
+  <sub style="color:gray;">**암호화(Cryptography)**는 암호화, 해싱, 디지털 서명 등을 이용해 안전한 통신 시스템을 설계하는 과학입니다. (보호자라고 생각하면 됩니다)</sub>
+
+- **Cryptanalysis**: The science of breaking cryptographic systems, finding vulnerabilities, or recovering original messages without a key. (Think: **hackers**)  
+  <sub style="color:gray;">**암호 해독(Cryptanalysis)**는 암호 시스템의 약점을 분석하거나 키 없이 원문을 복원하는 과학입니다. (해커의 역할이라고 보면 됩니다)</sub>
+
+In this study series, we’ll focus on **cryptography** — understanding how secure systems are designed, rather than how they’re broken.  
+<sub style="color:gray;">이 시리즈에서는 암호 해독보다는 안전한 시스템이 어떻게 설계되는지, 즉 **암호화**에 중점을 둡니다.</sub>
 
 <figure>
   <img src="/assets/img/cryptography/introtocrypto/lec01/01cryptology_breakdown.jpg" alt="Cryptology Breakdown Diagram" />
@@ -98,7 +101,7 @@ In symmetric cryptography, Alice and Bob need to agree on a secret key k — and
 | `k`         | Key                                        |
 | `|𝓚|` or `|K|` | Key space (number of possible keys)        |
 
-### 💡 Kerckhoffs' Principle [1883] 💡
+### 💡 Kerckhoffs' Principle [1883]
 A cryptosystem should be secure even if the attacker (Oscar) KNOWS ALL THE DETAILS about the system, with the exception of the secret key.
 
 > 🔍 **Sounds kinda backwards, right?** 🔍
