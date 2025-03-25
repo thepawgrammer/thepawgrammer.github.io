@@ -29,6 +29,11 @@ image:
 
 ### 🔍 Cryptology Breakdown  
 
+<figure>
+  <img src="/assets/img/cryptography/introtocrypto/lec01/01cryptology_breakdown.jpg" alt="Cryptology Breakdown Diagram" />
+  <figcaption>Figure 1: Cryptology Breakdown Diagram</figcaption>
+</figure>
+
 This diagram shows the relationship between **Cryptology**, **Cryptography**, and **Cryptanalysis**.  
 <sub style="color:gray;">이 도표는 암호학(Cryptology), 암호화(Cryptography), 암호 해독(Cryptanalysis)의 관계를 보여줍니다.</sub>
 
@@ -43,11 +48,6 @@ This diagram shows the relationship between **Cryptology**, **Cryptography**, an
 
 In this study series, we’ll focus on **cryptography** — understanding how secure systems are designed, rather than how they’re broken.  
 <sub style="color:gray;">이 시리즈에서는 암호 해독보다는 안전한 시스템이 어떻게 설계되는지, 즉 **암호화**에 중점을 둡니다.</sub>
-
-<figure>
-  <img src="/assets/img/cryptography/introtocrypto/lec01/01cryptology_breakdown.jpg" alt="Cryptology Breakdown Diagram" />
-  <figcaption>Figure 1: Cryptology Breakdown Diagram</figcaption>
-</figure>
 
 ---
 
@@ -84,12 +84,10 @@ Well-designed encryption must be **open and public**, so that experts can test i
 </div>
 ---
 
+### 🔑 The Secret Key  
+
 But wait 😱 — if the encryption algorithm is public, doesn’t that mean Oscar can also read the message?  
 <sub style="color:gray;">하지만 암호화 알고리즘이 공개되어 있다면, 오스카도 메시지를 읽을 수 있는 것 아닌가요?</sub>
-
----
-
-### 🔑 The Secret Key  
 
 <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
 
@@ -149,7 +147,6 @@ Even if Oscar knows:
 ---
 
 ### 🏛️ Why It Matters  
-<sub style="color:gray;">왜 중요한가?</sub>
 
 - 🚫 Don’t rely on secrecy  
   <sub style="color:gray;">숨기는 것만으로는 보안이 되지 않습니다.</sub>
@@ -174,7 +171,6 @@ These attacks are classified based on **what part of the system** they target.
 ---
 
 ### 🧭 Overview of Cryptanalysis Categories  
-<sub style="color:gray;">암호 해독 공격 유형 요약</sub>
 
 ![Cryptanalysis Classification](assets/img/cryptography/introtocrypto/lec01/07cryptanalysis_classification.jpg)
 
@@ -242,4 +238,3 @@ Got questions or feedback? Drop a comment below or reach out — I’d love to h
 
 Stay encrypted 🔐  
 — thepawgrammer  
-<sub style="color:gray;">항상 암호화된 상태로 안전하게!</sub>
