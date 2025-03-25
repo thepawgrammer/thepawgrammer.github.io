@@ -89,18 +89,31 @@ But wait — if the encryption algorithm is public, doesn’t that mean Oscar ca
 ### 🔑 The Secret Key  
 <sub style="color:gray;">비밀 키의 역할</sub>
 
-Even if the algorithm is public, encryption stays secure thanks to a shared secret key.  
-<sub style="color:gray;">알고리즘이 공개되어도, 공유된 비밀 키 덕분에 암호는 여전히 안전합니다.</sub>
+<div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
 
-<img src="/assets/img/cryptography/introtocrypto/lec01/04shared_key.jpg" alt="Shared Secret Key" style="width: 100%;" />
+  <div style="flex: 1; min-width: 300px;">
+    <h4>🔑 Shared Secret Key</h4>
+    <img src="/assets/img/cryptography/introtocrypto/lec01/04shared_key.jpg" alt="Shared Secret Key" style="width: 100%;" />
+    <p style="font-size: 0.9rem;">
+      Even if the algorithm is public, encryption stays secure thanks to a shared secret key.<br>
+      <sub style="color:gray;">알고리즘이 공개되어도, 공유된 비밀 키 덕분에 암호는 여전히 안전합니다.</sub>
+    </p>
+    <p style="font-size: 0.9rem;">
+      Alice and Bob must agree on the same key <code>k</code> through a secure channel.<br>
+      <sub style="color:gray;">앨리스와 밥은 보안된 채널을 통해 같은 키 <code>k</code>를 공유해야 합니다.</sub>
+    </p>
+  </div>
 
-Alice and Bob must agree on the same key `k` through a secure channel.  
-<sub style="color:gray;">앨리스와 밥은 보안된 채널을 통해 같은 키 `k`를 공유해야 합니다.</sub>
+  <div style="flex: 1; min-width: 300px;">
+    <h4>🔐 Using the Shared Key</h4>
+    <img src="/assets/img/cryptography/introtocrypto/lec01/05howtosharekey.jpg" alt="How to Share a Key" style="width: 100%;" />
+    <p style="font-size: 0.9rem;">
+      Once they share the key, they can safely communicate over insecure networks.<br>
+      <sub style="color:gray;">키를 공유한 이후에는, 안전하지 않은 네트워크에서도 안전한 통신이 가능합니다.</sub>
+    </p>
+  </div>
 
-<img src="/assets/img/cryptography/introtocrypto/lec01/05howtosharekey.jpg" alt="How to Share a Key" style="width: 100%;" />
-
-Once they share the key, they can safely communicate over insecure networks.  
-<sub style="color:gray;">키를 공유한 이후에는, 안전하지 않은 네트워크에서도 안전한 통신이 가능합니다.</sub>
+</div>
 
 ---
 
