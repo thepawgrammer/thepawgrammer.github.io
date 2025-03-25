@@ -177,7 +177,7 @@ These attacks are classified based on **what part of the system** they target.
 
 ---
 
-### 1. 🔐 Classical Cryptanalysis  
+#### 1. 🔐 Classical Cryptanalysis  
 <sub style="color:gray;">전통적인 암호 해독 기법</sub>
 
 - **Brute-force Attacks**: Trying every possible key until the correct one is found.  
@@ -188,14 +188,14 @@ These attacks are classified based on **what part of the system** they target.
 
 ---
 
-### 2. 🎭 Social Engineering  
+#### 2. 🎭 Social Engineering  
 <sub style="color:gray;">사회공학적 공격</sub>
 
 Tricking users or system operators into revealing secrets (e.g., phishing, impersonation).  
 <sub style="color:gray;">사용자나 운영자를 속여 비밀 정보를 빼내는 기법 (예: 피싱, 사칭 등)</sub>
 
 ---
-### 3. 🧪 Implementation Attacks  
+#### 3. 🧪 Implementation Attacks  
 <sub style="color:gray;">구현 취약점을 노린 공격</sub>
 
 Attacks that target how the algorithm is implemented, rather than the algorithm itself.  
@@ -206,7 +206,7 @@ Even if an algorithm is mathematically secure, the way it runs on a device can l
 
 ---
 
-#### 🔍 Common Types of Implementation Attacks  
+##### 🔍 Common Types of Implementation Attacks  
 <sub style="color:gray;">대표적인 구현 공격 방식</sub>
 
 - **Side-Channel Attack**: Exploits information like power consumption, electromagnetic radiation, or sound during computation.  
