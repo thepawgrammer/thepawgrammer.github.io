@@ -37,10 +37,10 @@ This diagram shows the relationship between **Cryptology**, **Cryptography**, an
 <sub style="color:gray;">**암호학(Cryptology)**은 암호화와 암호 해독을 모두 포함하는 넓은 분야입니다.</sub>
 
 - **Cryptography**: The science of designing secure communication systems using techniques like encryption, hashing, and digital signatures. (Think: **protectors**)  
-  <sub style="color:gray;">**암호화(Cryptography)**는 암호화, 해싱, 디지털 서명 등을 이용해 안전한 통신 시스템을 설계하는 과학입니다. (보호자라고 생각하면 됩니다)</sub>
+  <sub style="color:gray;">**암호화(Cryptography)**는 암호화, 해싱, 디지털 서명 등을 이용해 안전한 통신 시스템을 설계하는 것입니다.</sub>
 
 - **Cryptanalysis**: The science of breaking cryptographic systems, finding vulnerabilities, or recovering original messages without a key. (Think: **hackers**)  
-  <sub style="color:gray;">**암호 해독(Cryptanalysis)**는 암호 시스템의 약점을 분석하거나 키 없이 원문을 복원하는 과학입니다. (해커의 역할이라고 보면 됩니다)</sub>
+  <sub style="color:gray;">**암호 해독(Cryptanalysis)**는 암호 시스템의 약점을 분석하거나 키 없이 원문을 복원하는 것입니다.</sub>
 
 In this study series, we’ll focus on **cryptography** — understanding how secure systems are designed, rather than how they’re broken.  
 <sub style="color:gray;">이 시리즈에서는 암호 해독보다는 안전한 시스템이 어떻게 설계되는지, 즉 **암호화**에 중점을 둡니다.</sub>
@@ -52,124 +52,103 @@ In this study series, we’ll focus on **cryptography** — understanding how se
 
 ---
 
-## 2. Setting Up Symmetric Cryptography
+## 2. Setting Up Symmetric Cryptography  
+<sub style="color:gray;">대칭키 암호화를 설정하는 방법</sub>
 
-Here’s one big takeaway from the lecture:
+> 🔑 **Key Takeaway:** <span style="color: #d6336c;">Never use a crypto algorithm that hasn’t been tested!</span>  
+> <sub style="color: gray;">검증되지 않은 암호 알고리즘은 절대 사용하지 마세요.</sub>
 
-“NEVER USE A CRYPTO ALGORITHM THAT HASN’T BEEN TESTED!”
+Well-designed encryption must be **open and public**, so that experts can test it and verify its strength.  
+<sub style="color:gray;">암호는 공개되어야 전문가들이 테스트해보고, 오랜 시간 안전성이 입증된 후에야 믿고 쓸 수 있습니다.</sub>
 
-Even if someone thinks their encryption method is bulletproof, there could still be hidden flaws. That’s why it’s super important for encryption algorithms to be **open and public** — so other experts can poke at them, try to break them, and make sure they actually hold up. If it survives all that, then we can start to trust it.
+---
 
-<div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
-  <div style="flex: 1; min-width: 300px;">
-    <h4>🚫 Unencrypted Message</h4>
-    <img src="/assets/img/cryptography/introtocrypto/lec01/02unencrypted_message.jpg" alt="Unencrypted Message" style="width: 100%;" />
-    <p style="font-size: 0.9rem;">Oscar can read the message <code>x</code> as plain as day on the insecure channel.</p>
-  </div>
-  
-  <div style="flex: 1; min-width: 300px;">
-    <h4>🔐 Encrypted Message</h4>
-    <img src="/assets/img/cryptography/introtocrypto/lec01/03encrypted_message.jpg" alt="Encrypted Message" style="width: 100%;" />
-    <p style="font-size: 0.9rem;">Now Oscar only sees the ciphertext <code>y</code> and has no clue what the original message <code>x</code> was.</p>
-  </div>
-</div>
+### 🔓 Before Encryption  
+<sub style="color:gray;">암호화 전</sub>
 
-But wait — if everyone knows how the encryption works, how do we actually keep things secure?
+<img src="/assets/img/cryptography/introtocrypto/lec01/02unencrypted_message.jpg" alt="Unencrypted Message" style="width: 100%;" />
 
-That’s where keys come into play.
+Oscar can read message `x` in plain text over an insecure channel.  
+<sub style="color:gray;">오스카는 보안되지 않은 채널에서 평문 `x`를 그대로 읽을 수 있습니다.</sub>
 
-Alice and Bob both use a shared secret key 🔑. This key is the magic ingredient added to both the encryption and decryption process. So even if Oscar knows the algorithm, he’s out of luck — because without the key, he still can’t read the message.
+---
 
-![Alice and Bob Share a Secret Key](/assets/img/cryptography/introtocrypto/lec01/04shared_key.jpg)
+### 🔐 After Encryption  
+<sub style="color:gray;">암호화 후</sub>
 
-In symmetric cryptography, Alice and Bob need to agree on a secret key k — and they have to do it over a secure channel first. Once they both know the key, they can send encrypted messages (aka y) back and forth over insecure networks, and Oscar still won’t be able to figure out a thing without that key.
+<img src="/assets/img/cryptography/introtocrypto/lec01/03encrypted_message.jpg" alt="Encrypted Message" style="width: 100%;" />
 
-![How Alice and Bob Share the Key](/assets/img/cryptography/introtocrypto/lec01/05howtosharekey.jpg)
+Now he only sees ciphertext `y`, and has no idea what the original message was.  
+<sub style="color:gray;">이제 오스카는 암호문 `y`만 볼 수 있고, 원문은 알 수 없습니다.</sub>
 
-### 📘 Quick Notation Guide 📘
+---
 
-| Symbol      | Meaning                                    |
-|-------------|--------------------------------------------|
-| `x`         | Plaintext                                  |
-| `y`         | Ciphertext                                 |
-| `e`         | Encryption function                        |
-| `d`         | Decryption function                        |
-| `k`         | Key                                        |
-| `|𝓚|` or `|K|` | Key space (number of possible keys)        |
+But wait — if the encryption algorithm is public, doesn’t that mean Oscar can also read the message?😱
+<sub style="color:gray;">하지만 암호화 알고리즘이 공개되어 있다면, 오스카도 메시지를 읽을 수 있는 것 아닌가요?</sub>
 
-### 💡 Kerckhoffs' Principle [1883]
-A cryptosystem should be secure even if the attacker (Oscar) KNOWS ALL THE DETAILS about the system, with the exception of the secret key.
+---
 
-> 🔍 **Sounds kinda backwards, right?** 🔍
-> Yep — Kerckhoffs’ Principle is totally **counterintuitive**, but it’s a game-changer.
+### 🔑 The Secret Key  
+<sub style="color:gray;">비밀 키의 역할</sub>
 
-#### 🧠 What It Really Means 🧠
+Even if the algorithm is public, encryption stays secure thanks to a shared secret key.  
+<sub style="color:gray;">알고리즘이 공개되어도, 공유된 비밀 키 덕분에 암호는 여전히 안전합니다.</sub>
+
+<img src="/assets/img/cryptography/introtocrypto/lec01/04shared_key.jpg" alt="Shared Secret Key" style="width: 100%;" />
+
+Alice and Bob must agree on the same key `k` through a secure channel.  
+<sub style="color:gray;">앨리스와 밥은 보안된 채널을 통해 같은 키 `k`를 공유해야 합니다.</sub>
+
+<img src="/assets/img/cryptography/introtocrypto/lec01/05howtosharekey.jpg" alt="How to Share a Key" style="width: 100%;" />
+
+Once they share the key, they can safely communicate over insecure networks.  
+<sub style="color:gray;">키를 공유한 이후에는, 안전하지 않은 네트워크에서도 안전한 통신이 가능합니다.</sub>
+
+---
+
+### 📘 Notation Guide 
+| Symbol      | Meaning                            |
+|-------------|------------------------------------|
+| `x`         | Plaintext                          |
+| `y`         | Ciphertext                         |
+| `e`         | Encryption function                |
+| `d`         | Decryption function                |
+| `k`         | Key                                |
+| `|K|`       | Key space (number of possible keys)|
+<sub style="color:gray;">기호들은 암호 과정에서 사용되는 주요 개념입니다.</sub>
+
+---
+
+### 💡 Kerckhoffs' Principle (1883)  
+<sub style="color:gray;">케르쾨프스의 원칙</sub>
+
+A cryptosystem must remain secure **even if everything is public — except the key**.  
+<sub style="color:gray;">암호 시스템은 키를 제외한 모든 것이 알려져도 안전해야 합니다.</sub>
 
 Even if Oscar knows:
-
 - The algorithm  
-- The protocols  
-- The system structure  
+- The protocol  
+- The full system design  
 
-…it *still* shouldn’t matter — **as long as he doesn’t know the key**, he can’t break it.
-
----
-
-#### 🏛️ Why It Matters 🏛️
-
-This idea is one of the **core principles of modern cryptography**. It teaches us:
-
-- 🚫 **Don’t rely on secrecy alone** — hiding your algorithm isn’t real security.  
-- ✅ **Make your system strong enough** that even if everyone knows how it works, it’s still secure without the key.  
-- 🔓 **Security through obscurity** is fragile and not dependable.
+…it doesn’t matter — **without the key, he can’t break it.**  
+<sub style="color:gray;">오스카가 모든 걸 알아도, **키가 없으면 해독할 수 없습니다.**</sub>
 
 ---
 
-So remember:  
-**Don't hide your algorithm — build one that’s strong enough to stand the test of time, analysis, and even attackers like Oscar.**
-    
-## 3. Substitution Cipher
+### 🏛️ Why It Matters  
+<sub style="color:gray;">왜 중요한가?</sub>
 
-This one’s a **classic** — one of the oldest ciphers in the book.
-
-- 📜 **Historical Cipher** → Works on individual **letters**
-- 💡 **Main idea**: Swap each letter in the plaintext with a fixed letter from the ciphertext alphabet.
-
----
-
-### 📘 Quick Example
-
-| Plaintext | Ciphertext |
-|-----------|------------|
-| A         | l          |
-| B         | d          |
-| C         | w          |
-| E         | Q          |
-
-- **Q1:** What’s `e(ABBA)`?  
-  **A1:** `lddl`  
-- **Q2:** Is this cipher secure?  
-  **A2:** Nope 😬
+- 🚫 Don’t rely on secrecy  
+  <sub style="color:gray;">숨기는 것만으로는 보안이 되지 않습니다.</sub>
+- ✅ Make it strong even if exposed  
+  <sub style="color:gray;">공개되어도 안전한 구조를 만들어야 합니다.</sub>
+- 🔓 Security through obscurity is fragile  
+  <sub style="color:gray;">"비공개 보안"은 쉽게 깨질 수 있습니다.</sub>
 
 ---
 
-### 🕵️ How Can We Break It?
-
-#### 1. 🔨 Brute-Force Attack (aka Exhaustive Key Search)
-
-- There are 26 letters in the alphabet, so the total number of possible key combinations is:  
-  `26 × 25 × 24 × ... × 1 = 26!`  
-  That’s roughly `2^88` — which is **huge**.
-- So yeah, brute-forcing this would take **forever**... in theory.
-
-#### 2. 📊 Letter Frequency Analysis
-
-- Here’s the catch: **same letters in plaintext get replaced with the same letters in ciphertext**.
-- That makes it vulnerable to **frequency analysis**, where attackers look at how often letters appear and use that to guess the original text.
-
-![Letter Frequency Analysis](assets/img/cryptography/introtocrypto/lec01/06letterfrequencyanalysis.png)
-
-So even though brute-force is tough, smart analysis can still crack this cipher — which means... **it’s not really secure** in the modern world.
+> **Build systems that stay secure even under scrutiny.**  
+> <sub style="color:gray;">해커들이 들여다봐도 안전한 시스템을 설계하세요.</sub>
 
 ## 4. Classification of Attacks
 
