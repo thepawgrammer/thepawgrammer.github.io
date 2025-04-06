@@ -1,12 +1,8 @@
 ---
 # the default layout is 'page'
-title: About
+title: 🌟 My Core Beliefs
 icon: fas fa-info-circle
 order: 4
----
-
-# 🌟 My Core Beliefs
-
 ---
 
 ### 🔐 **1. Everyone deserves a safe and peaceful daily life.**
