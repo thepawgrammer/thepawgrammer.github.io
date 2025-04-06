@@ -8,7 +8,7 @@ order: 4
 ### 🔐 **1. Everyone deserves a safe and peaceful daily life.**
 
 > 🛡️ *“Peace in our daily life shouldn’t be compromised by the future.”*
-{: .note }
+{: .prompt-tip }
 
 As quantum computers become powerful enough to break traditional encryption,  
 they may threaten the digital infrastructure that supports our everyday lives —  
@@ -40,7 +40,7 @@ is the foundation for **true progress** and **well-being**.
 ### 🎓 **3. Learning should be joyful, simple, and open to everyone.**
 
 > 💡 *“Knowledge becomes powerful when it’s shared freely and joyfully.”*
-{: .note }
+{: .prompt-tip }
 
 I believe learning doesn't have to be formal or complicated.  
 Sometimes, all it takes is a spark of curiosity, a friendly explanation,  
