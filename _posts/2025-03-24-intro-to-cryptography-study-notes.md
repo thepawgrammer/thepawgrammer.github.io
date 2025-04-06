@@ -97,7 +97,7 @@ Well-designed encryption must be **open and public**, so that experts can test i
 ---
 
 But wait 😱 — if the encryption algorithm is public, doesn’t that mean Oscar can also read the message?  
-<sub style="color:gray;">하지만 암호화 알고리즘이 공개되어 있다면, 오스카도 메시지를 읽을 수 있는 것 아닌가요?</sub>
+<sub style="color:gray;">엇! 암호화 알고리즘이 공개되어 있다면, 오스카도 메시지를 읽을 수 있는 것 아닌가요?</sub>
 
 <div style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
 
@@ -150,7 +150,7 @@ Even if Oscar knows:
   <sub style="color:gray;">"비공개된 보안"은 쉽게 깨질 수 있습니다.</sub>
 
 > **Build systems that stay secure even under scrutiny.**  
-> <sub style="color:gray;">해커들이 들여다봐도 안전한 시스템을 설계하세요.</sub>
+> <sub style="color:gray;">해커들이 들여다봐도 안전한 시스템을 설계해야 합니다.</sub>
 
 ---
 
@@ -285,7 +285,7 @@ That’s it for Lecture 01! In the next post, we’ll explore **modular arithmet
 <sub style="color:gray;">1강은 여기까지입니다! 다음 글에서는 모듈러 연산과 고전 암호 기법들에 대해 살펴볼 거예요.</sub>
 
 Got questions or feedback? Drop a comment below or reach out — I’d love to hear from you!  
-<sub style="color:gray;">질문이나 피드백이 있다면 댓글이나 메시지 주세요. 꼭 읽고 답변할게요!</sub>
+<sub style="color:gray;">질문이나 피드백이 있다면 댓글 달아주세요!</sub>
 
 Stay encrypted 🔐  
 — thepawgrammer  
