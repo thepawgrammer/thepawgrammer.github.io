@@ -1,5 +1,5 @@
 ---
-title: Introduction to Cryptography Lecture 01 - Study Notes
+title: Lecture 01. What Is Cryptography?
 date: 2025-04-07 16:26:30 +0900
 author: thepawgrammer
 categories: [cryptography, study-notes]
