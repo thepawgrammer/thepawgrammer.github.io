@@ -1,6 +1,6 @@
 ---
 # the default layout is 'page'
-title: 🌟 My Core Beliefs
+title: My Core Beliefs
 icon: fas fa-star
 order: 4
 ---
