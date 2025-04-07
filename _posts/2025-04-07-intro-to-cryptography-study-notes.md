@@ -1,6 +1,7 @@
 ---
 title: Introduction to Cryptography Lecture 01 - Study Notes
-date: 2025-03-24 16:46:22 +0900
+date: 2025-04-07 16:26:30 +0900
+author: thepawgrammer
 categories: [cryptography, study-notes]
 tags: [crypto, cryptography, 암호학, symmetric-key, 대칭키, christof, paar, christofpaar, studynotes, thepawgrammer]
 image:
