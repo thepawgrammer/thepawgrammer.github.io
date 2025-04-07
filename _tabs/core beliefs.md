@@ -1,7 +1,7 @@
 ---
 # the default layout is 'page'
 title: 🌟 My Core Beliefs
-icon: fas fa-info-circle
+icon: fas fa-star
 order: 4
 ---
 
