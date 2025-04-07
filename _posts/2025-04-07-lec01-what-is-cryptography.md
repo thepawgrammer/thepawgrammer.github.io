@@ -10,7 +10,7 @@ image:
 ---
 
 <div style="background: #f9f9f9; border-left: 5px solid #4a90e2; padding: 1em; margin-bottom: 2em;">
-  <h3 style="margin-top: 0;">🔐 Intro to Cryptography Series</h3>
+  <h3 style="margin-top: 0;">🔐 Introduction to Cryptography Series</h3>
   <p style="margin-bottom: 0;">This post is part of my ongoing study series based on <strong>Prof. Christof Paar’s “Introduction to Cryptography”</strong>.</p>
   <p style="font-size: 0.9em;"><strong>By:</strong> <em>thepawgrammer</em> &nbsp;&nbsp;|&nbsp;&nbsp; <strong>Watch the course:</strong> <a href="https://youtu.be/2aHkqB2-46k" target="_blank">YouTube Link</a></p>
 </div>
