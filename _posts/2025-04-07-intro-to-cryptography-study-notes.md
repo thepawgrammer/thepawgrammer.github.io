@@ -205,7 +205,7 @@ This one’s a **classic** — one of the oldest ciphers in the book.
   <sub style="color:gray;">같은 글자가 암호화 전 메시지에서 반복되면, 암호화된 메시지에서도 일정한 규칙이 드러납니다.</sub>
 
 - Attackers can analyze letter frequencies to guess the mapping  
-  <sub style="color:gray;">해커는 글자의 출현 빈도를 분석해 암호화 전 메시지를 유추할 수 있습니다.</sub>
+  <sub style="color:gray;">해커는 글자의 빈도를 분석해 암호화 전 메시지를 유추할 수 있습니다.</sub>
 
 <figure>
   <img src="/assets/img/cryptography/introtocrypto/lec01/06letterfrequencyanalysis.png"
@@ -266,7 +266,7 @@ Attacks that target how the algorithm is implemented, rather than the algorithm 
 <sub style="color:gray;">알고리즘 자체가 아니라, **그 알고리즘이 실제로 구현되고 실행되는 방식의 약점**을 노리는 공격입니다.</sub>
 
 Even if an algorithm is mathematically secure, the way it runs on a device can leak unintended information.  
-<sub style="color:gray;">수학적으로 안전한 알고리즘이라도, 기기에서 실행되는 과정에서 **예상치 못한 정보가 유출될 수 있습니다.**</sub>
+<sub style="color:gray;">수학적으로 안전한 알고리즘이라도, 기기에서 실행되는 과정에서 **예상치 못한 정보가 유출**될 수 있습니다.</sub>
 
 
 ##### 🔍 Common Types of Implementation Attacks  
