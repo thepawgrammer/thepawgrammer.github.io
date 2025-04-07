@@ -73,7 +73,7 @@ Well-designed encryption must be **open and public**, so that experts can test i
 | `k`         | Key                                |
 | `|K|`       | Key space (number of possible keys)|
 
-### Encryption Process Overview  
+### 🧩 Encryption Process Overview  
 The following visuals illustrate how symmetric encryption protects your message, even over insecure channels.  
 <sub style="color:gray;">아래 그림들은 대칭키 암호가 메시지를 어떻게 보호하는지 보여줍니다. 보안되지 않은 네트워크에서도 안전하게 통신할 수 있는 과정을 시각적으로 설명해 줍니다.</sub>
 
@@ -161,7 +161,7 @@ Even if Oscar knows:
 
 ---
 
-## 3. 🧩 Substitution Cipher  
+## 3. Substitution Cipher  
 
 This one’s a **classic** — one of the oldest ciphers in the book.  
 <sub style="color:gray;">가장 오래되고 유명한 고전 암호 중 하나로, 알파벳을 일정한 규칙에 따라 바꾸는 방식입니다.</sub>
