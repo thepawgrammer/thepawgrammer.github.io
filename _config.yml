@@ -16,7 +16,9 @@ timezone: Asia/Seoul
 
 title: Pawgrammer # the main title
 
-tagline: Hooked on Quantum Waves # it will display as the subtitle
+tagline: Privacy-Preserving ML & PQC # it will display as the subtitle
+
+avatar: /assets/img/IMG_2931.png
 
 description: >- # used by seo meta and the atom feed
   Exploring all things quantum—physics, computing, and cybersecurity.
