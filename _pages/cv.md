@@ -24,7 +24,7 @@ Education
 
 Research Experience
 ======
-* **Jul 2025 - Current: Researcher**  
+* **Jul 2025 - Present: Researcher**  
   Privacy-Preserving Machine Learning and Cryptography Lab, Seoul, South Korea  
   * Participating in weekly lab meetings and literature reviews on homomorphic encryption and federated learning.  
   * Building foundational expertise in cryptographic techniques for privacy-preserving machine learning.  
