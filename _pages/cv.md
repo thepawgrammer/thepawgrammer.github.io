@@ -43,7 +43,7 @@ Research Experience
   * Preprocessed and analyzed clinical datasets (7,000+ patients) for endocrinology research projects.  
   * Conducted pilot study using continuous glucose monitoring data to discover predictors of glycemic control.  
   * Contributed to a paper in *Diabetes Research and Clinical Practice* on a standardized GIK infusion protocol.
-  * Supervisor: [Prof. Tae Jung Oh (오태정)](https://www.snubh.org/medical/drIntroduce.do?sDpCd=DCD25&sDpCdDtl=IME&sDrSid=1005878&sDrStfNo=65832&sDpTp=)
+  * Supervisor: [Prof. Tae-jung Oh (오태정)](https://www.snubh.org/medical/drIntroduce.do?sDpCd=DCD25&sDpCdDtl=IME&sDrSid=1005878&sDrStfNo=65832&sDpTp=)
 
 Work Experience
 =====
