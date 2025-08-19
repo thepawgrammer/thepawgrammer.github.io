@@ -51,4 +51,4 @@ I am a researcher at the <a href="https://sites.google.com/view/pmlclab/research
 ## Contact
 - Email: thepawgrammer@gmail.com  
 - Location: Seoul, South Korea  
-- Links: <a href="https://scholar.google.com/citations?user=PS_CX0AAAAAJ">Scholar</a> · <a href="https://github.com/thepawgrammer">GitHub</a> · <a href="https://www.linkedin.com/in/jihyung-kook">LinkedIn</a>
+- Links: <a href="https://github.com/thepawgrammer">GitHub</a> · <a href="https://www.linkedin.com/in/jihyung-kook">LinkedIn</a>
