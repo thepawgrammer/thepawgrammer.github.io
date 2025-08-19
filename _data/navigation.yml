@@ -9,16 +9,13 @@
 
 main:
   - title: "CV"
-    url: /cv-json/
+    url: /cv/
 
   - title: "Publications"
     url: /publications/
 
-  - title: "Slides"
-    url: /slides/
-
-  # - title: "Talks"
-  #   url: /talks/    
+  - title: "Talks"
+    url: /talks/    
 
   # - title: "Teaching"
   #   url: /teaching/    
@@ -34,3 +31,6 @@ main:
     
   # - title: "Guide"
   #   url: /markdown/
+
+  # - title: "Slides"
+  #   url: /slides/

@@ -1,45 +1,35 @@
 {
   "basics": {
-    "name": "Your Sidebar Name",
-    "email": "none@example.org",
-    "phone": "",
-    "website": "https://academicpages.github.io",
-    "summary": "Currently employed at Red Brick University. Short biography for the left-hand sidebar",
+    "name": "Jihyung Kook",
+    "email": "thepawgrammer@gmail.com",
+    "phone": "+82 10-9722-7482",
+    "website": "https://thepawgrammer.github.io",
+    "summary": "Researcher at the <a href='https://sites.google.com/view/pmlclab/research' target='_blank'>Privacy-preserving Machine Learning and Cryptography Lab (PMLC Lab)</a>, under the supervision of <a href='https://sites.google.com/view/pmlclab/home' target='_blank'>Prof. Eunsang Lee (이은상)</a>. My research broadly focuses on <strong>privacy-preserving machine learning and cryptography</strong>, with applications to sensitive domains such as healthcare. Motivated by the belief that technology should safeguard people’s everyday peace and expand opportunities to learn and dream, I aim to advance secure and practical methods for future AI systems.",
     "location": {
       "address": "",
       "postalCode": "",
-      "city": "Earth",
-      "countryCode": "US",
-      "region": ""
+      "city": "Seoul",
+      "countryCode": "KR",
+      "region": "South Korea"
     },
     "profiles": [
       {
-        "network": "Google Scholar",
-        "username": "",
-        "url": "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
-      },
-      {
-        "network": "ORCID",
-        "username": "",
-        "url": "http://orcid.org/yourorcidurl"
-      },
-      {
         "network": "GitHub",
-        "username": "academicpages",
-        "url": "https://github.com/academicpages"
+        "username": "thepawgrammer",
+        "url": "https://github.com/thepawgrammer"
       }
     ]
   },
   "work": [],
   "education": [
     {
-      "institution": "GitHub University",
-      "area": "Ph.D in Version Control Theory",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2018",
+      "institution": "Georgia Institute of Technology",
+      "area": "Masters in Computer Science",
+      "studyType": "online",
+      "startDate": "2021",
+      "endDate": "2024",
       "gpa": null,
-      "courses": []
+      "courses": ["Intro to Research", "Artifical Intelligence", "Computer Vision"]
     },
     {
       "institution": "GitHub University",
