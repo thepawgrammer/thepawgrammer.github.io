@@ -13,8 +13,8 @@ citation: 'Tae-jung Oh, Ji-hyung Kook, Se Young Jung, Duck-Woo Kim, Sung Hee Cho
 ---
 
 <span style="color:gray">
-한국어 요약: 임상 데이터 웨어하우스 기반으로 **표준화된 GIK 주입 프로토콜**을 검증했습니다.  
-프로토콜 간 변동성을 줄이고 안전성 모니터링의 실용성을 확인했습니다. 제 역할은 EHR 전처리·분석, 결과 정리 및 도표 제작이었습니다.
+요약: 임상 데이터 웨어하우스 기반으로 **표준화된 GIK 주입 프로토콜**을 검증했습니다.  
+프로토콜 간 변동성을 줄이고 안전성 모니터링의 실용성을 확인했습니다. 제 역할은 전자 의무 기록인 Electronic Medical Record (EMR) 전처리·분석, 결과 정리 및 도표 제작이었습니다.
 </span>
 
 ### TL;DR
