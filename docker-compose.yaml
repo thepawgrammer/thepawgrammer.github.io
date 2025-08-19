@@ -1,8 +1,11 @@
 services:
   jekyll-site:
-    image: jekyll-site
     build: .
-    volumes: [ .:/usr/src/app ]
-    ports: [ 4000:4000 ]
-    user: 1000:1000
-    command: jekyll serve -H 0.0.0.0 -w
+    image: jekyll-site
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "4000:4000"
+      - "35729:35729"   # LiveReload 포트
+    user: "1000:1000"
+    command: bundle exec jekyll serve -H 0.0.0.0 -w --livereload --force_polling
