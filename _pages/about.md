@@ -35,7 +35,7 @@ I am a researcher at the <a href="https://sites.google.com/view/pmlclab/research
 ---
 
 ## News
-- *2025‑07*: Started as a researcher at PMLC Lab (Seoul, KR).  
+- *2025‑07*: Started as a researcher at **PMLC Lab** (Seoul, KR).  
 - *2025‑05*: Completed **Intro to Research** (OMSCS) – proposal writing, SLR, and structured peer review.  
 <!-- 필요 없으면 위/아래 줄을 삭제하거나 더 추가하세요. -->
 
