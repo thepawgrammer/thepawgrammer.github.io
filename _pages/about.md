@@ -7,8 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-> I research <strong>privacy-preserving machine learning and cryptography</strong>, developing methods that protect <strong>data privacy</strong> in learning and unlearning systems.
-My goal is to create future AI that is both <strong>trustworthy and usable</strong>.  
+> My research focuses on <strong>privacy-preserving machine learning and cryptography</strong>, with a focus on developing methods that protect <strong>data privacy in both learning and unlearning systems</strong>. My work aims to advance secure and practical approaches that ensure the <strong>trustworthiness and usability of future AI technologies</strong>.
   
 > <span style="color:gray">저는 개인정보 보호형 머신러닝과 암호기술을 활용하여 학습과 언러닝 과정 전반에서 데이터 프라이버시를 보장하는 방법을 연구합니다. 궁극적으로는 신뢰할 수 있고 실용적인 AI를 만드는 것을 목표로 합니다.</span>
 
