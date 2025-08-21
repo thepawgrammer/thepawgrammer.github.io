@@ -22,6 +22,12 @@ Education
 * M.S. in Computer Science, Georgia Institute of Technology, 2024 (Online)
 * B.S. in Statistics, Sookmyung Women's University, 2017
 
+Publications
+======
+  <ul>{% for post in site.publications reversed %}
+    {% include archive-single-cv.html %}
+  {% endfor %}</ul>
+
 Research Experience
 ======
 * **Jul 2025 - Present: Researcher**  
@@ -59,12 +65,6 @@ Work Experience
   * Analyzed purchase and browsing data to optimize product recommendations and marketing strategies.
   * Built custom dashboards in Tableau and R-Shiny to enable data-driven decisions for business teams.
   * Conducted internal training in Python, R, and Tableau to improve organizational data literacy. 
-
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
 
 Skills
 ======

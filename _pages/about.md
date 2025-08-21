@@ -1,17 +1,19 @@
 ---
 permalink: /
-title: "Jihyung Kook (국지형)"
+title: "Overview"
 author_profile: true
 redirect_from:
   - /about/
   - /about.html
 ---
 
-> Researcher in <strong>privacy‑preserving machine learning</strong> and <strong>cryptography</strong> — currently exploring federated learning and homomorphic encryption for sensitive domains such as healthcare and finance.  
-> <span style="color:gray">개인정보 보호형 머신러닝과 암호기술을 연구해서 의료와 금융 같은 민감한 영역에서 안전하고 신뢰할 수 있는 기술을 구현하는 것을 꿈꾸고 있습니다.</span>
+> I research <strong>privacy-preserving machine learning and cryptography</strong>, developing methods that protect <strong>data privacy</strong> in learning and unlearning systems.
+My goal is to create future AI that is both <strong>trustworthy and usable</strong>.  
+  
+> <span style="color:gray">저는 개인정보 보호형 머신러닝과 암호기술을 활용하여 학습과 언러닝 과정 전반에서 데이터 프라이버시를 보장하는 방법을 연구합니다. 궁극적으로는 신뢰할 수 있고 실용적인 AI를 만드는 것을 목표로 합니다.</span>
 
 <p>
-  <a class="btn btn--primary btn--small" href="{{ '/cv/' | relative_url }}">CV</a>
+  <a class="btn btn--primary btn--small" href="{{ '/files/CV - 20250821.pdf' | relative_url }}" target="_blank">CV (PDF)</a>
   <!-- <a class="btn btn--small" href="https://scholar.google.com/citations?user=PS_CX0AAAAAJ">Google Scholar</a> -->
   <a class="btn btn--small" href="https://github.com/thepawgrammer">GitHub</a>
   <a class="btn btn--small" href="mailto:thepawgrammer@gmail.com">Email</a>
@@ -19,36 +21,29 @@ redirect_from:
 
 ---
 
-## About
-I am a researcher at the <a href="https://sites.google.com/view/pmlclab/research" target="_blank">Privacy‑preserving Machine Learning and Cryptography Lab (PMLC Lab)</a>, supervised by <a href="https://sites.google.com/view/pmlclab/home" target="_blank">Prof. Eunsang Lee (이은상)</a>. My goal is to develop **secure and practical AI systems** that respect privacy without sacrificing utility.
+## ✨ About
+I am a researcher at the <a href="https://sites.google.com/view/pmlclab/research" target="_blank">Privacy‑preserving Machine Learning and Cryptography Lab (PMLC Lab)</a>, supervised by <a href="https://sites.google.com/view/pmlclab/home" target="_blank">Prof. Eunsang Lee (이은상)</a>. I am currently preparing projects on cryptographic techniques for privacy-preserving AI systems.
 
-### Research interests
-- Privacy‑Preserving Machine Learning (PPML)  
-- Federated Learning, Homomorphic Encryption  
-- Machine Unlearning (exploratory)  
-- Applications in **healthcare** and **finance**
+### 🔍 Research interests
+- **Privacy‑Preserving Machine Learning (PPML):** training and unlearning under privacy constraints 
+- **Cryptographic Techniques:** homomorphic encryption and related methods for secure learning
+- **Data Privacy:** balancing confidentiality and utility in real-world AI
 
-### Education
-- **M.S. in Computer Science**, Georgia Institute of Technology (OMSCS), 2024 (Online)  
+### 🎓 Education
+- **M.S. in Computer Science**, Georgia Institute of Technology (OMSCS), 2024  
 - **B.S. in Statistics**, Sookmyung Women’s University, 2017
 
 ---
 
-## News
-- *2025‑07*: Started as a researcher at **PMLC Lab** (Seoul, KR).  
-- *2025‑05*: Completed **Intro to Research** (OMSCS) – proposal writing, SLR, and structured peer review.  
+## 📣 News
+- *2025‑07*: Began research on **cryptographic techniques for privacy-preserving AI** at PMLC Lab (Seoul, KR).  
+- *2025‑05*: Completed **Intro to Research** (OMSCS) – designed a proposal on homomorphic encryption in PPML.  
 <!-- 필요 없으면 위/아래 줄을 삭제하거나 더 추가하세요. -->
 
 ---
 
-## Selected publication
+## 📄 Publication
 - **A standardized glucose–insulin–potassium infusion protocol in surgical patients: Use of real clinical data from a clinical data warehouse**  
-  *Diabetes Research and Clinical Practice*, 2021.  
+  *Diabetes Research and Clinical Practice*, 174(2021), 108756.  
   <a href="{{ '/publications/' | relative_url }}">See details →</a>
 
----
-
-## Contact
-- Email: thepawgrammer@gmail.com  
-- Location: Seoul, South Korea  
-- Links: <a href="https://github.com/thepawgrammer">GitHub</a> · <a href="https://www.linkedin.com/in/jihyung-kook">LinkedIn</a>
