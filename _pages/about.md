@@ -28,10 +28,6 @@ I am a researcher at the <a href="https://sites.google.com/view/pmlclab/research
 - **Cryptographic Techniques:** homomorphic encryption and related methods for secure learning
 - **Data Privacy:** balancing confidentiality and utility in real-world AI
 
-### 🎓 Education
-- **M.S. in Computer Science**, Georgia Institute of Technology (OMSCS), 2024  
-- **B.S. in Statistics**, Sookmyung Women’s University, 2017
-
 ---
 
 ## 📣 News
