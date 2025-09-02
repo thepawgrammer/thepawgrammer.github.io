@@ -18,7 +18,7 @@ tags:
 
 ## 1. 공개키암호 (Public-Key Cryptography)
 ### 1) One-way Function
-- x가 주어졌을 때, <span>\(f(x)\)</span>를 계산하긴 쉽지만, <span>\(f(x)\)</span>가 주어졌을 땐 <span>\(f^{-1}(x)\)</span>를 계산하는 것은 어렵다.  
+- x가 주어졌을 때, f(x)를 계산하긴 쉽지만, f(x)가 주어졌을 땐 f<sup>-1</sup>(x)를 계산하는 것은 어렵다.  
   e.g.) 큰 수의 소인수분해 → pq계산은 쉽지만, n=pq일 때, p와 q를 찾는 것은 어렵다.  
 
     <details>
