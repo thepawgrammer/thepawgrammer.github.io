@@ -60,7 +60,8 @@ tags:
 
 <details>
   <summary>📚 참고 자료 모아보기</summary>
-  
+  <div markdown="1">
+
   ### 1) 공개키 암호가 생겨난 이유 💡
   - **대칭키 암호(Symmetric Cryptosystem)의 한계**  
     • 모든 통신 쌍이 서로 다른 비밀키를 공유해야 안전함  
@@ -123,7 +124,8 @@ tags:
 
   - **Integer Factorization**  
     큰 수 \(n = pq\)를 소인수분해하는 문제 (RSA 안전성의 기반)  
-
+  
+  </div>
 </details>
 
 
