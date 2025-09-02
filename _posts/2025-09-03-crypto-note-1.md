@@ -65,20 +65,20 @@ tags:
     <details>
       <summary>🔎 왜 <strong>"이산 로그 문제"</strong>가 어려운가?</summary>
       <div style="border:2px solid #007acc; border-radius:6px; padding:8px 12px; background:#f0f8ff; margin:8px 0; width:90%; font-size:0.95em;" markdown="1">
-      - 만약 모듈러 $p$ 없이 **정수 지수승**이라면:  
-        $g^1, g^2, g^3, \dots$ 의 값은 계속 커지고, 대략 몇 번 곱했는지 추측할 수 있음  
-        *→ 여러 번 반복하면 로그 값(지수)을 조금씩 알아낼 수 있다.*  
+      • 만약 모듈러 $p$ 없이 **정수 지수승**이라면:  
+      &nbsp;&nbsp;$g^1, g^2, g^3, \dots$ 의 값은 계속 커지고, 대략 몇 번 곱했는지 추측할 수 있음  
+      &nbsp;&nbsp;*→ 여러 번 반복하면 로그 값(지수)을 조금씩 알아낼 수 있다.*  
 
-      - 그러나 모듈러 $p$ 연산을 하면:  
-        $g^a \pmod{p}$는 $0 \sim p-1$ 범위 안에서 **뒤섞여(cycle)** 나타남  
-        *→ 출력 값만 보고는 $a$의 크기를 추측할 단서가 사라진다.*  
+      • 그러나 모듈러 $p$ 연산을 하면:  
+      &nbsp;&nbsp;$g^a \pmod{p}$는 $0 \sim p-1$ 범위 안에서 **뒤섞여(cycle)** 나타남  
+      &nbsp;&nbsp;*→ 출력 값만 보고는 $a$의 크기를 추측할 단서가 사라진다.*  
 
-      - 따라서 $y = g^a \pmod{p}$에서 $a$를 찾는 문제는 현재 알려진 방법으로는 **지수 시간**이 걸린다.  
+      • 따라서 $y = g^a \pmod{p}$에서 $a$를 찾는 문제는 현재로써는 **지수 시간**이 걸린다.  
 
       📌 **정리**  
-      - 정수 로그: 크기 비교로 추측 가능 → 쉽다.  
-      - 이산 로그(mod p): 값이 wrap-around 되므로 추측 불가 → 어렵다.  
-      - Diffie–Hellman 키 교환의 안전성은 바로 이 **DLP의 난이도**에 기반한다.
+      • 정수 로그: 크기 비교로 추측 가능 → 쉽다.  
+      • 이산 로그(mod p): 값이 wrap-around 되므로 추측 불가 → 어렵다.  
+      • Diffie–Hellman 키 교환의 안전성은 바로 이 **DLP의 난이도**에 기반한다.
       </div>
     </details>
 
@@ -103,6 +103,7 @@ tags:
       &nbsp;&nbsp; • $\mathbb{DL}_p = \mathbb{DH}_p,$ $if$ $\exists$ <em>an elliptic curve $E$ over $\mathbb{Z}_p$ $s.t.$ $|E(\mathbb{Z}_p)|$ is smooth.</em> <br/>  
       &nbsp;&nbsp;&nbsp;&nbsp; → 만약 어떤 타원곡선 $E$가 유한체 $\mathbb{Z}_p$ 위에 정의돼 있고, 그 점들의 개수 $|E(\mathbb{Z}_p)|$가 
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <em>smooth</em>하다면, <strong>DL 문제와 DH 문제가 동치</strong>라는 결과가 알려져 있다. <br/>
+      <span style="color:red; font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp; → 충족하는 것을 찾는 데 걸리는 시간 $\neq$ 다항식 시간</span><br/>
 
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ※ <strong>$g$의 order(위수)</strong>란 "$g$를 계속 곱하다 보면 언젠가 처음 상태(1)로 돌아오는데, <br/>  
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;그때까지 <strong>몇 번 곱해야 돌아오는지</strong>"를 의미한다. <br/>  
@@ -122,7 +123,11 @@ tags:
 ### 4) PKC (Public-Key Cryptography) Schemes
 - 1976 ~ 1979  
   • Diffie & Hellman | R.Rivest, A.Shamir, L.Adleman | Rabin scheme | Williams scheme |  
-  &nbsp;&nbsp;McEliece scheme | Knapsack scheme  
+  &nbsp;&nbsp;McEliece scheme | Knapsack scheme   
+- 1985 ~ Current  
+  • ElGamal scheme (Diffie & Hellman을 Encryption으로 바꾼 경우)  
+  • Elliptic Curve based scheme | Hidden Field Equations | Lattice Cryptography |  
+  &nbsp;&nbsp;Non-abelian group Cryptography | Fully Homomorphic Encryption  
 
 <details>
   <summary>📚 <strong>참고 자료 모아보기</strong></summary>
