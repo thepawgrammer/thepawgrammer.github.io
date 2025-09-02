@@ -41,7 +41,7 @@ tags:
 - q보다 작은 자연수 g  
 
 **과정**:
-- Alice: 개인키 \(a\), 공개키 \(A = g^a \pmod q\)
+- Alice: 개인키 $a$, 공개키 $A = g^a \pmod{q}$
 - Bob: 개인키 b, 공개키 B = g<sup>b</sup>
 - Eve(도청자): g<sup>a</sup>, g<sup>b</sup>에서 a, b 정보를 알아내는 것은 어렵다.
 - Alice와 Bob의 공통 비밀정보: g<sup>ab</sup> = g<sup>ba</sup>
