@@ -18,16 +18,17 @@ tags:
 1. 공개키암호 (Public-Key Cryptography)
 ------
 1) One-way Function
-  - \(x\)가 주어졌을 때, \(f(x)\)를 계산하긴 쉽지만, \(f(x)\)가 주어졌을 땐 \(f^{-1}(x)\)를 계산하긴 어렵다.
-  <div style="border:2px solid #007acc; border-radius:8px; padding:10px; background:#f0f8ff; margin:10px 0;">
-  <strong>깜짝 퀴즈 🎯</strong><br/>
-  일방향 함수만 있으면 공개키 암호를 만들 수 있을까?<br/>
+- x가 주어졌을 때, f(x)를 계산하긴 쉽지만, f(x)가 주어졌을 땐 f<sup>-1</sup>(x)를 계산하긴 어렵다.
+
+<div style="border:2px solid #007acc; border-radius:8px; padding:10px; background:#f0f8ff; margin:10px 0;">
+  <strong>🎯 깜짝 퀴즈 🎯</strong><br/> 일방향 함수만 있으면 공개키 암호를 만들 수 있을까?<br/>
   → <span style="color:red; font-weight:bold;">Open Problem</span><br/>
-  단, 전자서명은 일방향 함수만 있어도 만들 수 있다는 것이 증명됨.
+  <em>단, 전자서명은 일방향 함수만 있어도 만들 수 있다는 것이 증명됨</em>
 </div>
 
 2) Trapdoor One-way Function
-  - \(x\)가 주어졌을 때, \(f(x)\)를 계산하긴 쉽지만, \(f(x)\)가 주어졌을 땐 \(f^{-1}(x)\)를 계산하긴 어렵다.
+  - x가 주어졌을 때, f(x)를 계산하긴 쉽지만, f(x)가 주어졌을 땐 f<sup>-1</sup>(x)를 계산하긴 어렵다.
+    단, 특정 정보(Trapdoor Information)이 주어졌을 때, y가 주어졌을 때, f<sup>-1</sup>(y)는 계산하긴 쉽다.
 
 
 
