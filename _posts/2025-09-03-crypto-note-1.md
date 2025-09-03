@@ -177,7 +177,24 @@ tags:
       • 여기서 $pk = g^b$, $b$: Bob의 개인키, $r$: Alice가 매 메시지마다 선택하는 난수
       </div>
     </details>
+    
+    <details>
+      <summary>🎯 <strong>깜짝 퀴즈</strong> 🎯 </summary>
+      <div style="border:2px solid #007acc; border-radius:6px; padding:10px 15px; background:#f0f8ff; margin:12px 0; width:90%; font-size:0.95em;" markdown="1">
+      
+      **Q.** ElGamal 암호화에서  
+      &nbsp;&nbsp;&nbsp;&nbsp;$$
+      m \;\mapsto\; (g^r,\; g^{rb}\cdot m)
+      $$  
+      &nbsp;&nbsp;&nbsp;&nbsp;이 과정을 **거꾸로 가려면 필요한 정보는 무엇일까?**  
 
+      **A.** 바로 **Bob의 개인키 $b$** 이다.  
+      &nbsp;&nbsp;&nbsp;&nbsp;$(g^r, g^{rb}\cdot m)$에서 $m$을 되찾으려면 $g^{rb}$를 알아야 하고,  
+      &nbsp;&nbsp;&nbsp;&nbsp;이를 계산할 수 있는 유일한 정보가 $b$다.  
+
+      → 따라서 **$b$가 Trapdoor (비밀 열쇠)** 역할을 한다.  
+      </div>
+    </details>
   - Elliptic Curve based scheme / Hidden Field Equations / Lattice Cryptography /  
   Non-abelian group Cryptography / Fully Homomorphic Encryption  
 
