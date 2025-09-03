@@ -16,7 +16,14 @@ tags:
 
 해당 포스트는 서울대학교 천정희 교수님의 암호론 강의를 기반으로 작성하였다. 이번 포스트에서는 공개키암호와 RSA와 관련된 강의를 수강 후 요약•정리하고자 한다.
 
-## 1. 공개키암호 (Public-Key Cryptography)
+<details>
+    <summary>
+    <span style="font-size:1.25em; font-weight:bold;">
+      1. 공개키암호 (Public-Key Cryptography)
+    </span>
+  </summary>
+  <div markdown="1">
+
 ### 1) One-way Function
 - $x$가 주어졌을 때, $f(x)$를 계산하긴 쉽지만, $f(x)$가 주어졌을 땐 $f^{-1}(x)$를 계산하는 것은 어렵다.     
   $e.g.)$ 큰 수의 소인수분해 → $pq$ 계산은 쉽지만, $n=pq$ 일 때, $p$ 와 $q$ 를 찾는 것은 어렵다.  
@@ -121,7 +128,7 @@ tags:
     </details>
 
 ### 4) PKC (Public-Key Cryptography) Schemes
-- 1976 ~ 1979  
+- 1976 ~ 1984  
   - Diffie & Hellman / R.Rivest, A.Shamir, L.Adleman / Rabin scheme / Williams scheme /   
   McEliece scheme / Knapsack scheme   
 - 1985 ~ Current  
@@ -174,7 +181,8 @@ tags:
       m \longmapsto (g^r,\; g^{rb}\cdot m)
       $$  
 
-      • 여기서 $pk = g^b$, $b$: Bob의 개인키, $r$: Alice가 매 메시지마다 선택하는 난수
+      • 여기서 $pk = g^b$, $b$: Bob의 개인키, $r$: Alice가 매 메시지마다 선택하는 난수  
+      • ElGamal의 $G$는 “mod $p$에서의 곱셈군” $\mathbb{Z}_p^*$ 을 뜻한다
       </div>
     </details>
     
@@ -182,21 +190,80 @@ tags:
       <summary>🎯 <strong>깜짝 퀴즈</strong> 🎯 </summary>
       <div style="border:2px solid #007acc; border-radius:6px; padding:10px 15px; background:#f0f8ff; margin:12px 0; width:90%; font-size:0.95em;" markdown="1">
       
-      **Q.** ElGamal 암호화에서  
-      &nbsp;&nbsp;&nbsp;&nbsp;$$
+      **Q.** ElGamal 암호화에서 sk = $b$, pk = $g^{b}$ 일 때,  
+      &nbsp;&nbsp;&nbsp;&nbsp;• $$
+      \mathrm{Enc}_{pk}: \mathbb{Z}_p \longrightarrow G \times G
+      $$  
+      &nbsp;&nbsp;&nbsp;&nbsp;• $$
       m \;\mapsto\; (g^r,\; g^{rb}\cdot m)
       $$  
-      &nbsp;&nbsp;&nbsp;&nbsp;이 과정을 **거꾸로 가려면 필요한 정보는 무엇일까?**  
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; font-weight:bold;">→ 복호화하기 위해서 필요한 정보는 무엇일까?</span> 
 
       **A.** 바로 **Bob의 개인키 $b$** 이다.  
       &nbsp;&nbsp;&nbsp;&nbsp;$(g^r, g^{rb}\cdot m)$에서 $m$을 되찾으려면 $g^{rb}$를 알아야 하고,  
-      &nbsp;&nbsp;&nbsp;&nbsp;이를 계산할 수 있는 유일한 정보가 $b$다.  
+      &nbsp;&nbsp;&nbsp;&nbsp;이를 계산할 수 있는 유일한 정보가 $b$ 다.  
 
-      → 따라서 **$b$가 Trapdoor (비밀 열쇠)** 역할을 한다.  
+      → 따라서 **$b$ 가 Trapdoor (비밀 열쇠)** 역할을 한다.  
+
+      ⚠️ 단, 그렇다 해서 **Trapdoor One-way Function** 은 아니다.  
+      &nbsp;&nbsp;&nbsp;&nbsp;→ 왜냐하면 ElGamal은 항상 같은 $f(x)$를 내는 고정된 함수가 아니라,  
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**매번 임의의 $r$을 뽑아 다른 출력이 나오는 확률적 암호화 방식**이기 때문이다.  
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;즉, 수학적 함수라기보다는 **암호화 스킴 전체**에서  
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“거꾸로 갈 수 있게 해주는 비밀키”라는 의미로 트랩도어처럼 동작한다.
+
+      ---  
+      🔑 **정리** 🔑   
+      • **Trapdoor One-way Function**  
+        → “일방향만 쉽다." *(단, 비밀 정보(Trapdoor)가 있으면 거꾸로도 쉽다.)*  
+
+      • **공개키 암호 (PKC)**  
+        → “누구나 공개키로 암호화는 쉽게 할 수 있지만, 복호화는 어렵다."  
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(단, 비밀키가 있으면 복호화가 쉽다.”)*  
+
+      ∴ 즉, 구조적으로 보면 **공개키 암호(PKC) ≈ Trapdoor One-way Function**이다.  
+      → 다만 수학적으로 *정확히 동치* 라기보다는,    
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PKC가 성립하려면 **TOWF가 존재해야 한다**는 의미에서 **개념적 동치**로 본다.  
+
       </div>
     </details>
+
   - Elliptic Curve based scheme / Hidden Field Equations / Lattice Cryptography /  
   Non-abelian group Cryptography / Fully Homomorphic Encryption  
+
+- Hard Problems for PKC 
+  - Integer Factorization Problem (IFP)  
+    • 큰 수 $n = pq$ 를 소인수분해하는 문제  
+    • 관련: Quadratic Residuocity Problem  
+  - Discrete Logarithm Problem (DLP)  
+    • $y = g^x \pmod p$에서 $x$를 구하는 문제  
+    • 확장: Generalized DLP (Elliptic Curve, Hyperelliptic Curve, Class Field)   
+  - Linear Code Decoding  
+  - Multivariate Equations  
+    • 여러 변수에 대해 2차 이상의 다항식을 푸는 문제  
+    • 일반형:  
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$$
+      \begin{cases}
+      f_{1}(x_{1}, ..., x_{n}) = a_{1} \\
+      f_{2}(x_{1}, ..., x_{n}) = a_{2} \\
+      \vdots \\
+      f_{n}(x_{1}, ..., x_{n}) = a_{n}
+      \end{cases}
+      $$  
+      &nbsp;&nbsp;→ 1차(선형)일 경우, 가우스 소거법으로 $O(n^3)$ 안에 풀림  
+      &nbsp;&nbsp;→ 2차 이상일 경우, **NP-hard** (실질적으로 매우 어려움)  
+    • 관련: Hidden Field Equations, Isomorphism of Polynomials   
+  - Nonabelian Group (비가환군)  
+    • Conjugacy Problem (켤레 문제): $a, b$가 주어졌을 때 $x^{-1}ax = b$인 $x$를 찾는 문제  
+    • Decomposition Problem: 주어진 원소를 이루는 생성자들의 곱으로 분해하는 문제    
+    ※ 다만, 행렬군에서는 다항 시간 내로 풀려서, Braid Group(꼬임군) 등 다른 구조 사용  
+  - Lattice 기반 문제   
+    • SVP (Shortest Vector Problem): 주어진 격자에서 가장 짧은 벡터 찾기    
+    • CVP (Closest Vector Problem): 주어진 점에 가장 가까운 격자 벡터 찾기   
+    • 파생 문제들:  
+      • Learning with Errors (LWE): $y = Ax + e \pmod q$에서 $x$를 찾는 문제 (작은 오류 $e$ 포함)  
+      • Approximate Common Divisor (ACD): 약간의 노이즈가 있는 공약수 문제  
+
+  → 다만, 아직까지 **<span style="color:red;">NP-hard 문제를 기반으로 한 암호 스킴</span>**은 실용적으로 설계되지 못함  
 
 <details>
   <summary>📚 <strong>참고 자료 모아보기</strong></summary>
@@ -265,6 +332,9 @@ tags:
       큰 수 \(n = pq\)를 소인수분해하는 문제 (RSA 안전성의 기반)    
 
   </div>
+</details>
+
+</div>
 </details>
 
 
