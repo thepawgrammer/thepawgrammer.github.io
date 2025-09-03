@@ -14,13 +14,13 @@ tags:
   <img src="/images/explorations/crypto-cheon.png" alt="서울대학교 천정희 교수님의 암호론 강의" style="width:100%; border-radius:10px; margin-bottom:20px;"/>
 </a>
 
-해당 포스트는 서울대학교 천정희 교수님의 암호론 강의를 기반으로 작성하였다. 이번 포스트에서는 공개키암호와 RSA와 관련된 강의를 수강 후 요약•정리하고자 한다.
+해당 포스트는 서울대학교 천정희 교수님의 암호론 강의를 기반으로 작성하였다. 이번 포스트에서는 공개키암호와 RSA와 관련된 강의에서 배운 내용을 요약•정리하고자 한다.
 
 <details>
-    <summary>
-    <span style="font-size:1.25em; font-weight:bold;">
-      1. 공개키암호 (Public-Key Cryptography)
-    </span>
+  <summary>
+  <span style="font-size:1.25em; font-weight:bold;">
+    1. 공개키암호 (Public-Key Cryptography)
+  </span>
   </summary>
   <div markdown="1">
 
@@ -37,9 +37,13 @@ tags:
       </div>
     </details>
 
+---
+
 ### 2) Trapdoor One-way Function
 - 공개키 암호는 *"누구나 암호화할 수 있고, 특정 비밀키로만 복호화할 수 있어야"* 한다.
 - 즉, 일방향 함수에 추가로 **특별한 비밀 정보(Trapdoor Information, 일종의 열쇠 🔑)**가 주어진다면, $y$가 주어졌을 때, $f^{-1}(y)$는 쉽게 계산할 수 있다.
+
+---
 
 ### 3) Diffie-Hellman 키 교환
 - 두 사람이 공개된 통신로를 통해 **비밀 정보를 공유**하는 방법   
@@ -126,6 +130,8 @@ tags:
 
       </div>
     </details>
+
+---
 
 ### 4) PKC (Public-Key Cryptography) Schemes
 - 1976 ~ 1984  
@@ -263,7 +269,7 @@ tags:
       • Learning with Errors (LWE): $y = Ax + e \pmod q$에서 $x$를 찾는 문제 (작은 오류 $e$ 포함)  
       • Approximate Common Divisor (ACD): 약간의 노이즈가 있는 공약수 문제  
 
-  → 다만, 아직까지 **<span style="color:red;">NP-hard 문제를 기반으로 한 암호 스킴</span>**은 실용적으로 설계되지 못함  
+  → 다만, 아직까지 **<span style="color:red;">NP-hard 문제를 기반으로 한 암호 스킴</span>**은 실용적으로 설계하진 못함  
 
 <details>
   <summary>📚 <strong>참고 자료 모아보기</strong></summary>
@@ -285,6 +291,8 @@ tags:
     • 비밀키: 당사자만 알고 있음 → 복호화에 사용    
     • 따라서 키를 미리 비밀리에 나눌 필요 없음 → 키 관리 문제 해결    
 
+---
+
   <h3> 2) Merkle’s Puzzle (1974) </h3>
   - 최초로 “공개키 개념”을 제안한 시도    
   - Ralph Merkle, UC Berkeley 컴퓨터 보안 수업(1974) 제안    
@@ -298,6 +306,8 @@ tags:
   - 📌 교훈:  
     • **퍼즐 수를 늘리면 안전성은 기하급수적으로 증가**    
     • 이 아이디어가 이후 Diffie–Hellman 키 교환으로 발전    
+
+---
 
   <h3> 3) 복잡도 (Complexity) </h3>  
   암호학은 결국 **“쉽게 할 수 있는 연산과, 되돌리기 어려운 연산의 차이”**에 의존한다.    
@@ -334,8 +344,99 @@ tags:
   </div>
 </details>
 
-</div>
+  </div>
 </details>
 
+---
 
-## 2. RSA
+<details>
+  <summary>
+  <span style="font-size:1.25em; font-weight:bold;">
+    2. RSA (Rivest-Shamir-Adleman)
+  </span>
+  </summary>
+<div markdown="1">  
+
+### 1) Prime
+<details style="margin-left:20px;">
+  <summary>📘 <strong>Prime (소수)와 Euclid의 정리</strong></summary>
+  <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:95%; font-size:0.95em;" markdown="1">
+
+  <h3>- Prime (소수) 기본 개념 </h3>  
+  - **소수 정의**  
+    $p \geq 2$ 인 정수 $p$가 소수일 경우,
+    $$
+    a \mid p \;\Rightarrow\; a = \pm 1 \;\;\text{또는}\; \pm p
+    $$ 를 만족  
+    → 즉, 약수가 1과 자기 자신밖에 없음  
+
+  - **Irreducible (기약원)**  
+    $p = ab$ 를 인수분해했을 때, $a$ 또는 $b$ 중 하나가 단위원(unit, 즉 $\pm 1$) 일 때,  
+    $p$ 를 **기약원**이라고 함 → *정수에선 기약원 = 소수라고 생각하면 됨*   
+
+  ---
+
+  <h3>- Euclid의 정리 </h3>  
+  - **Euclid’s Lemma**  
+    $$
+    p \mid ab \;\;\Rightarrow\;\; p \mid a \;\;\text{또는}\;\; p \mid b
+    $$  
+    → 소수의 중요한 성질! (소수는 약간 “쪼갤 수 없는 블록”이라는 뜻)  
+
+  - **예시**  
+    • $p=5$, $ab = 20 = 4 \times 5$: $5 \mid (4 \times 5) \;\Rightarrow\; 5 \mid 5$ ✅  
+    • $p=7$, $ab = 21 = 3 \times 7$: $7 \mid (3 \times 7) \;\Rightarrow\; 7 \mid 7$ ✅  
+    • $p=6$, $ab = 6 = 2 \times 3$: $6 \mid (2 \times 3)$ 이지만 $6 \nmid 2$, $6 \nmid 3$ ❌ (합성수이므로 성립 ❌)  
+
+  - **무한 소수 정리 (Euclid)**  
+    • "소수는 무한히 많다."  
+    &nbsp;&nbsp;→ 만약 소수가 유한 개만 있다면, 그 소수들을 모두 곱한 뒤 +1을 하면 새로운 소수가 나타나  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;모순이 생긴다.  
+
+  </div>
+</details>
+
+- **Prime Number Theorem (소수 정리)**  
+  - $\pi(x)$ = $x$ 이하의 소수 개수  
+  - 정리:
+    $$
+    \lim_{x \to \infty} \pi(x) / (\frac{x}{\ln x}) = 1
+    $$
+    → $x$ 이하 소수의 개수는 대략 $\dfrac{x}{\ln x}$  
+
+  - 해석: "임의의 $x$ 근처의 수가 소수일 확률" ≈ $\dfrac{1}{\ln x}$  
+    - 여기서 $\ln$은 자연로그 (밑 = $e$ ), 정확히는 **$\dfrac{1}{(\text{자리수}) \cdot \ln 10}$**  
+    - 직관적으로 "10자리 수면 약 $\frac{1}{10}$, 100자리 수면 약 $\frac{1}{100}$ 확률" 
+
+  - 예시  
+    - $x = 10$ → 확률 $\frac{1}{\ln 10} \approx \frac{1}{2.3}$  
+    - $x = 10^{10}$ (10자리) → 확률 $\frac{1}{(10 \ln 10)} \approx \frac{1}{23}$  
+    - $x = 10^{100}$ (100자리) → 확률 $\frac{1}{(100 \ln 10)} \approx \frac{1}{230}$  
+    - $x = 3^{100}$ (약 $10^{47.7}$ 크기의 수, 48자리 수 정도):
+    $$
+    \frac{1}{\ln(3^{100})} = \frac{1}{100 \ln 3} \approx \frac{1}{110}
+    $$  
+    → 따라서 $3^{100}$가 소수일 확률은 약 $\frac{1}{110}$  
+  
+  - 일반 소수 정리의 오차항  
+    - $$
+      \pi(x) = \frac{x}{\ln x} + O\left(\frac{x}{\ln^2 x}\right)
+      $$  
+      → 즉, 실제 소수 개수는 $\dfrac{x}{\ln x}$에 가깝지만, 그 차이는 대략 $\dfrac{x}{\ln^2 x}$ 정도 크기  
+
+- **Riemann Hypothesis (리만 가설)**  
+  - 오차 항의 정밀도에 관한 주장  
+  - $ \lvert \pi(x) - \mathrm{li}(x) \rvert < x^{\frac{1}{2}} \ln x $, where $\mathrm{li}(x) := \int_2^x \frac{1}{\ln t} dt = \frac{x}{\ln x}+O(\frac{1}{\ln ^{2}t})$   
+  - 비교
+    - 일반 소수 정리: 오차항 $O\left(\tfrac{x}{\ln^2 x}\right)$  
+    - 리만 가설: 오차항 $O\left(x^{\frac{1}{2}}\ln x\right)$ (훨씬 더 작음)  
+  - 예시 : $x = e^{100}$ 일 때,
+    - 일반 소수 정리 오차:
+      $$
+      \frac{e^{100}}{(\ln e^{100})^2} = \frac{e^{100}}{100^2}
+      $$  
+    - 리만 가설 오차:
+      $$
+      (e^{100})^{\frac{1}{2}} \cdot \ln(e^{100}) = e^{50} \cdot 100
+      $$  
+    → RH가 참이라면, 오차가 $ \frac{e^{100}}{100^2} $ 에서 $ e^{50}\cdot 100 $ 으로, 약 $ \frac{e^{50}}{100^{3}} \approx 3\cdot 10^{15} $ 배 대폭 줄어듦
