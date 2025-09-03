@@ -122,12 +122,64 @@ tags:
 
 ### 4) PKC (Public-Key Cryptography) Schemes
 - 1976 ~ 1979  
-  • Diffie & Hellman | R.Rivest, A.Shamir, L.Adleman | Rabin scheme | Williams scheme |  
-  &nbsp;&nbsp;McEliece scheme | Knapsack scheme   
+  - Diffie & Hellman / R.Rivest, A.Shamir, L.Adleman / Rabin scheme / Williams scheme /   
+  McEliece scheme / Knapsack scheme   
 - 1985 ~ Current  
-  • ElGamal scheme (Diffie & Hellman을 Encryption으로 바꾼 경우)  
-  • Elliptic Curve based scheme | Hidden Field Equations | Lattice Cryptography |  
-  &nbsp;&nbsp;Non-abelian group Cryptography | Fully Homomorphic Encryption  
+  - ElGamal scheme (Diffie & Hellman을 Encryption으로 바꾼 경우)  
+    <details>
+      <summary>📌 <strong>Diffie–Hellman vs Ephemeral Diffie–Hellman</strong></summary>
+      <div style="border:2px solid #007acc; border-radius:6px; padding:8px 12px; background:#f0f8ff; margin:8px 0; width:90%; font-size:0.95em;" markdown="1">
+
+      **🔹 기본 Diffie–Hellman (DH)**<br/> 
+      - 한 번 생성한 개인키 $a, b$를 **재사용** 가능  
+      - 공개키 $A = g^a, B = g^b$도 그대로 유지  
+      - 키 합의는 안전하지만, **Forward Secrecy**(순방향 보안)는 보장되지 않음  
+        (만약 개인키가 유출되면 과거 통신도 모두 복호화 가능)  
+        ※ Forward Secrecy: 장기 개인키가 유출되더라도, 과거의 세션 키와 통신 내용은 복호화되지 않도록 보호하는 성질  
+
+      ---
+
+      **🔹 Ephemeral Diffie–Hellman (Ephemeral DH, ECDHE)**  
+      - *Ephemeral* = **세션마다 새로운 개인키 생성**  
+      - 각 세션의 $A = g^a, B = g^b$ 가 사실상 **퍼블릭 키(public key)** 역할  
+      - 세션이 끝나면 키를 버리므로, **Forward Secrecy** 보장  
+        (개인키가 유출돼도 과거 세션은 안전)  
+      - 실제로 HTTPS (TLS/SSL)에서 많이 사용됨  
+
+      ---
+
+      📌 **핵심**  
+      - “Ephemeral Diffie–Hellman을 쓰면, 그때그때의 공개키$(A, B)$가  
+        &nbsp;&nbsp;바로 **퍼블릭 키**로 기능한다.”
+      - 즉, DH 자체가 일시적인 **공개키 암호 시스템**이 되는 셈이다.
+      </div>
+    </details>
+
+    - Key Generation (KG): secret key (sk) = $b$, public key (pk) = $g^b$, ephemeral key = $r$ 
+    - 암호화 (Encryption)  
+    • Alice가 메시지 $m$을 보낼 때, 임의의 $r$를 선택  
+      &nbsp;&nbsp;&nbsp;• 암호문 = $(g^{r}, (g^{b})^r*m)$ → $g^{rb}$는 Bob의 공개키 $g^b$와 Alice의 $r$를 조합해서 생성  
+    - 복호화 (Decryption)  
+    • Bob(수신자): 개인키 $b$를 사용해 $g^{rb}$ 계산  
+      &nbsp;&nbsp;&nbsp;• 복호문 = $m = \dfrac{m \cdot g^{rb}}{g^{rb}}$ 로 원문 복원  
+    
+    <details>
+      <summary>🔐 <strong>Encryption 구조</strong></summary>
+      <div style="border:2px solid #007acc; border-radius:6px; padding:10px 15px; background:#f0f8ff; margin:12px 0; width:90%; font-size:0.95em;" markdown="1">
+
+      $$
+      \mathrm{Enc}_{pk}: \mathbb{Z}_p \longrightarrow G \times G
+      $$  
+      $$
+      m \longmapsto (g^r,\; g^{rb}\cdot m)
+      $$  
+
+      • 여기서 $pk = g^b$, $b$: Bob의 개인키, $r$: Alice가 매 메시지마다 선택하는 난수
+      </div>
+    </details>
+
+  - Elliptic Curve based scheme / Hidden Field Equations / Lattice Cryptography /  
+  Non-abelian group Cryptography / Fully Homomorphic Encryption  
 
 <details>
   <summary>📚 <strong>참고 자료 모아보기</strong></summary>
