@@ -4,17 +4,17 @@ date: 2025-09-03
 use_math: true   # ← 이 줄 추가
 permalink: /posts/2025/09/crypto-note-1/
 tags:
+  - cryptography
   - public-key
   - RSA
-  - cryptography
 ---
 
 <!-- 배너 이미지 + 링크 -->
 <a href="https://etl.snu.ac.kr/courses/67ac1cbf62137e66b0296b17" target="_blank">
-  <img src="/images/explorations/crypto-cheon.png" alt="서울대학교 천정희 교수님의 암호론 강의" style="width:100%; border-radius:10px; margin-bottom:20px;"/>
+  <img src="/images/explorations/cheon/crypto-cheon.png" alt="서울대학교 천정희 교수님의 암호론 강의" style="width:100%; border-radius:10px; margin-bottom:20px;"/>
 </a>
 
-해당 포스트는 서울대학교 천정희 교수님의 암호론 강의를 기반으로 작성하였다. 이번 포스트에서는 공개키암호와 RSA와 관련된 강의에서 배운 내용을 요약•정리하고자 한다.
+해당 포스트는 서울대학교 천정희 교수님의 암호론 강의를 기반으로 작성하였다. 이번 포스트에서는 공개키암호와 RSA에 대한 내용을 요약•정리하고자 한다.
 
 <details>
   <summary>
@@ -23,6 +23,8 @@ tags:
   </span>
   </summary>
   <div markdown="1">
+
+---
 
 ### 1) One-way Function
 - $x$가 주어졌을 때, $f(x)$를 계산하긴 쉽지만, $f(x)$가 주어졌을 땐 $f^{-1}(x)$를 계산하는 것은 어렵다.     
@@ -356,6 +358,8 @@ tags:
   </span>
   </summary>
 <div markdown="1">  
+
+---
 
 ### 1) Prime
 <details style="margin-left:20px;">
