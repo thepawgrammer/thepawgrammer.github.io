@@ -31,6 +31,7 @@ I am a researcher at the <a href="https://sites.google.com/view/pmlclab/research
 ---
 
 ## 📣 News
+- *2025-09*: Joined **DS@GT (Data Science @ Georgia Tech)**, the university’s largest student-led data science organization.  
 - *2025‑07*: Began research on **cryptographic techniques for privacy-preserving AI** at PMLC Lab (Seoul, KR).  
 - *2025‑05*: Completed **Intro to Research** (OMSCS) – designed a proposal on homomorphic encryption in PPML.  
 <!-- 필요 없으면 위/아래 줄을 삭제하거나 더 추가하세요. -->

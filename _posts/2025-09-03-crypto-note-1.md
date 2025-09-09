@@ -408,16 +408,22 @@ tags:
     - 여기서 $\ln$은 자연로그 (밑 = $e$ ), 정확히는 **$\dfrac{1}{(\text{자리수}) \cdot \ln 10}$**  
     - 직관적으로 "10자리 수면 약 $\frac{1}{10}$, 100자리 수면 약 $\frac{1}{100}$ 확률" 
 
-  - 예시  
-    - $x = 10$ → 확률 $\frac{1}{\ln 10} \approx \frac{1}{2.3}$  
-    - $x = 10^{10}$ (10자리) → 확률 $\frac{1}{(10 \ln 10)} \approx \frac{1}{23}$  
-    - $x = 10^{100}$ (100자리) → 확률 $\frac{1}{(100 \ln 10)} \approx \frac{1}{230}$  
-    - $x = 3^{100}$ (약 $10^{47.7}$ 크기의 수, 48자리 수 정도):
-    $$
-    \frac{1}{\ln(3^{100})} = \frac{1}{100 \ln 3} \approx \frac{1}{110}
-    $$  
-    → 따라서 $3^{100}$가 소수일 확률은 약 $\frac{1}{110}$  
+  - <details>
+      <summary>예시</summary>
+      <div markdown="1">
+
+      - $x = 10$ → 확률 $\frac{1}{\ln 10} \approx \frac{1}{2.3}$  
+      - $x = 10^{10}$ (10자리) → 확률 $\frac{1}{(10 \ln 10)} \approx \frac{1}{23}$  
+      - $x = 10^{100}$ (100자리) → 확률 $\frac{1}{(100 \ln 10)} \approx \frac{1}{230}$  
+      - $x = 3^{100}$ (약 $10^{47.7}$ 크기의 수, 48자리 수 정도):
+        $$
+        \frac{1}{\ln(3^{100})} = \frac{1}{100 \ln 3} \approx \frac{1}{110}
+        $$  
+        → 따라서 $3^{100}$가 소수일 확률은 약 $\frac{1}{110}$  
   
+      </div>
+    </details>
+
   - 일반 소수 정리의 오차항  
     - $$
       \pi(x) = \frac{x}{\ln x} + O\left(\frac{x}{\ln^2 x}\right)
@@ -430,13 +436,216 @@ tags:
   - 비교
     - 일반 소수 정리: 오차항 $O\left(\tfrac{x}{\ln^2 x}\right)$  
     - 리만 가설: 오차항 $O\left(x^{\frac{1}{2}}\ln x\right)$ (훨씬 더 작음)  
-  - 예시 : $x = e^{100}$ 일 때,
-    - 일반 소수 정리 오차:
+  - <details>
+      <summary>예시: $x = e^{100}$ 일 때,</summary>
+      <div markdown="1">
+      
+      - 일반 소수 정리 오차:
+        $$
+        \frac{e^{100}}{(\ln e^{100})^2} = \frac{e^{100}}{100^2}
+        $$  
+      - 리만 가설 오차:
+        $$
+        (e^{100})^{\frac{1}{2}} \cdot \ln(e^{100}) = e^{50} \cdot 100
+        $$  
+      → RH가 참이라면, 오차가 $ \frac{e^{100}}{100^2} $ 에서 $ e^{50}\cdot 100 $ 으로, 약 $ \frac{e^{50}}{100^{3}} \approx 3\cdot 10^{15} $ 배 대폭 줄어듦   
+      </div>
+    </details>
+
+---
+<details style="margin-left:20px;">
+  <summary>📘 <strong>RSA의 수학적 기초 (Euler Phi Function, Fermat & Euler Theorem)</strong></summary>
+  <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:95%; font-size:0.95em;" markdown="1">
+
+  <h3>- Euler Phi Function </h3>  
+  - **정의**  
+    $\varphi(n)$ = $[1,n]$ 범위 안에서 $n$과 서로소인 정수의 개수
+  - **성질**  
+    - $p$가 소수일 때, $\varphi(p) = p-1$   
+    - $\varphi$는 곱셈적 함수 (Multiplicative):  
+       → 만약 $\gcd(m,n) = 1$ 이라면, $\varphi(mn) = \varphi(m) \cdot \varphi(n)$
+  - **공식**  
+    - $n = pq$ (두 소수 $p, q$ 일 때), $\varphi(pq) = (p-1)(q-1)$   
+    - $n = p^k$ (소수 $p$의 거듭제곱일 때), $\varphi(p^k) = p^{k-1}(p-1)$   
+  - **예시**  
+    - $\varphi(7) = 6$ 
+    - $\varphi(8) = 4$  
+    - $\varphi(12) = 4$  
+    - $\varphi(1457) = \varphi(31 \cdot 47) = \varphi(31)\varphi(47)$   
+      $= (31-1)(47-1)$ = $30 \cdot 46 = 1380$ 
+    - $\varphi(1024) = \varphi(2^{10}) = 2^{10-1}(2-1) = 512$    
+
+  ---
+
+  <h3>- Fermat and Euler </h3>  
+  - **Fermat's Little Theorem**   
+    - $p$가 소수일 때,  
+    $$
+    \gcd(a,p)=1 \;\;\Rightarrow\;\; a^{p-1} \equiv 1 \pmod{p}
+    $$   
+  - **Euler's Theorem**  
+    - $a \in \mathbb{Z}_n^*$ 이면,
       $$
-      \frac{e^{100}}{(\ln e^{100})^2} = \frac{e^{100}}{100^2}
-      $$  
-    - 리만 가설 오차:
+      a^{\varphi(n)} \equiv 1 \pmod{n}
+      $$   
+    - 따라서 임의의 정수 $a$에 대해,
       $$
-      (e^{100})^{\frac{1}{2}} \cdot \ln(e^{100}) = e^{50} \cdot 100
+      a^r \equiv a^s \pmod{n}, \quad \text{if } r \equiv s \pmod{\varphi(n)}
+      $$
+    - $n$이 소수라면, $\varphi(n)=n-1$ 이므로, 페르마 소정리로 귀결된다.   
+
+  </div>
+</details>
+
+<details style="margin-left:20px;">
+  <summary>📘 <strong>법(法)과 항등식</strong></summary>
+  <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:95%; font-size:0.95em;" markdown="1">
+
+  - **정의**  
+    - $(a-b)$ 가 $n$의 배수 $\Leftrightarrow a \equiv b \pmod{n}$  
+    - $a$를 $n$으로 나눈 나머지$ \equiv a \pmod{n}$
+      - 예: $5 \equiv 2 \pmod{3}$, &nbsp;&nbsp;$5 \pmod{3} \equiv 2$   
+
+  - **성질**  
+    - $a \equiv b \pmod{n}$ 이고 $c \equiv d \pmod{n}$ 이면,
+      - $a + c \equiv b + d \pmod{n}$  
+      - $a - c \equiv b - d \pmod{n}$  
+      - $ac \equiv bd \pmod{n}$   
+
+  - **예시**  
+    - $1234 \times (56-78)$ 을 $3$으로 나눈 나머지는? 
+    - **$proof 1$**  
+      - $56 - 78 = -22 \equiv -1 \equiv 2 \pmod{3}$
+      - $1234 \equiv 1 \pmod{3}$
+    - **$proof 2$**  
+      - $(1233+1) \times {(54+2)-(78+0)}$ 
+        $\equiv 1 \times (2-0) \equiv 2 \pmod{3}$
+    - 따라서 $1234 \times (56-78) \equiv 1 \times 2 \equiv 2 \pmod{3}$
+    - 최종 답: 나머지는 **$2$**
+
+  </div>
+</details>
+
+### 2) RSA 암호 (1978): Revest, Shamir, Adleman
+- $n = pq$ (소수 $p, q$) 일 때, $\varphi(n)=(p-1)(q-1)$ 을 성립한다.
+- Euler 정리: $n$과 서로소인 정수 $x$에 대해 $x^{\varphi(n)} \equiv 1 \pmod{n}$
+- 준비 과정 (Alice)
+  - 소수 $p, q \rightarrow n = pq$
+  - 공개키 $(n,e)$: $n$보다 작은 정수 (이때, $\color{red}{e=2^{16}+1}$을 많이 사용)
+  - 비밀키 $(p,q,d)$: $de \equiv 1 \pmod{\varphi(n)}$
+- 암호화(아무나): 암호문 $c \equiv m^{e} \pmod{n}$ 을 계산
+- 복호화(비밀키 소유자 Alice만 가능):
+  - 암호문 $c$를 받아 $c^{d} = (m^{e})^d = m^{k\varphi(n)+1} \equiv m \pmod{n}$ 계산   
+    (단, $m, n$이 서로소인 경우만 성립)
+- 보안성: 공개키 $(n,e)$
+  - $n$을 인수분해 $\rightarrow p,q$ 안다 $\rightarrow \varphi(n)$ 안다 $\rightarrow e$에서 $d$ 계산 $\rightarrow c$에서 $m$ 계산
+  - 역은 성립하는 가?
+    - 복호화를 할 수 있다고 해서 비밀키 $d$를 알기 어렵다.
+    - $de \equiv 1 \pmod{\varphi(n)} \Leftrightarrow \varphi(n) \| (ed-1)$    
+      $\rightarrow \color{red}(ed-1)$을 안다고 해서 $\varphi(n)$을 안다는 보장이 없다!
+
+--- 
+
+### 3) Modular 지수승 계산 방법
+- $d$의 생성: Extended Euclidean Algorithm $O(\log^{2}{n})$
+- 지수승 계산: $a^{e}$ for $e = \sum_{i=0}^{t} e_{i} 2^{i}, \quad e_{i} \in {0,1}$   
+  - 전개:
+    $$ 
+    e_{t}2^{t}+e_{t-1}2^{t-1}+ \cdots +e_{1}2^{1}+e_{0}
+    $$
+  - 계산 구조: 
+    $$
+    (((a^{e_{t}})^{2}a^{e_{t-1}})^{2} \cdots )^{2}a^{e_{1}})^{2}a^{e_{0}}=a^{e_{t}2^{t}+e_{t-1}2^{t-1}+\cdots+e_{1}2^{1}+e_{0}2^{0}}
+    $$
+  - <details>
+      <summary>예시: $2^{26} \pmod{17}$</summary>
+      <div markdown="1">
+
+    - $26 = (11010)_{2} = 2^{4}+2^{3}+2^{1}$  
+      $\rightarrow 2^{26} = 2^{16} \cdot 2^{8} \cdot 2^{2}$  
+    - $2^{1} \equiv 2 \pmod{17}$  
+    - $2^{2} \equiv 4 \pmod{17}$  
+    - $2^{4} \equiv 16 \equiv -1 \pmod{17}$  
+    - $2^{8} \equiv (-1)^{2} = 1 \pmod{17}$  
+    - $2^{16} \equiv (2^{8})^{2} \equiv 1^{2} = 1 \pmod{17}$  
+
+    </div>
+    </details>
+
+- 계산량 $\varphi(n)$
+  - $(t+1)$: $e$ 의 bit length \| $wt(e)$: $e$의 Hamming weight
+  - $g$에 의해 $(t+1)$번 제곱, \| $(wt(e)-1)$번 곱셈 필요
+  - $0 \le wt(e)-1 < \|e\| \Rightarrow$ 평균적으로 $\|e\|/2$ 성립
+  - $e.g.) \|n\|=1024 \Rightarrow$ 약 $1,536$번 곱셈 연산 필요
+
+--- 
+
+### 4) Fast Implementation in RSA
+- **Fast Multiplication**   
+  - Karatsuba Method   
+    $$
+    \colon (a_{0}+a_{1}x)(b_{0}+b_{1}x) = a_{0}b_{0}+(a_{0}b_{1}+a_{1}b_{0})x+a_{1}b_{1}x^{2}
+    $$
+  - Toom-Cook, FFT
+  - Montgomery Reduction
+- **Fast Exponentiation**
+  - Sliding Window Method
+  - 밑(base)가 고정된 경우 Precomputation 활용
+
+---
+
+### 5) Fast Decryption Using CRT(중국인 나머지 정리)
+  - 목표: $M=C^{d} \pmod{n}$ where $n=pq$ 계산
+  - 계산 과정
+    - $C^{d} \pmod{p}$ 와 $C^{d} \pmod{q}$를 먼저 구한 뒤, CRT 이용
+    - $d_{1} = d \pmod{p-1} \Rightarrow M_{1} = C^{d} \pmod{p} = C^{d_{1}} \pmod{p}$
+    - $d_{2} = d \pmod{p-1} \Rightarrow M_{2} = C^{d} \pmod{p} = C^{d_{2}} \pmod{p}$
+    - CRT를 사용해 $M_{1} \& M_{2}$로부터 $M$ 계산 
+      $\rightarrow M=M_{2}p(p^{-1} \pmod{q})+M_{1}q(q^{-1} \pmod{p})$
+
+  - 장점: 직접 계산 대비 약 4배 빠름 
+    - $C^{d} \pmod{n}은 약 (1.5 \log{d}$ 번의 곱셈 필요
+    - 곱셈: $O(\log^{2}{n})$, 지수승 계산: $O(\log^3{n})$
+    - 모듈러 크기를 절반으로 줄여 두 번 반복하는 구조
+    - $d_{1}, d_{2}, p, q, p^{-1}, q^{-1}$ 저장
+  
+<details style="margin-left:20px;">
+  <summary>📘 <strong>중국인 나머지 정리 (CRT)</strong></summary>
+  <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:95%; font-size:0.95em;" markdown="1">
+
+  - **정의**  
+    서로소인 두 수 $n_1, n_2$에 대해,
+    $$
+    \begin{cases}
+    x \equiv a_1 \pmod{n_1} \\
+    x \equiv a_2 \pmod{n_2}
+    \end{cases}
+    $$
+    를 만족하는 해 $x$는 $n_1 n_2$ 범위에서 **유일하게 존재**한다.  
+
+  - **성질**  
+    - $n_1, n_2$가 서로소이면 위의 합동식은 항상 해를 가진다.  
+    - 해는
+      $$
+      x \equiv a_1 n_2 (n_2^{-1} \pmod{n_1}) + a_2 n_1 (n_1^{-1} \pmod{n_2}) \pmod{n_1 n_2}
+      $$
+      로 구할 수 있다.  
+
+  - **예시**  
+    다음 합동식을 풀어보자:
+    $$
+    \begin{cases}
+    x \equiv 2 \pmod{3} \\
+    x \equiv 3 \pmod{5}
+    \end{cases}
+    $$
+    - $n_1=3, n_2=5$ 일 때,   
+      $\rightarrow 5^{-1} \equiv 2 \pmod{3}, \;\; 3^{-1} \equiv 2 \pmod{5}$  
+      $$
+      \therefore x \equiv 2 \times 5 \times 2 + 3 \times 3 \times 2 = 38 \equiv 8 \pmod{15}   
       $$  
-    → RH가 참이라면, 오차가 $ \frac{e^{100}}{100^2} $ 에서 $ e^{50}\cdot 100 $ 으로, 약 $ \frac{e^{50}}{100^{3}} \approx 3\cdot 10^{15} $ 배 대폭 줄어듦
+
+    - 최종 답: $x \equiv 8 \pmod{15}$  
+
+  </div>
+</details>
