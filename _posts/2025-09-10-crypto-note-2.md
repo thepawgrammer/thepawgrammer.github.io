@@ -33,8 +33,11 @@ tags:
 - **Targets** 
 1. **One-wayness (OW)**: 역연산이 어려움 (hard to invert)  
   $\rightarrow$ 평문($e$)에서 암호문($c$)으로 갈 수 있지만 반대로는 불가하다!  
-  (그렇지만 평문이 짝수인지 홀수인지 알 수 있다는 것을 알게 됨ㅠ)   
+&nbsp;&nbsp;&nbsp;&nbsp;(그렇지만 평문이 짝수인지 홀수인지 알 수 있다는 것을 알게 됨ㅠ)   
 2. **Semantically Secure (Indistinguishable: IND)**: 부분 정보 노출 없음 (no partial information)  
+&nbsp;&nbsp;- 암호문 $c = E(m)$을 통해, 공격자가 평문 $m$에 대한 **어떤 부분 정보도 추론할 수 없어야 한다**.   
+&nbsp;&nbsp;- 즉, 암호문이 평문의 성질(예: 짝수/홀수, 길이, 특정 비트 값 등)을 드러내면 안 된다.  
+&nbsp;&nbsp;- 이를 만족할 때, 암호문은 평문에 대한 정보를 전혀 새지 않고 **무작위처럼 보인다**고 말한다.  
 3. **Non-malleability (NM)**: 암호문으로부터 의미 있는 변형을 만들기 어려움  
 &nbsp;&nbsp;- $R$: 어떤 non-trivial relation (비자명한 관계)  
 &nbsp;&nbsp;- $E(M)$: 평문 $M$의 암호문  
@@ -50,12 +53,6 @@ $\Rightarrow$ <span style="color:red">Semantically Secure하지 않으면, Indis
     암호체계가 *indistinguishable* 하다는 것은 공격자가 두 개의 평문 $m_0, m_1$ 중에서  
     임의로 하나를 선택 후, 암호문 $E(m_b)$을 만들어서 $(m_0, m_1, E(m_b))$ 으로부터  
     **$b$ 의 정보를 얻는 것이 어려워야 한다**는 것을 의미한다.  
-
-  - **IND 실험**  
-    1. 공격자가 두 평문 $m_0, m_1$을 선택한다.  
-    2. 난수 $b \in \{0,1\}$을 택하고, $c = E(m_b)$를 계산한다.  
-    3. 공격자는 $(m_0, m_1, c)$를 보고 $b$를 맞혀야 한다.  
-    4. 성공 확률이 $\tfrac{1}{2}$보다 **유의미하게 크지 않으면** → $\color{red}IND$ 보장.  
 
   </div>
 </details>
@@ -283,7 +280,7 @@ $$ (여기서 $\text{negl}(n)$은 보안 매개변수 $n$에 대해 무시 가�
 
   - **Non-Interactive Assumption (비상호작용 가정)**  
     - 반면 DDH 문제는 단순하다.  
-    - 주어진 $(g, g^x, g^y, g^z)$가 Diffie–Hellman 튜플인지 판별하기만 하면 된다.  
+    - 주어진 $(g, g^x, g^y, g^z)$가 Diffie–Hellman를 만족하는 지 판별하기만 하면 된다.  
     - 공격자와의 상호작용이 필요 없고, **문제 자체를 풀 수 있느냐 없느냐**만 보면 된다.  
 
   </div>
@@ -408,13 +405,27 @@ $$ (여기서 $\text{negl}(n)$은 보안 매개변수 $n$에 대해 무시 가�
   - 따라서 Solver가 공격자에게 <span style="color:red;">**진짜 복호화를 해주는 척(시뮬레이션)**</span> 해야 한다.  
 
 - **결과**  
-  - 공격자는 실제로는 복호화를 받지 못하지만, 마치 받는 것처럼 <span style="color:red;">**“착각”**</span>하게 된다.   
+  - 공격자는 실제로는 복호화한 결과물을 받지 못하지만, 마치 받는 것처럼 <span style="color:red;">**“착각”**</span>하게 된다.   
   - 이렇게 시뮬레이션을 만들어야만 CCA2 환경에서의 안전성을 증명할 수 있다.  
   - 따라서 **IND-CCA2 보안 증명은 CPA보다 훨씬 어렵다.**
 
 ---
 
 ### 2) OAEP (Optimal Asymmetric Encryption Padding)
+
+<details style="margin-left:20px;">
+  <summary>📘 <strong>랜덤 오라클(Random Oracle) 가정</strong></summary>
+  <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:95%; font-size:0.95em;" markdown="1">
+
+  - 해시 함수 $H$를 **무작위 신탁(oracle)**처럼 다룬다.  
+  - **가정 조건**  
+    1. 물어보기 전에는 $H(x)$ 값을 알 수 없다.  
+    2. 같은 입력 $x$를 넣으면 항상 같은 답 $H(x)$를 준다.  
+  - 실제 해시는 계산 가능한 함수이므로 진짜 “랜덤 오라클”은 아니다.  
+  - 하지만 증명을 위해 “랜덤 오라클처럼 동작한다”고 가정한다.  
+
+  </div>
+</details>
 
 - **아이디어**  
   - 평문 $m$에 무작위 값 $r$을 섞어 해시 함수 $G, H$를 적용하고,  
