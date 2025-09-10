@@ -468,7 +468,7 @@ $$ (여기서 $\text{negl}(n)$은 보안 매개변수 $n$에 대해 무시 가�
        alt="Random Oracle Model"
        style="max-width:100%; height:auto; display:block; margin:0 auto;"/>
   <figcaption style="font-size:0.9em; color:gray; text-align:center; margin-top:6px;">
-    [그림] RSA-OAEP 구조: 평문 $m$과 무작위 $r$을 해시 함수 $G, H$로 섞어 $(s\|\|t)$를 만들고, 이를 RSA로 암호화
+    [그림] RSA-OAEP 구조: 평문 $m$과 무작위 $r$을 해시 함수 $G, H$로 섞어 $(s||t)$를 만들고, 이를 RSA로 암호화
   </figcaption>
 </p>
 
