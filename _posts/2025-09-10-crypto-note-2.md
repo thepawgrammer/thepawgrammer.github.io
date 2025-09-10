@@ -265,3 +265,201 @@ $$ (여기서 $\text{negl}(n)$은 보안 매개변수 $n$에 대해 무시 가�
 
 ---
 
+### 1) ElGamal의 IND-CPA 안전성 정의
+- $G$: 소수 차수 $p$를 갖는 (순환) 가환군, 생성원 $g \in G$
+- **DDH 문제 (Decision Diffie–Hellman)**  
+ $\colon$ 주어진 $(g, g^x, g^y, g^z)$에 대해 $z \stackrel{?}{=} xy \pmod p$를 판정
+
+<details style="margin-left:20px;">
+  <summary>📘 <strong>ElGamal과 DDH의 관계</strong></summary>
+  <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:95%; font-size:0.95em;" markdown="1">
+
+  **<span style="color:red;">**"ElGamal이 깨지면 DDH도 깨진다 → 따라서 DDH가 안전하면 ElGamal도 안전하다"**</span>  
+
+  - **Interactive Assumption (상호작용 가정)**  
+    - ElGamal의 안전성을 정의하려면 **공격자(Adversary)와 도전자(Challenger)**가  
+      메시지를 주고받는 **시나리오**를 설정해야 한다.  
+    - 수학적으로 깔끔하게 표현하기 어려워, **공격자가 존재하지 않는다**는 식으로만 보안을 표현할 수 있다.  
+
+  - **Non-Interactive Assumption (비상호작용 가정)**  
+    - 반면 DDH 문제는 단순하다.  
+    - 주어진 $(g, g^x, g^y, g^z)$가 Diffie–Hellman 튜플인지 판별하기만 하면 된다.  
+    - 공격자와의 상호작용이 필요 없고, **문제 자체를 풀 수 있느냐 없느냐**만 보면 된다.  
+
+  </div>
+</details>
+
+---
+
+### 2) **ElGamal의 IND-CPA 보안 실험**  
+  1. 도전자 $C$가 비밀키 $k \xleftarrow{\$} \mathbb{Z}_p$를 뽑고 공개키 $g^k$를 만든다.  
+  2. 도전자 $C$는 공개키 $g^k$를 공격자 $A$에게 보낸다.  
+  3. 공격자 $A$는 두 평문 $m_0, m_1$을 선택해 도전자 $C$에게 보낸다.  
+  4. 도전자 $C$는 무작위 $r \xleftarrow{\$} \mathbb{Z}_p$와 무작위 비트 $b\in\{0,1\}$를 뽑고  
+    **암호문** $c=(g^r,\; m_b \cdot (g^k)^r)$를 $A$에게 전달한다.  
+  5. 공격자 $A$는 $b$를 추측해 $b'$를 제시한다.  
+    (보안 조건: $\Pr[b'=b] \le \tfrac12 + \mathrm{negl}(n)$)
+
+<p align="center">
+  <img src="/images/explorations/cheon/ind-cpa.png"
+       alt="IND-CPA Game for ElGamal"
+       style="max-width:40%; height:auto; display:block; margin:0 auto;"/>
+  <figcaption style="font-size:0.9em; color:gray; text-align:center; margin-top:6px;">
+    [그림] ElGamal의 IND-CPA 보안 실험: 공개키 $g^k$, 암호문 $c=(g^r,\; m_b\cdot (g^k)^r)$
+  </figcaption>
+</p>
+
+---
+
+### 3) **ElGamal의 IND-CPA 보안 실험 증명**  
+
+<p align="center">
+  <img src="/images/explorations/cheon/ind-cpa-proof.png"
+       alt="IND-CPA Experiment for ElGamal"
+       style="max-width:100%; height:auto; display:block; margin:0 auto;"/>
+  <figcaption style="font-size:0.9em; color:gray; text-align:center; margin-top:6px;">
+    [그림] ElGamal의 IND-CPA 보안 증명 (DDH 문제와의 연결)
+  </figcaption>
+</p>
+
+- **가정**  
+  - 공격자가 아주 가끔이라도 $b$를 잘 맞출 수 있다고 하자.  
+  - (이득이 작아도 반복/증폭 기법으로 항상 잘 맞추는 공격자로 바꿀 수 있음.)  
+
+- **DDH 문제와 연결**  
+  - 우리가 받은 문제: $(g, g^x, g^y, g^z)$  
+  - 목표: $z = xy$인지 아니면 랜덤인지 판별  
+
+- **공격자 활용**  
+  - $g^x$ → 공개키처럼 전달  
+  - $g^y$ → 난수 $r$ 대신 사용  
+  - $g^z$ → 암호문의 두 번째 성분 자리에 넣음  
+
+- **판정 원리**  
+  - 만약 $z=xy$: 공격자가 받은 건 **올바른 암호문**  
+    → $b$를 잘 맞춤 → DDH = “예 (Yes)”  
+  - 만약 $z\neq xy$: 공격자가 받은 건 **잘못된 암호문**  
+    → 공격자는 랜덤처럼 동작 → $b$를 못 맞춤 → DDH = “아니오 (No)”  
+
+- **반복 실험과 분포 판정**  
+  - 실제 증명에서는 단 한 번의 실행만으로 끝내지 않는다.  
+  - 공격자가 무작위 추측(50%)보다 **유의미하게 높은 확률**로 $b$를 맞추는지,  
+    여러 번 반복 실험을 통해 **분포를 기준으로 판정**한다.  
+
+<details style="margin-left:20px;">
+  <summary>📘 <strong>비유: 공격자를 시장에서 사온다?</strong></summary>
+  <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:95%; font-size:0.95em;" markdown="1">
+
+- **가정**  
+  - ElGamal을 무너뜨릴 수 있는 공격자가 *어딘가에 존재*한다고 치자.  
+  - 이 공격자는 아무 입력에나 작동하지 않고, **CPA 실험 절차**에서만 동작한다.  
+
+- **시장 비유**  
+  - 마치 “공격자를 파는 시장”에서 그런 컴퓨터를 하나 사왔다고 생각한다.  
+  - 그 공격자는 우리가 준 공개키·평문·암호문 시나리오 안에서만 움직인다.  
+  - 실제로 있는 건 아니지만, **사고실험(thought experiment)**으로 가정한다.  
+
+- **Reduction (귀속 아이디어)**  
+  - 우리가 진짜로 풀고 싶은 건 **DDH 문제**: $(g, g^x, g^y, g^z)$ 네 값이 주어졌을 때,  
+    마지막 값 $g^z$가 정말 $g^{xy}$인지, 아니면 랜덤 값인지 **구별할 수 있는지**를 묻는 문제다.  
+  - 그런데 ElGamal 공격자를 블랙박스처럼 활용하면, 이 판별을 할 수 있다.  
+  - 즉, ElGamal 공격자가 $b$를 잘 맞출 수 있다면 → $z=xy$인지 여부도 알아낼 수 있다.  
+
+- **작은 이득도 괜찮다**  
+  - 공격자가 $b$를 무조건 잘 맞추지 않아도 된다.  
+  - 무작위 추측보다 **아주 조금이라도 잘 맞춘다면**,  
+    반복 실행과 증폭 기법으로 충분히 유의미한 공격자로 바꿀 수 있다.  
+
+---
+
+✅ **핵심**  
+- ElGamal 공격자가 있다면 → DDH 해결기가 만들어진다.  
+- DDH가 어렵다면 → ElGamal 공격자는 없다.  
+- 따라서 **DDH가 안전하면 ElGamal도 IND-CPA로 안전하다.**    
+</div>
+</details>
+ 
+</div>
+</details>
+
+---
+
+<details>
+  <summary>
+  <span style="font-size:1.25em; font-weight:bold;">
+    3. RSA암호의 IND-CCA2 안전성 (IND-CCA2 Security of RSA) 
+  </span>
+  </summary>
+  <div markdown="1">
+
+---
+
+### 1) RSA의 IND-CCA2 안전성 설명
+- **IND-CPA와의 차이점**  
+  - CPA에서는 공격자가 공개키와 암호문만 보고 $b$를 맞추는 실험을 한다.  
+  - CCA2에서는 공격자가 **복호화 오라클(Decryption Oracle)**에 질문할 수 있다.  
+    - 즉, 원하는 암호문을 입력하면 평문을 돌려받는 환경을 가정한다.  
+    - 👉 오라클(Oracle)이란?  
+      마치 신탁처럼, 우리가 질문(입력)을 던지면 그에 맞는 답(출력)을 돌려주는 **가상의 상자**를 말한다. 실제로 존재하지는 않지만, **보안 모델을 정의하기 위해 가정**한다.  
+
+- **문제점**  
+  - DDH Solver는 비밀키 $x$를 모르기 때문에 직접 복호화를 해줄 수 없다.  
+  - 하지만 공격자는 “복호화를 요청할 수 있다”는 조건 하에서만 동작한다.  
+  - 따라서 Solver가 공격자에게 <span style="color:red;">**진짜 복호화를 해주는 척(시뮬레이션)**</span> 해야 한다.  
+
+- **결과**  
+  - 공격자는 실제로는 복호화를 받지 못하지만, 마치 받는 것처럼 <span style="color:red;">**“착각”**</span>하게 된다.   
+  - 이렇게 시뮬레이션을 만들어야만 CCA2 환경에서의 안전성을 증명할 수 있다.  
+  - 따라서 **IND-CCA2 보안 증명은 CPA보다 훨씬 어렵다.**
+
+---
+
+### 2) OAEP (Optimal Asymmetric Encryption Padding)
+
+- **아이디어**  
+  - 평문 $m$에 무작위 값 $r$을 섞어 해시 함수 $G, H$를 적용하고,  
+    결과를 다시 조합하여 $(s||t)$라는 블록을 만든 뒤 RSA로 암호화한다.  
+  - $f$: 일방향 함수 (예: $x \mapsto x^e \bmod n$)  
+  - 결과 암호문: $C = f(s\|\|t)$  
+
+- **특징**  
+  - $G, H$를 **랜덤 오라클**로 가정하여 증명을 진행한다.  
+  - 이 padding 방식을 사용하면 **RSA-OAEP**라는 안전한 RSA 스킴이 된다.  
+  - 실제로 PKCS#1 v2에 표준으로 채택되어 SSL, SET 등에서 사용되었다.  
+
+<p align="center">
+  <img src="/images/explorations/cheon/random-oracle.png"
+       alt="Random Oracle Model"
+       style="max-width:100%; height:auto; display:block; margin:0 auto;"/>
+  <figcaption style="font-size:0.9em; color:gray; text-align:center; margin-top:6px;">
+    [그림] 랜덤 오라클: 입력 $x$마다 무작위 출력 $H(x)$을 주되, 같은 입력에는 항상 같은 출력이 주어진다고 가정
+  </figcaption>
+</p>
+
+---
+
+### 3) RSA-OAEP의 보안 증명 (랜덤 오라클 모델)
+
+- **가정**  
+  - $f$는 일방향 함수 (예: RSA 지수승 모듈로 $n$).  
+  - $H$는 해시 함수이지만, 증명에서는 **랜덤 오라클**로 취급한다.  
+
+- **증명 아이디어**  
+  - 만약 공격자가 RSA-OAEP를 구별할 수 있다면, 결국 $f$를 역산할 수 있다는 걸 보인다.  
+  - 즉, **구별 가능성(distinguishability)**이 곧 **역산 가능성(invertibility)**을 의미한다.  
+
+- **결론**  
+  - 랜덤 오라클 모델 하에서, RSA-OAEP는 **IND-CCA2 안전성**을 만족한다.  
+  - 따라서 RSA에 padding을 잘 설계하면, 이론적으로도 안전성과 실용성을 모두 확보할 수 있다.  
+
+<p align="center">
+  <img src="/images/explorations/cheon/rsa-oaep.png"
+       alt="Random Oracle Model"
+       style="max-width:100%; height:auto; display:block; margin:0 auto;"/>
+  <figcaption style="font-size:0.9em; color:gray; text-align:center; margin-top:6px;">
+    [그림] RSA-OAEP 구조: 평문 $m$과 무작위 $r$을 해시 함수 $G, H$로 섞어 $(s\|\|t)$를 만들고, 이를 RSA로 암호화
+  </figcaption>
+</p>
+
+</div>
+</details>
