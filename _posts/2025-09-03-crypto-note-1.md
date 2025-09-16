@@ -14,7 +14,7 @@ tags:
   <img src="/images/explorations/cheon/crypto-cheon.png" alt="서울대학교 천정희 교수님의 암호론 강의" style="width:100%; border-radius:10px; margin-bottom:20px;"/>
 </a>
 
-해당 포스트는 서울대학교 천정희 교수님의 암호론 강의를 기반으로 작성하였다. 이번 포스트에서는 공개키암호와 RSA에 대한 내용을 요약•정리하고자 한다.
+해당 포스트는 서울대학교 천정희 교수님의 암호론 강의를 기반으로 작성하였다. 이번 포스트에서는 <strong>'공개키암호와 RSA'</strong>에 대한 내용을 요약•정리하고자 한다.
 
 <details>
   <summary>

@@ -1,15 +1,14 @@
 ---
-title: 'Security of Public-Key Cryptosystems'
-date: 2025-09-10
+title: 'Post-Quantum Cryptography'
+date: 2025-09-17
 use_math: true   # ← 이 줄 추가
-permalink: /posts/2025/09/crypto-note-2/
+permalink: /posts/2025/09/crypto-note-3/
 tags:
   - cryptography
   - public-key
-  - ElGamal
-  - RSA
-  - IND-CPA
-  - IND-CCA2
+  - post-quantum-cryptography
+  - quantum-resistant-cryptography
+  - lattice-based-cryptography
 ---
 
 <!-- 배너 이미지 + 링크 -->
@@ -17,85 +16,113 @@ tags:
   <img src="/images/explorations/cheon/crypto-cheon.png" alt="서울대학교 천정희 교수님의 암호론 강의" style="width:100%; border-radius:10px; margin-bottom:20px;"/>
 </a>
 
-해당 포스트는 서울대학교 천정희 교수님의 암호론 강의를 기반으로 작성하였다. 이번 포스트에서는 <strong>'공개키암호의 안전성'</strong>에 대한 내용을 요약•정리하고자 한다.
+해당 포스트는 서울대학교 천정희 교수님의 암호론 강의를 기반으로 작성하였다. 이번 포스트에서는 <strong>'양자내성암호'</strong>에 대한 내용을 요약•정리하고자 한다.
 
 <details>
   <summary>
   <span style="font-size:1.25em; font-weight:bold;">
-    1. 공개키암호의 안전성 개념 (Security of Public-Key Cryptosystems)
+    1. 양자내성(Quantum-resistant) 공개키암호
   </span>
   </summary>
   <div markdown="1">
 
 ---
 
-### 1) 공개키암호의 안전성 개념
-- **Targets** 
-1. **One-wayness (OW)**: 역연산이 어려움 (hard to invert)  
-  $\rightarrow$ 평문($e$)에서 암호문($c$)으로 갈 수 있지만 반대로는 불가하다!  
-&nbsp;&nbsp;&nbsp;&nbsp;(그렇지만 평문이 짝수인지 홀수인지 알 수 있다는 것을 알게 됨ㅠ)   
-2. **Semantically Secure (Indistinguishable: IND)**: 부분 정보 노출 없음 (no partial information)  
-&nbsp;&nbsp;- 암호문 $c = E(m)$을 통해, 공격자가 평문 $m$에 대한 **어떤 부분 정보도 추론할 수 없어야 한다**.   
-&nbsp;&nbsp;- 즉, 암호문이 평문의 성질(예: 짝수/홀수, 길이, 특정 비트 값 등)을 드러내면 안 된다.  
-&nbsp;&nbsp;- 이를 만족할 때, 암호문은 평문에 대한 정보를 전혀 새지 않고 **무작위처럼 보인다**고 말한다.  
-3. **Non-malleability (NM)**: 암호문으로부터 의미 있는 변형을 만들기 어려움  
-&nbsp;&nbsp;- $R$: 어떤 non-trivial relation (비자명한 관계)  
-&nbsp;&nbsp;- $E(M)$: 평문 $M$의 암호문  
-&nbsp;&nbsp;- NM조건: 공격자가 $E(M)$을 보고도 $E(R(M))$을 얻는 게 어렵다.   
-&nbsp;&nbsp;$\rightarrow$ 암호문을 변형해서 원래 평문과 관련된 다른 유효한 평문의 암호문을 얻을 수 없어야 한다.  
-$\Rightarrow$ <span style="color:red">Semantically Secure하지 않으면, Indistinguishable하지 않다!</span>  
+### 1) 양자 컴퓨터의 전망
+- 약 15년 이내에 기존 암호를 공격할 수준의 양자 컴퓨터 도래 예상  
+  <details style="margin-left:20px;">
+    <summary>📘 양자컴퓨터, 정말 만들 수 있을까?</summary>
+    <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:95%; font-size:0.95em;" markdown="1">
 
-<details style="margin-left:20px;">
-  <summary>📘 <strong>Indistinguishable 고차원 개념</strong></summary>
-  <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:95%; font-size:0.95em;" markdown="1">
+    **양자컴퓨터, 아직은 Open Problem**  
+    - 양자컴퓨터를 **충분히 큰 규모로 만들 수 있느냐**는 아직도 *open problem*이다.  
+    - 현재 우리는 소규모의 **양자 비트(Qubit)**를 다루는 장치는 만들었지만, 이를 **scalable**하게 확장할 수 있을지는 불확실하다.  
+    - 양자컴퓨터는 0과 1을 동시에 다루지만, 이로 인해 잡음(noise)와 decoherence가 심각해지고, **여러 큐비트를 동시에 안정적으로 제어하는 것**이 매우 어렵다.  
+    - 그래서, 예를 들어 1,000큐비트로 확장하게 되면 **오류(Error)**가 너무 커진다.  
+    
+    ---
 
-  - **정의**  
-    암호체계가 *indistinguishable* 하다는 것은 공격자가 두 개의 평문 $m_0, m_1$ 중에서  
-    임의로 하나를 선택 후, 암호문 $E(m_b)$을 만들어서 $(m_0, m_1, E(m_b))$ 으로부터  
-    **$b$ 의 정보를 얻는 것이 어려워야 한다**는 것을 의미한다.  
+    **양자컴퓨터의 두 가지 구현 방식**  
+    - **Quantum Gate 방식**: 전통적으로 암호학에 위협적인 방식이지만, 현재 발전 속도는 더딘 편이다.  
+    - **Quantum Annealing(어닐링) 방식**: D-Wave, Google 등에서 이미 수백 큐비트까지 구현했으나, 이 방식은 **암호를 다항식 시간 내에 깨지는 못한다.**  
+      대신, **검색·최적화 문제를 빠르게 푸는 데 유용**하며, 실제로 산업 응용에서 활발히 연구 중이다.  
+    - 따라서, 암호를 직접적으로 해독할 수 있는 게이트 기반 양자컴퓨터가 언제 등장할지는 불확실하다.  
+      어떤 전문가는 **15년**, 또 어떤 전문가는 **150년**을 예상할 정도로 의견 차이가 크다. 
 
-  </div>
-</details>
+    </div>
+  </details>
 
-- **Attacks**
-1. **Passive attacks** (*Chosen Plaintext Attack: CPA*)  
-2. **Active attacks** (*Chosen Ciphertext Attack: CCA*)  
+- 현재 널리 쓰이는 모든 공개키 암호(ECC/RSA 등)은 Shor's Algorithm 때문에 공격 가능  
+  <details style="margin-left:20px;">
+    <summary>📘 Shor's Algorithm 자세히 보기</summary>
+    <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:95%; font-size:0.95em;" markdown="1">
 
+    - Shor의 알고리즘은 인수분해와 이산로그 문제의 복잡도를 **지수적(exponential)**에서 **다항식(polynomial)** 수준으로 낮춘다.  
+    - 따라서 현재 우리가 사용하는 RSA, ECC 같은 공개키 암호는 양자컴퓨터에서 효율적으로 깨질 수 있다.  
+    - 예: 약 **1,000 큐비트** 정도의 양자컴퓨터가 현실화되면 RSA-2048 수준의 암호도 짧은 시간 안에 풀릴 수 있다고 예측한다.  
+
+    </div>
+  </details>
+
+- 반면, 대칭키 암호/해쉬 함수는 키의 길이, 해쉬의 길이를 두 배로 늘리면 기존 수준의 보안성 유지 가능  
+  
 ---
 
-### 2) Semantic Security (Indistinguisability: IND)
-- 단계
-  - 공격자가 두 평문 $m_0, m_1$ 을 선택한다.
-  - 공격자는 무작위 비트 $b \in \{0,1\}$ 을 선택해서, 암호문 $c=E(m_b)$을 얻는다.
-  - 공격자는 $(m_0, m_1, c)$ 를 바탕으로 $b$를 추측한다.
-  - 공격자의 추측 $b'$ 가 실제 $b$와 같을 확률은 **무작위 추측 수준($\frac{1}{2}$)을 유의미하게 넘지 않아야 한다.**
-
+### 2) Contemporary Cryptography
 <p align="center">
-  <img src="/images/explorations/cheon/ind.png" alt="IND Experiment" width="400"/>
+  <img src="/images/explorations/cheon/contemporary-cryptography.png" alt="IND Experiment" width="400"/>
   <figcaption style="font-size:0.9em; color:gray; text-align:center;">
-    [그림] IND 실험: 공격자는 $c = E(m_b)$를 보고 $b$를 추측해야 한다.
+    [그림] 양자 컴퓨터 시대의 암호학적 영향
   </figcaption>
 </p>
-$$
-\therefore \Pr[b = b'] \leq \tfrac{1}{2} + \text{negl}(n)
-$$ (여기서 $\text{negl}(n)$은 보안 매개변수 $n$에 대해 무시 가능한 값이다.)
+
+- 공개키 암호 (RSA, ECC, DH): Shor 알고리즘 때문에 안전하지 않음 → 비트 수 늘려도 소용 없음
+- 대칭키 암호 (AES 등): 키 길이를 2배로 늘리면 안전성 유지 가능 (예: AES-256 권장)
+- 해시 함수 (SHA 계열): 출력 길이를 3배로 늘려야 같은 수준의 보안성 유지 가능
+
+- **요약: 누가 무엇에 영향주는가**  
+  - **Shor's algorithm**: 공개키 암호(인수분해·이산로그 기반)를 양자환경에서 **다항식 시간(polynomial time)** 내에 풀어버리는 알고리즘 → 공개키 계열은 근본적 위협  
+  - **Grover's algorithm**: 대칭키/해시의 무차별 공격을 **제곱근(quadratic)** 속도로 가속화하는 알고리즘 → 완전 붕괴는 아니며, 키/출력 길이를 늘려 방어 가능
+
+  <details style="margin-left:20px;">
+    <summary>📘 왜 이렇게 되는 걸까?</summary>
+    <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:100%; font-size:0.95em;" markdown="1">
+    - **공개키 (Shor)**  
+      - 고전적 최선: 인수분해·이산로그는 지수 시간(대략 $(2^{n})$ 또는 유사) 소모  
+      - Shor: 이를 **다항식 시간(예: poly($n$))**으로 해결 → 비트 길이 확대만으로는 방어 불가
+
+    - **대칭키 (Grover)**  
+      - 고전적 무차별 검색: $O(2^{n})$ (키 길이: $n$)  
+      - Grover: $O(2^{\frac{n}{2}})$으로 가속 — 즉 **제곱근(Quadratic) 속도 향상**  
+      - 결과: 키 길이를 **2배** 하면 기존 수준의 보안 유지 가능 (예: AES-128 → AES-256 권장)
+
+    - **해시(충돌/프리이미지)**  
+      - 고전적 충돌 저항: $2^{\frac{n}{2}}$ (출력 길이: $n$)  
+      - 양자 영향 하의 충돌/프리이미지 복잡도는 알고리즘과 공격 모델에 따라 달라지지만, 실무에서는 **출력 길이를 충분히 늘림(권장: 약 3배 규칙)**으로 안전성을 확보하는 관점이 사용  
+      - 따라서 “128비트 수준의 안전성”을 목표로 하면 **출력 길이를 256비트가 아니라 더 늘려(약 384비트 권장)**야 한다는 주장으로 정리되는 경우가 있음
+
+    </div>
+  </details>
 
 ---
 
-### 3) Chosen Ciphertext Attack (CCA)
-- CCA1 (Lunch time attack, Naor-Yung, '90)  
-  - 공격자가 **능동적 공격을 끝낸 후** 암호문 $C_0$을 얻을 수 있는 상황  
+### 3) Post-Quantum Cryptography (1)
+- **2016년**, 미국 국가안보국(NSA)은 *"머지않은 미래(not too distant future)에 Post-Quantum Cryptography (PQC)로 전환하겠다"*고 발표 
+- 곧바로 미국 국립표준기술연구소(NIST)가 **PQC 표준화 프로젝트**를 시작하면서 오늘날의 Kyber, Dilithium 등 PQC 알고리즘 경쟁이 본격화
+  - 목표: Post-Quantum 공개키 암호(Encryption / Signature / Key Exchange)의 표준화
+  - 일정: (1) 2016년 가을 - Call for Proposals (2) 2017년 11월 - Submission 마감
 
-- CCA2 (Rackoff - Simon, '91)  
-  - 공격자가 **능동적 공격을 시작하기 전에** 암호문 $C_0$을 얻을 수 있는 상황  
+  <details style="margin-left:20px;">
+    <summary>📘 당시 상황을 조금 더 살펴보기</summary>
+    <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:100%; font-size:0.95em;" markdown="1">
 
-<figure style="text-align:center;">
-  <img src="/images/explorations/cheon/cca.png" alt="Chosen Ciphertext Attack" width="420"/>
-  <figcaption style="font-size:0.9em; color:gray; text-align:center;">
-    [그림] 선택 암호문 공격(CCA) 모형: 공격자는 복호화 오라클을 통해 다양한 암호문 $C_1, \cdots, C_n$에 대한 평문 정보를 얻지만, 
-    목표 암호문 $C_0$에 대해서는 직접 복호화를 요청할 수 없다.
-  </figcaption>
-</figure>
+    - 당시 미국 정부는 **Suite A/B 암호 체계**를 따랐는데, Suite B에는 **AES**와 **ECC**를 포함한다  
+    - 즉, 미국과 외국 정부가 안전하게 통신하려면 ECC 지원이 필수였다.  
+    - 그런데 NSA가 ECC 도입을 중단하고 PQC로 전환하겠다고 선언하면서, 사실상 **전 세계가 따라야 하는 신호**가 되었다.  
+    - NSA 발표 직후, NIST는 **2016년 가을 Call for Proposals**, **2017년 Submission 마감** 일정을 공개하며 PQC 표준화 작업에 착수했다.  
+
+    </div>
+  </details>
 
 ---
 
