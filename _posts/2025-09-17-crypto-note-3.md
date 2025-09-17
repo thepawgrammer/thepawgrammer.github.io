@@ -170,7 +170,7 @@ tags:
   - 지수 연산은 본질적으로 계산량이 크고, 효율성에도 한계가 있음
 - 그렇다면, **"지수승 대신 곱셈만으로도 안전한 암호를 만들 수 없을까?"**란 질문이 나옴
   - 곱셈은 지수승보다 계산이 훨씬 빠르지만 (제곱 정도의 계산량),  
-    $a \mapsto a^b$는 너무 단순해서 일방향 함수로 쓰기에는 안전성 부족
+    $a \mapsto ab$는 너무 단순해서 일방향 함수로 쓰기에는 안전성 부족
 
 <details style="margin-left:20px;">
   <summary><b><span style="color:red">📘 Lattice 접근법</span></b></summary>
@@ -201,7 +201,7 @@ tags:
 
 ---
 
-### 1) Geometry of Numbers: Lattices(1)
+### 1) Geometry of Numbers: Lattices (1)
 - 격자란 무엇인가?
   - 격자(Lattice)는 $\mathbb{R}^n$ 안에 있는 <u>이산적인(discrete)</u> 점들의 집합
     - 이산적이란? 임의의 격자점에서 작은 원을 그리면, 그 안에는 자기 자신만 있고 다른 격자점은 들어오지 않는다.
