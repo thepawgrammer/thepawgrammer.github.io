@@ -72,7 +72,7 @@ tags:
 <p align="center">
   <img src="/images/explorations/cheon/contemporary-cryptography.png"
        alt="Contemporary Cryptography"
-       style="max-width:80%; height:auto; display:block; margin:0 auto;"/>
+       style="max-width:100%; height:auto; display:block; margin:0 auto;"/>
   <figcaption style="font-size:0.9em; color:gray; text-align:center;">
     [그림] 양자 컴퓨터 시대의 암호학적 영향
   </figcaption>
