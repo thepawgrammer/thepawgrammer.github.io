@@ -52,7 +52,7 @@ I am a researcher at the <a href="https://sites.google.com/view/pmlclab/research
   <img src="{{'/images/personal/Run-HanRiver.JPG' | relative_url }}" alt="Running Han River" style="max-height:300px; border-radius:10px; margin-top:10px;">
 
 - **Gaming (World of Warcraft)**  
-  I play **World of Warcraft (WoW)** and especially enjoy its hardcore mode. To share the fun beyond myself, I created *videos, Shorts, and live streams*—enjoying Azeroth together with many others. I also draw and animate my own **mascot, 꾹만두**, who appears throughout my content. <a class="btn btn--primary btn--small" href="https://www.youtube.com/@%EA%BE%B9%EB%A7%8C%EB%91%90" target="_blank">🎮 More on YouTube</a>  
+  I play **World of Warcraft (WoW)** and especially enjoy its hardcore mode. To share the fun beyond myself, I created *videos, Shorts, and live streams*—enjoying Azeroth together with many others. I also draw and animate my own **mascot, 꾹만두 (cook mandu)**, who appears throughout my content. <a class="btn btn--primary btn--small" href="https://www.youtube.com/@%EA%BE%B9%EB%A7%8C%EB%91%90" target="_blank">🎮 More on YouTube</a>  
   <div style="display:flex; gap:15px; flex-wrap:wrap;">
 
   <a href="https://youtu.be/WYLcfo1ooT0?si=AgVxfVZvCf4OdfMO" target="_blank">
