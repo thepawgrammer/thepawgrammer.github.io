@@ -1,0 +1,16 @@
+{%- assign date_format = site.minimal_mistakes_date_format | default: "%B %d, %Y" -%}
+
+<span class="page__meta-date">
+  <i class="far fa-calendar-alt" aria-hidden="true"></i>
+  <strong>Published:</strong>
+  <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: date_format }}</time>
+
+  {%- if page.last_modified_at and page.last_modified_at > page.date -%}
+    <span class="page__meta-modified">
+      <strong><i class="fa fa-fw fa-edit" aria-hidden="true"></i> Updated:</strong>
+      <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">
+        {{ page.last_modified_at | date: date_format }}
+      </time>
+    </span>
+  {%- endif -%}
+</span>
