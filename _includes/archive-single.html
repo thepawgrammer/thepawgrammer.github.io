@@ -43,7 +43,7 @@
         {% elsif post.collection == 'publications' %}
           <p>Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif post.date %}
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time>{% assign lm = post.modified | default: post.last_modified_at | default: post["last_modified_at"] %}{% if lm %} <strong style="margin-left:.75rem;"><i class="fa fa-fw fa-edit" aria-hidden="true"></i> Updated:</strong> <time datetime="{{ lm | date_to_xmlschema }}">{{ lm | date: "%B %d, %Y" }}</time>{% endif %}</p>
         {% endif %}
 
     {% if post.excerpt and site.read_more != 'enabled' %}

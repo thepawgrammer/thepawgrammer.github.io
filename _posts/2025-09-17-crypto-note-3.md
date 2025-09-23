@@ -1,7 +1,7 @@
 ---
 title: 'Post-Quantum Cryptography'
 date: 2025-09-17
-last_modified_at: 2025-09-24
+modified: 2025-09-24
 use_math: true   # ← 이 줄 추가
 permalink: /posts/2025/09/crypto-note-3/
 tags:
