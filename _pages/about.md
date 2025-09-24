@@ -12,7 +12,7 @@ redirect_from:
 > <span style="color:gray">저는 개인정보 보호형 머신러닝과 암호기술을 활용하여 학습과 언러닝 과정 전반에서 데이터 프라이버시를 보장하는 방법을 연구합니다. 궁극적으로는 신뢰할 수 있고 실용적인 AI를 만드는 것을 목표로 합니다.</span>
 
 <p>
-  <a class="btn btn--primary btn--small" href="{{ '/files/CV - 20250821.pdf' | relative_url }}" target="_blank">CV (PDF)</a>
+  <a class="btn btn--primary btn--small" href="{{ '/files/CV - 20250924.pdf' | relative_url }}" target="_blank">CV (PDF)</a>
   <!-- <a class="btn btn--small" href="https://scholar.google.com/citations?user=PS_CX0AAAAAJ">Google Scholar</a> -->
   <a class="btn btn--small" href="https://github.com/thepawgrammer">GitHub</a>
   <a class="btn btn--small" href="mailto:thepawgrammer@gmail.com">Email</a>
