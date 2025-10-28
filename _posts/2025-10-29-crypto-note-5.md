@@ -1,9 +1,9 @@
 ---
-title: 'Introduction to Homomorphic Encryption'
-date: 2025-10-01
-modified: 2025-10-08
+title: 'Homomorphic Encryption - HEaaN'
+date: 2025-10-29
+# modified: 2025-10-29
 use_math: true   # ← 이 줄 추가
-permalink: /posts/2025/10/crypto-note-4/
+permalink: /posts/2025/10/crypto-note-5/
 tags:
   - cryptography
   - homomorphic-encryption
