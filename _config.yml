@@ -13,7 +13,7 @@ title                    : "Home"
 title_separator          : "-"
 name                     : &name "Jihyung Kook (국지형)"
 description              : &description "Motivated by my experience working with sensitive data, I aim to design systems that enforce privacy by design while remaining scalable and deployable. My long-term goal is to make strong cryptographic privacy guarantees usable and accessible in practice."
-url                      : http://localhost:4000 # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+url                      : "https://thepawgrammer.github.io" # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 host                     : localhost
 repository               : "thepawgrammer/thepawgrammer.github.io"
