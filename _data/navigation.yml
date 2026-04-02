@@ -21,8 +21,8 @@ main:
   - title: "Explorations"
     url: /year-archive/
 
-  - title: "Talks"
-    url: /talks/ 
+  # - title: "Talks"
+  #   url: /talks/ 
 
   # - title: "About"
   #   url: /cv/

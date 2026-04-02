@@ -7,6 +7,8 @@ collection: talks
 author_profile: true
 ---
 
+<!-- more -->
+
 **Summary:**  
 In this lab meeting, I reviewed *MaskCRYPT: Federated Learning With Selective Homomorphic Encryption* for Federated Learning. While federated learning protects data from direct leakage, exposing model weights can still lead to serious privacy risks such as membership inference attacks. MASKCRYPT addresses this challenge by selectively encrypting only a small fraction of model updates, striking a balance between security and efficiency under homomorphic encryption.  
 

@@ -2,10 +2,12 @@
 title: "Paper Deep Dive – FedRecovery"
 date: 2025-08-20
 slides: /files/slides/20250820 - FedRecovery.pdf
+summary: "A review of FedRecovery for efficient machine unlearning in federated learning."
 layout: talk
 collection: talks
-author_profile: true
 ---
+
+<!-- more -->
 
 **Summary:**  
 For the lab meeting, I prepared a review of *FedRecovery: Differentially Private Machine Unlearning for Federated Learning Frameworks*. Machine unlearning aims to make models “forget” specific client data upon deletion requests. Unlike retraining-based solutions, which are often infeasible or risky in federated learning, FedRecovery introduces an efficient method to erase a client’s influence from the global model using a weighted sum of gradient residuals and differential privacy noise, without assuming convexity.  
