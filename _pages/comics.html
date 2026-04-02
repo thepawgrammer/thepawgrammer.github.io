@@ -1,0 +1,27 @@
+---
+layout: archive
+permalink: /comics/
+title: "Comics"
+author_profile: true
+---
+
+<p>
+Hi! I’m <strong>The Pawgrammer</strong> 🐾
+</p>
+
+<p>
+This is my diary, where I share my journey toward becoming a researcher in privacy-preserving machine learning (PPML).
+</p>
+
+<p>
+Through these comics, I want to record what I’m learning, what I’m struggling with, and the little moments that shape me along the way.
+</p>
+
+<p>
+Let’s see where this journey goes.
+</p>
+
+{% assign comics = site.comics | sort: "date" | reverse %}
+{% for post in comics %}
+  {% include archive-single.html %}
+{% endfor %}

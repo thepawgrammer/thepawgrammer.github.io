@@ -20,6 +20,9 @@ main:
 
   - title: "Explorations"
     url: /year-archive/
+  
+  - title: "Comics"
+    url: /comics/
 
   # - title: "Talks"
   #   url: /talks/ 

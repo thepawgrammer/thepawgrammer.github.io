@@ -243,6 +243,9 @@ collections:
   deepdive:
     output: true
     permalink: /:collection/:path/
+  comics:
+    output: true
+    permalink: /:collection/:path/
   portfolio:
     output: false
     permalink: /:collection/:path/
@@ -311,7 +314,17 @@ defaults:
       layout: single
       author_profile: true
       share: true
-      comments: false
+      comments: true
+  # _comics
+  - scope:
+      path: ""
+      type: comics
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
+
   # _slides
   - scope:
       path: ""
