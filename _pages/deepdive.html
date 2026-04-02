@@ -1,0 +1,37 @@
+---
+layout: archive
+permalink: /deepdive/
+title: "Deep Dives"
+author_profile: true
+---
+
+<p>
+Here I keep structured paper reviews, research reflections, and technical deep dives on papers I read.
+</p>
+
+<h3>Core Focus: Privacy-Preserving Machine Learning and Cryptography</h3>
+
+<p>
+This section contains <strong>detailed analyses of research papers</strong> related to my core interests.
+I focus on understanding how theoretical techniques such as homomorphic encryption,
+secure multi-party computation, and differential privacy are applied in real systems.
+</p>
+
+<p>
+Each deep dive includes a structured breakdown of the paper’s motivation,
+methodology, key contributions, limitations, and potential research directions.
+</p>
+
+{% include base_path %}
+{% capture written_year %}None{% endcapture %}
+{% assign deep_dives = site.deepdive | default: empty %}
+{% assign sorted_deep_dives = deep_dives | sort: "date" | reverse %}
+
+{% for post in sorted_deep_dives %}
+  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+  {% if year != written_year %}
+    <h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
+    {% capture written_year %}{{ year }}{% endcapture %}
+  {% endif %}
+  {% include archive-single.html %}
+{% endfor %}

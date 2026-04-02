@@ -25,6 +25,8 @@ tags:
   </summary>
   <div markdown="1">
 
+<!--more-->
+
 ---
 
 ### 1) 동형암호란?
@@ -111,8 +113,8 @@ tags:
 
 <p align="center">
   <img src="/images/explorations/cheon/gentry-he.png"
-       alt="Ciphering"
-       style="max-width:100%; height:auto; display:block; margin:0 auto;"/>
+      alt="Ciphering"
+      style="max-width:100%; height:auto; display:block; margin:0 auto;"/>
   <figcaption style="font-size:0.9em; color:gray; text-align:center;">
     [그림] 동형암호의 핵심 원리: 암호문 위에서의 연산
   </figcaption>
@@ -150,8 +152,8 @@ tags:
 
 <p align="center">
   <img src="/images/explorations/cheon/he-idea.png"
-       alt="Ciphering"
-       style="max-width:100%; height:auto; display:block; margin:0 auto;"/>
+      alt="Ciphering"
+      style="max-width:100%; height:auto; display:block; margin:0 auto;"/>
   <figcaption style="font-size:0.9em; color:gray; text-align:center;">
     [그림] 동형암호의 핵심 아이디어: 보지 않고 계산하기
   </figcaption>
@@ -181,7 +183,7 @@ tags:
         <p>
           - 그러나 <strong>빠른 곱셈 알고리즘</strong> (Fast Multiplication)을 적용하면  
             복잡도는 <code>O(nlog n)</code> 수준으로 개선되어  
-            <strong>$(50 \log 50)x ≈ 2,000x$</strong> 정도로 줄어든다.  
+            <strong>$(50 \log 50)x ≈ 2,000x$</strong> 배 정도로 줄어든다.  
         </p>
 
         <p>
@@ -202,46 +204,108 @@ tags:
 ---
 
 ### 2) 동형암호의 종류
-- **정수 기반 동형암호 (Integer-based HE scheme)**    
-  <p>
-    동형암호의 초기 형태는 **정수 연산 기반**으로 설계되었습니다. 대표적으로 RAD PH와 DGHV 스킴이 있습니다.
-  </p>
+- **정수 기반 동형암호 (Integer-based HE scheme)** - *대칭키 방식*   
+  동형암호의 초기 형태는 **정수 연산 기반**으로 설계되었습니다. 대표적으로 RAD PH와 DGHV 스킴이 있습니다.
 
   - RAD PH Scheme
     - **키 생성**  
       - Secret Key: large prime $p$  
-      - Public Key: $n = p q_0$
+      - Public Key: $n = p q_0$, $q$는 임의의 자연수
 
     - **암호화 (Encryption)** : $Enc(m) = m + p q \pmod{n}$
-    - **복호화 (Decryption)** : $Enc(m) \bmod p = m$
+    - **복호화 (Decryption)** : $Enc(m) \pmod p = m$   
+      👉 Quadratic Complexity - O(λ²) in the bit-length of modulus n
     - **덧셈 연산**  
       $$
-      Enc(m_1) + Enc(m_2) = (m_1 + p q_1) + (m_2 + p q_2)
+      Enc(m_1) + Enc(m_2) = (m_1 + p q_1) + (m_2 + p q_2)    
                           = (m_1 + m_2) + p(q_1 + q_2)
                           = Enc(m_1 + m_2)
       $$
+      👉 (m_1 + p의 배수) + (m_2 + p의 배수)로 생각하기!  
+    - **곱셈 연산**  
+      $$
+      Enc(m_1) * Enc(m_2) = (m_1 + p q_1) * (m_2 + p q_2)    
+                          = (m_1 * m_2) + p(q_1 + q_2)
+                          = Enc(m_1 * m_2)
+      $$  
+    <details style="margin-left:20px;">
+      <summary>📘 결과: RAD PH의 장·단점 </summary>
+      <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:95%; font-size:0.95em;" markdown="1">
 
-    - ✅ **결과:**  
-      평문 덧셈이 암호문 덧셈으로 보존되므로 *부분동형(ADD-homomorphic)* 속성을 가진다.   
-      그러나 <span style="color:red">**INSECURE**</span> — 잡음(noise) 누적과 키 복원 공격에 취약하다.   
+      <p>
+        RAD PH는 구조가 단순하고 연산이 빠르며, 암호문 상태에서 덧셈·곱셈을 수행할 수 있다는 장점이 있다. 그러나 실전에서는 <strong>평문-암호문 쌍 공격</strong>과 <strong>곱셈 반복에 따른 잡음 누적</strong> 문제로 인해 그대로 사용하기엔 취약하다.
+      </p>
+
+      <p><strong>핵심 취약점</strong></p>
+      <ul>
+        <li><strong>평문-암호문 쌍에 취약:</strong> 암호문이 <code>m + p·q</code> 형태라 몇 개 쌍만 알면 <code>p</code>를 추정할 수 있다.</li>
+        <li><strong>추측(guessing) 공격:</strong> 사람 문장은 패턴이 있어 일부만으로도 공격 실마리가 된다.</li>
+        <li><strong>곱셈 반복 시 잡음 급증:</strong> 교차항과 <code>p^2</code> 항이 생겨 복호 실패 위험이 커진다.</li>
+      </ul>
+
+      <p>
+      결론: <strong>효율 ↔ 안전성</strong>의 절충이 필요하다. Gentry의 부트스트래핑은 잡음을 관리해 반복 연산을 가능하게 했지만, 설계·파라미터·비용 문제가 남는다.   
+      따라서 RAD PH 수준의 단순 정수 스킴은 "개념적으로는 멋지지만, 실제 보안 요구를 만족시키기엔 추가 보강이 필수"다.  
+      </p>
+
+      </div>
+    </details>    
 
   - DGHV HE scheme (on $\mathbb{Z}_{2}$)
     - **암호화** : $Enc(m) = m + 2e + p q$  
       - $m \in \{0,1\}$: 메시지 비트  
       - $e$: 작은 노이즈 (error term)  
       - $p, q$: 큰 정수  
+      - **핵심 아이디어**  
+      DGHV는 RAD PH와 달리 암호문에 **작은 노이즈 $e$**를 추가한다.   
+      따라서 공격자가 평문을 어느 정도 추측하더라도, 노이즈까지 함께 복원하지 못하면 암호문 구조를 직접 이용한 공격이 어려워진다.  
+
+    - **동형성**  
+      DGHV 역시 암호문 상태에서 **덧셈과 곱셈**을 지원한다.   
+      따라서 복호화 결과는 각각 평문의 덧셈 및 곱셈에 대응한다.  
+
+    - **한계**  
+      문제는 연산, 특히 **곱셈을 반복할수록 노이즈가 증가한다**는 점이다.   
+      노이즈가 일정 수준을 넘으면 복호화가 실패하므로, 초기 스킴은 계산 가능한 깊이(multiplicative depth)가 제한된다.  
+
+    - **암호문 크기가 커지는 이유**  
+      여러 번의 곱셈을 지원하려면 중간 계산 과정에서 증가하는 노이즈와 비트 길이를 감당할 **여유 공간**이 필요하다.  
+      이 때문에 동형암호는 일반 암호보다 훨씬 큰 암호문 크기를 갖게 된다.  
 
     - **특징**  
       - <span style="color:red">**양자 컴퓨팅에 대해 안전 (Post-Quantum Secure)**</span>  
-      - 정수 기반 대신 **다항식 링** 구조를 사용하는 고도화된 확장 버전 존재:  
-        $R_q = \mathbb{Z}_q[x] / (x^n + 1)$
+      - 정수 기반 대신 **다항식 링** 구조를 사용하는 고도화된 확장 버전 존재:   
+        $R_q = \mathbb{Z}_q[x] / (x^n + 1)$   
 
     - ✅ **의의:**  
-      DGHV는 *Craig Gentry의 Fully Homomorphic Encryption (FHE)*의  
-      초기 형태로, “잡음을 제어하며 연산을 확장하는” 아이디어의 기반이 되었다.
-  
+      DGHV는 *Craig Gentry의 Fully Homomorphic Encryption (FHE)*의 초기 형태로, “잡음을 제어하며 연산을 확장하는” 아이디어의 기반이 되었다.  
 
-  </div>
+    <details style="margin-left:20px;">
+      <summary>📘 왜 DGHV가 RAD PH보다 더 안전한가?</summary>
+      <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:95%; font-size:0.95em;" markdown="1">
+
+      DGHV에서는 암호문이 $m + 2e + pq$ 형태이므로, 공격자는 평문 $m$뿐 아니라 작은 노이즈 $e$까지 함께 고려해야 한다. 따라서 RAD PH처럼 단순한 평문-암호문 대응만으로 secret structure를 추정하기가 훨씬 어려워진다.
+
+      이 계열의 안전성은 **Approximate GCD 문제**와 관련되며, 이후 격자 기반 난제와의 연결성도 연구되었다.
+
+      </div>
+    </details>
+
+    <details style="margin-left:20px;">
+      <summary>📘 noise와 bootstrapping의 의미</summary>
+      <div style="border:2px solid #007acc; border-radius:6px; padding:12px 15px; background:#f0f8ff; margin:12px 0; width:95%; font-size:0.95em;" markdown="1">
+
+      DGHV에서 가장 큰 제약은 **곱셈이 반복될수록 노이즈가 커진다**는 점이다.  
+      따라서 암호문은 처음부터 어느 정도의 계산 여유를 갖도록 크게 설계되어야 한다.
+
+      하지만 계산 깊이가 계속 증가하면 결국 복호화가 불가능해진다.  
+      Gentry의 핵심 아이디어는 이 한계를 넘기 위해, **복호화 회로 자체를 암호문 위에서 다시 평가하여 노이즈를 줄이는 bootstrapping**을 수행하는 것이었다.
+
+      즉, bootstrapping은 암호화된 상태를 “다시 사용 가능한 상태”로 정리해 주는 과정이라고 볼 수 있다.
+
+      </div>
+    </details>
+
+
+</div>
 </details>
-
----

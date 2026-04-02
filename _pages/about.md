@@ -7,9 +7,11 @@ redirect_from:
   - /about.html
 ---
 
-> My research focuses on <strong>privacy-preserving machine learning and cryptography</strong>, with a focus on developing methods that protect <strong>data privacy in both learning and unlearning systems</strong>. My work aims to advance secure and practical approaches that ensure the <strong>trustworthiness and usability of future AI technologies</strong>.
+> My research focuses on <strong>privacy-enhancing technologies</strong>, with an emphasis on building <strong>practical systems</strong> that protect sensitive data. I am particularly interested in leveraging cryptographic techniques, such as <strong>homomorphic encryption</strong>, <strong>secure multi-party computation</strong>, and <strong>differential privacy</strong>, to enable secure and efficient machine learning in <strong>real-world settings</strong>.   
   
-> <span style="color:gray">저는 개인정보 보호형 머신러닝과 암호기술을 활용하여 학습과 언러닝 과정 전반에서 데이터 프라이버시를 보장하는 방법을 연구합니다. 궁극적으로는 신뢰할 수 있고 실용적인 AI를 만드는 것을 목표로 합니다.</span>
+> <span style="color:gray">
+저는 <strong>프라이버시 강화 기술</strong>을 중심으로, 민감한 데이터를 보호할 수 있는 <strong>실용적인 시스템</strong>을 설계하는 연구에 관심이 있습니다. 특히 <strong>동형암호</strong>, <strong>다자간 안전 계산(MPC)</strong>, <strong>차분 프라이버시</strong>와 같은 암호기술을 활용하여, <strong>실제 환경에서 안전하고 효율적인 머신러닝</strong>을 가능하게 하는 방법에 집중하고 있습니다.  
+</span>
 
 <p>
   <a class="btn btn--primary btn--small" href="{{ '/files/CV - 20250924.pdf' | relative_url }}" target="_blank">CV (PDF)</a>
@@ -21,19 +23,19 @@ redirect_from:
 ---
 
 ## ✨ About
-I am a researcher at the <a href="https://sites.google.com/view/pmlclab/research" target="_blank">Privacy‑preserving Machine Learning and Cryptography Lab (PMLC Lab)</a>, supervised by <a href="https://sites.google.com/view/pmlclab/home" target="_blank">Prof. Eunsang Lee (이은상)</a>. I am currently preparing projects on cryptographic techniques for privacy-preserving AI systems.
+I am a researcher at the <a href="https://sites.google.com/view/pmlclab/research" target="_blank">Privacy‑preserving Machine Learning and Cryptography Lab (PMLC Lab)</a>, supervised by <a href="https://sites.google.com/view/pmlclab/home" target="_blank">Prof. Eunsang Lee (이은상)</a>. My work focuses on integrating cryptographyic techniques into machine learning systems to enable strong privacy guarantees in practice.  
 
 ### 🔍 Research interests
-- **Data Privacy:** Ensuring confidentiality while enabling utility in AI systems
-- **Privacy‑Preserving Machine Learning (PPML):** Methods for training and unlearning under privacy constraints 
-- **Cryptographic Techniques:** Homomorphic encryption and related methods for secure learning
+- **Privacy-Enhancing Technologies (PETs):** Designing practical systems that provide strong privacy guarantees in real-world machine learning 
+- **Cryptographic Machine Learning:** Leveraging homomorphic encryption, secure multi-party computation (MPC), and differential privacy for secure model training 
+- **Efficient and Scalable Systems:** Addressing communication overhead and system-level challenges in privacy-preserving machine learning   
 
----
+<!-- --- -->
 
-## 📣 News
+<!-- ## 📣 News
 - *2025-09*: Joined **DS@GT (Data Science @ Georgia Tech)**, the university’s largest student-led data science organization.  
 - *2025‑07*: Began research on **cryptographic techniques for privacy-preserving AI** at PMLC Lab (Seoul, KR).  
-- *2025‑05*: Completed **Intro to Research** (OMSCS) – designed a proposal on homomorphic encryption in PPML.  
+- *2025‑05*: Completed **Intro to Research** (OMSCS) – designed a proposal on homomorphic encryption in PPML.   -->
 <!-- 필요 없으면 위/아래 줄을 삭제하거나 더 추가하세요. -->
 
 ---

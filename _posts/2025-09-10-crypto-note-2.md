@@ -19,6 +19,8 @@ tags:
 
 해당 포스트는 *서울대학교 천정희 교수님의 암호론 강의*를 기반으로 작성하였다. 이번 포스트에서는 <strong>'공개키암호의 안전성'</strong>에 대한 내용을 요약•정리하고자 한다.
 
+<!--more-->
+
 <details>
   <summary>
   <span style="font-size:1.25em; font-weight:bold;">

@@ -8,4 +8,7 @@ services:
       - "4000:4000"
       - "35729:35729"   # LiveReload 포트
     user: "1000:1000"
-    command: bundle exec jekyll serve -H 0.0.0.0 -w --livereload --force_polling
+    # command: bundle exec jekyll serve -H 0.0.0.0 -w --livereload --force_polling
+    command: >
+      sh -c "git config --global --add safe.directory /usr/src/app &&
+             bundle exec jekyll serve -H 0.0.0.0 -P 4000 --livereload --force_polling"

@@ -10,16 +10,19 @@
 main:
 
   - title: "CV"
-    url: /files/CV - 20250924.pdf
+    url: /files/CV - 20260105.pdf
 
   - title: "Publications"
-    url: /publications/
+    url: /publications/ 
 
-  - title: "Talks"
-    url: /talks/    
+  - title: "Deep Dives"
+    url: /deepdive/
 
   - title: "Explorations"
     url: /year-archive/
+
+  - title: "Talks"
+    url: /talks/ 
 
   # - title: "About"
   #   url: /cv/

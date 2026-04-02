@@ -12,9 +12,10 @@ site_theme               : "default" # Currently available options are "default"
 title                    : "Home"
 title_separator          : "-"
 name                     : &name "Jihyung Kook (국지형)"
-description              : &description "Focused on privacy-preserving machine learning and cryptography, developing methods for secure learning and unlearning systems to build AI that is both trustworthy and usable."
-url                      : https://thepawgrammer.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+description              : &description "Motivated by my experience working with sensitive data, I aim to design systems that enforce privacy by design while remaining scalable and deployable. My long-term goal is to make strong cryptographic privacy guarantees usable and accessible in practice."
+url                      : http://localhost:4000 # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
+host                     : localhost
 repository               : "thepawgrammer/thepawgrammer.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
@@ -25,7 +26,7 @@ author:
   avatar           : "IMG_2931.png"
   name             : "Jihyung Kook (국지형)"
   pronouns         : "she/her" # example: "she/her"  
-  bio              : "OMSCS alumnus @ Georgia Tech. Focused on privacy-preserving machine learning and cryptography, developing methods for secure learning and unlearning systems to build AI that is both trustworthy and usable."
+  bio              : "OMSCS alumnus @ Georgia Tech. Motivated by my experience working with sensitive data, I aim to design systems that enforce privacy by design while remaining scalable and deployable. My long-term goal is to make strong cryptographic privacy guarantees usable and accessible in practice."
   location         : "Seoul, South Korea"
   uri              : # URL
   email            : "thepawgrammer@gmail.com" 
@@ -200,8 +201,13 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 # Conversion
 markdown: kramdown
 highlighter: rouge
+
+# Math rendering
+mathjax: true
+
 lsi: false
-excerpt_separator: "\n\n"
+# excerpt_separator: "\n\n"
+excerpt_separator: "<!--more-->"
 incremental: false
 
 
@@ -232,6 +238,9 @@ collections:
     output: false
     permalink: /:collection/:path/
   talks:
+    output: true
+    permalink: /:collection/:path/
+  deepdive:
     output: true
     permalink: /:collection/:path/
   portfolio:
@@ -294,6 +303,15 @@ defaults:
       layout: talk
       author_profile: true
       share: true
+  # _deepdives
+  - scope:
+      path: ""
+      type: deepdive
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: false
   # _slides
   - scope:
       path: ""
