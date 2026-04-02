@@ -1,29 +1,4 @@
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const toggle = document.getElementById("theme-toggle");
-  const icon = document.getElementById("theme-icon");
+<script type="module" src="{{ base_path }}/assets/js/main.min.js?v={{ site.github.build_revision }}"></script>
+<!-- <script type="module" src="{{ base_path }}/assets/js/main.min.js"></script> -->
 
-  if (!toggle) return;
-
-  // 초기 상태
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    document.documentElement.setAttribute("data-theme", "dark");
-    if (icon) icon.textContent = "☀️";
-  }
-
-  toggle.addEventListener("click", () => {
-    const current = document.documentElement.getAttribute("data-theme");
-
-    if (current === "dark") {
-      document.documentElement.removeAttribute("data-theme");
-      localStorage.setItem("theme", "light");
-      if (icon) icon.textContent = "🌙";
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
-      if (icon) icon.textContent = "☀️";
-    }
-  });
-});
-</script>
+{% include analytics.html %}
