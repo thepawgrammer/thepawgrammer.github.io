@@ -53,7 +53,19 @@ I am a researcher at the <a href="https://sites.google.com/view/pmlclab/research
   *Running* helps me treasure fleeting moments of life. After a rainy night, the fresh morning air along the *Han River* always reminds me **how precious the present is**.  
   <img src="{{'/images/personal/Run-HanRiver.JPG' | relative_url }}" alt="Running Han River" style="max-height:300px; border-radius:10px; margin-top:10px;">
 
-- **Gaming (World of Warcraft)**  
+- **Drawing Comics**  
+  I started drawing comics to capture my learning journey.  
+  Sometimes, when I feel bored or need a break, I sketch small stories about what I’m studying or experiencing.  
+
+  If you're curious, feel free to check out my comic series below 👇
+  
+  <a href="/comics/2026/04/comic-ep01/">
+    <img src="/images/comics/first-comic.png"
+         alt="The Pawgrammer Begins"
+         style="max-width:400px; width:100%; border-radius:10px; margin-top:10px;">
+  </a>
+
+<!-- - **Gaming (World of Warcraft)**  
   I play **World of Warcraft (WoW)** and especially enjoy its hardcore mode. To share the fun beyond myself, I created *videos, Shorts, and live streams*—enjoying Azeroth together with many others. I also draw and animate my own **mascot, 꾹만두 (cook mandu)**, who appears throughout my content. <a class="btn btn--primary btn--small" href="https://www.youtube.com/@%EA%BE%B9%EB%A7%8C%EB%91%90" target="_blank">🎮 More on YouTube</a>  
   <div style="display:flex; gap:15px; flex-wrap:wrap;">
 
@@ -69,4 +81,4 @@ I am a researcher at the <a href="https://sites.google.com/view/pmlclab/research
          style="max-width:300px; border-radius:10px; margin-top:10px;">
   </a>  
 
-  </div>
+  </div> -->
