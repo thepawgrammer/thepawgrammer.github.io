@@ -10,10 +10,7 @@
 main:
 
   - title: "CV"
-    url: /files/CV - 20260105.pdf
-
-  - title: "Publications"
-    url: /publications/ 
+    url: /files/CV-20260512.pdf
 
   - title: "Deep Dives"
     url: /deepdive/
@@ -21,6 +18,9 @@ main:
   - title: "Explorations"
     url: /year-archive/
   
+  - title: "Publications"
+    url: /publications/ 
+    
   - title: "Comics"
     url: /comics/
 

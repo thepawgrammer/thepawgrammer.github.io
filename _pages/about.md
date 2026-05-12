@@ -14,10 +14,10 @@ redirect_from:
 </span>
 
 <p>
-  <a class="btn btn--primary btn--small" href="{{ '/files/CV - 20250924.pdf' | relative_url }}" target="_blank">CV (PDF)</a>
+  <a class="btn btn--primary btn--small" href="{{ '/files/CV-20260512.pdf' | relative_url }}" target="_blank">CV (PDF)</a>
   <!-- <a class="btn btn--small" href="https://scholar.google.com/citations?user=PS_CX0AAAAAJ">Google Scholar</a> -->
   <a class="btn btn--small" href="https://github.com/thepawgrammer">GitHub</a>
-  <a class="btn btn--small" href="mailto:thepawgrammer@gmail.com">Email</a>
+  <a class="btn btn--small" href="mailto:jkook30@gatech.edu">Email</a>
 </p>
 
 ---
@@ -30,22 +30,19 @@ I am a researcher at the <a href="https://sites.google.com/view/pmlclab/research
 - **Cryptographic Machine Learning:** Leveraging homomorphic encryption, secure multi-party computation (MPC), and differential privacy for secure model training 
 - **Efficient and Scalable Systems:** Addressing communication overhead and system-level challenges in privacy-preserving machine learning   
 
-<!-- --- -->
-
 <!-- ## 📣 News
 - *2025-09*: Joined **DS@GT (Data Science @ Georgia Tech)**, the university’s largest student-led data science organization.  
 - *2025‑07*: Began research on **cryptographic techniques for privacy-preserving AI** at PMLC Lab (Seoul, KR).  
 - *2025‑05*: Completed **Intro to Research** (OMSCS) – designed a proposal on homomorphic encryption in PPML.   -->
 <!-- 필요 없으면 위/아래 줄을 삭제하거나 더 추가하세요. -->
 
----
+<!--
 
 ## 📄 Publication
 - **A standardized glucose–insulin–potassium infusion protocol in surgical patients: Use of real clinical data from a clinical data warehouse**  
   *Diabetes Research and Clinical Practice*, 174(2021), 108756.  
   <a href="{{ '/publications/' | relative_url }}">See details →</a>
-
----
+-->
 
 ## Hobbies
 
@@ -53,17 +50,17 @@ I am a researcher at the <a href="https://sites.google.com/view/pmlclab/research
   *Running* helps me treasure fleeting moments of life. After a rainy night, the fresh morning air along the *Han River* always reminds me **how precious the present is**.  
   <img src="{{'/images/personal/Run-HanRiver.JPG' | relative_url }}" alt="Running Han River" style="max-height:300px; border-radius:10px; margin-top:10px;">
 
-- **Drawing Comics**  
+<!--  - **Drawing Comics**  
   I started drawing comics to capture my learning journey.  
   Sometimes, when I feel bored or need a break, I sketch small stories about what I’m studying or experiencing.  
 
-  If you're curious, feel free to check out my comic series below 👇
+If you're curious, feel free to check out my comic series below 👇 (getting ready)
   
   <a href="/comics/2026/04/comic-ep01/">
     <img src="/images/comics/first-comic.png"
          alt="The Pawgrammer Begins"
          style="max-width:400px; width:100%; border-radius:10px; margin-top:10px;">
-  </a>
+  </a> -->
 
 <!-- - **Gaming (World of Warcraft)**  
   I play **World of Warcraft (WoW)** and especially enjoy its hardcore mode. To share the fun beyond myself, I created *videos, Shorts, and live streams*—enjoying Azeroth together with many others. I also draw and animate my own **mascot, 꾹만두 (cook mandu)**, who appears throughout my content. <a class="btn btn--primary btn--small" href="https://www.youtube.com/@%EA%BE%B9%EB%A7%8C%EB%91%90" target="_blank">🎮 More on YouTube</a>  
